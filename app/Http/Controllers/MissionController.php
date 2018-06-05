@@ -142,6 +142,7 @@ class MissionController extends Controller
         return response()->file(public_path('Rechnungen\Rechnung '.$id.'.pdf'));
     }
 
+//muss dringend überarbeitet werden
     public function listInvoices() {
         $bills = Bill::orderBy('id','desc')->get();
         $missions = array(

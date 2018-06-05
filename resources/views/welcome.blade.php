@@ -1,10 +1,11 @@
 @extends('layouts.main')
 @section('content')
-    <h1>DEKRA - Transport</h1><hr>
+    <h1>Senex-Solutions</h1><hr>
     <p>
-    	Dies ist ein kleines Übungsprojekt !!!<br>
-		Der Focus liegt hierbei auf der Funktionsweise - weniger auf der Darstellung.
-		Sämtliche Eingaben werden weder auf Korrektheit, noch auf Code-Injection überprüft.
+    	Das Unternehmen <b>Senex-Solutions</b> bietet individuelle Software-Lösungen für den Mittelstand. 
+    </p>
+    <p>
+    	Nach einer ausgiebigen Analyse Ihrer Arbeitsprozesse, werden diese optimiert. Wir entwickeln gemeinsamm eine Software, die all Ihre Befürffnisse abdeckt.
     </p>
 @endsection
 
