@@ -9,6 +9,7 @@
         "anouar/fpdf": "^2.0",
         "elibyy/tcpdf-laravel": "^5.5",
         "fideloper/proxy": "~3.3",
+        "illuminate/html": "^5.0",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5"

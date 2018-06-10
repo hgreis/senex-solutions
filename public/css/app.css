@@ -85,7 +85,6 @@ td:empty{
 
 .blackButton {
   font: bold 16px Arial;
-  text-decoration: none;
   background-color: black;
   color: white;
   min-width: 300px;

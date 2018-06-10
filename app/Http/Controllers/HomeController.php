@@ -2,21 +2,15 @@
 
 namespace App\Http\Controllers;
 
+// use Request;
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Company;
+use App\Mission;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        // $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -33,7 +27,21 @@ class HomeController extends Controller
     }
     
     public function tutorial() {
-        return view('tutorial');
+        $input = new Mission;
+        $choice = 'Touren-Start';
+        return view('pages.mission', compact('input', 'choice'));
+    }
+
+    public function tutorial_save(Request $request) {
+        if (isset($request->id)) {
+            $input = Mission::find($request->id);
+        } else {
+            $input = new Mission;
+        }
+        $input->fill($request->all());
+        $input->save();
+        $choice = $request->submit;
+        return view('pages.mission', compact('input', 'choice'));
     }
     
     public function config() {
