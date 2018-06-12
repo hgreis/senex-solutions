@@ -7,10 +7,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('index');
-Route::get('/mission', 'MissionController@mission_menu')->name('mission_menu');
+Route::get('/menu', 'HomeController@menu')->name('menu');
 Route::get('/mission/new', 'MissionController@mission_new')->name('mission_new');
 
 Route::post('/mission/new', 'MissionController@mission_submit')->name('mission_submit');
+
+Route::get('/customer', 'DriverController@customer')->name('customer');
+
 
 Route::get('/dekra/new', 'MissionController@new');
 Route::post('/dekra/new', 'MissionController@submit')->name('MissionController@submit');

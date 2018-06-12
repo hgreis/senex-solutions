@@ -163,10 +163,6 @@ class MissionController extends Controller
         return view('pages.invoices', compact('bills', 'missions'));
     }
 
-    public function mission_menu() {
-        return view('pages.mission_menu');
-    }
-
     public function mission_new() {
         $input = new Mission;
         $choice = 'Touren-Start';
@@ -174,6 +170,7 @@ class MissionController extends Controller
     }
 
     public function mission_submit(Request $request) {
+//return $request;
         if (isset($request->id)) {
             $input = Mission::find($request->id);
         }
@@ -182,7 +179,10 @@ class MissionController extends Controller
         }
         $input->fill($request->all());
         $input->save();
+        $input = Mission::find($input->id);
         $choice = $request->submit;
-        return view('pages.mission', compact('input', 'choice'));
+        $customerToEdit = new Customer;
+//return $input;
+        return view('pages.mission', compact('input', 'choice', 'customerToEdit'));
     }
 }

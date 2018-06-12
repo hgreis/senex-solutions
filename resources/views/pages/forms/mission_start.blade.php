@@ -7,22 +7,22 @@
     </div>
     <div class="form-group">
         {{ Form::label('startName', 'Name:') }}
-        {{ Form::text('startName', null, ['class' => 'form-control']) }}
+        {{ Form::text('startName', $input->startName, ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
         {{ Form::label('startStrasse', 'Strasse und Hausnummer:') }}
-        {{ Form::text('startStrasse', null, ['class' => 'form-control']) }}
+        {{ Form::text('startStrasse', $input->startStrasse, ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
         {{ Form::label('startOrt', 'PLZ und Stadt:') }}
-        {{ Form::text('city', null, ['class' => 'form-control']) }}
+        {{ Form::text('startOrt', $input->startOrt, ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
         {{ Form::label('startLand', 'Land:') }}
-        {{ Form::text('startLand', 'Deutschland', ['class' => 'form-control']) }}
+        {{ Form::text('startLand', $input->startLand, ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
         {{ Form::label('startBemerkung', 'Bemerkung:') }}
-        {{ Form::textarea('startBemerkung', null, ['class' => 'form-control']) }}
+        {{ Form::textarea('startBemerkung', $input->startemerkung, ['class' => 'form-control']) }}
     </div>
 </div> 

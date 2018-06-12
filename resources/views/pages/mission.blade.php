@@ -13,7 +13,7 @@
                 @include('pages.forms.mission_customer')
             @endif
             	
-            <div style="float: right; width: 300px; padding-top: 50px">
+            <div style="float: right; width: 30%; padding-top: 50px">
                 <div class="form-group">
                     {{ Form::submit('Touren-Start', [
                     	'class' => 'form-control',

@@ -26,16 +26,16 @@ class DriverController extends Controller
         return redirect(route('drivers.index'));
     }
 
-    public function newCustomer() {
+    public function customer() {
     	$customers = Customer::orderBy('name')->get();
         $customerToEdit = new Customer;
-        return view('pages.new_customer', compact('customers', 'customerToEdit'));
+        return view('pages.customer', compact('customers', 'customerToEdit'));
     }
 
     public function editCustomer($id) {
         $customers = Customer::orderBy('name')->get();
         $customerToEdit = Customer::find($id);
-        return view('pages.new_customer', compact('customers', 'customerToEdit', 'id'));
+        return view('pages.customer', compact('customers', 'customerToEdit', 'id'));
     }
 
     public function saveCustomer(Request $request) {
@@ -50,6 +50,6 @@ class DriverController extends Controller
         }
         $customers = Customer::orderBy('name')->get();
         $customerToEdit = new Customer;
-        return view('pages.new_customer', compact('customers', 'customerToEdit'));
+        return view('pages.customer', compact('customers', 'customerToEdit'));
     }
 }
