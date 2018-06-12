@@ -2,13 +2,15 @@
 @section('content')
     
     <form route="tutorial_save" method="post">
-        {{  Form::open(['route' => 'tutorial_save'])  }}
+        {{  Form::open(['route' => 'mission_submit'])  }}
             {{ csrf_field() }}
             
             @if($choice == 'Touren-Start')
             	@include('pages.forms.mission_start')
             @elseif($choice == 'Touren-Ziel')
             	@include('pages.forms.mission_end')
+            @elseif($choice == 'Kunde')
+                @include('pages.forms.mission_customer')
             @endif
             	
             <div style="float: right; width: 300px; padding-top: 50px">

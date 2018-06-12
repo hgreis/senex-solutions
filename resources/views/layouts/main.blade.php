@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STRERATH Transport</title>
+    <title>Senex-Solutions</title>
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 </head>
  
@@ -22,11 +22,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">STRERATH-Transport</a>
+            <a class="navbar-brand" href="/index.php">STRERATH-Transporte</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/tutorial">Auftragsabwicklung</a></li>
+                <li><a href="/mission">Auftragsabwicklung</a></li>
                 <li><a href="/dekra">Transport</a></li>
                 <li><a href="/config">Konfiguration</a></li>
             </ul>

@@ -11,7 +11,6 @@ use App\Mission;
 
 class HomeController extends Controller
 {
-
     /**
      * Show the application dashboard.
      *
@@ -25,26 +24,12 @@ class HomeController extends Controller
     public function dekra() {
         return view('dekra');
     }
-    
-    public function tutorial() {
-        $input = new Mission;
-        $choice = 'Touren-Start';
-        return view('pages.mission', compact('input', 'choice'));
-    }
 
-    public function tutorial_save(Request $request) {
-        if (isset($request->id)) {
-            $input = Mission::find($request->id);
-        } else {
-            $input = new Mission;
-        }
-        $input->fill($request->all());
-        $input->save();
-        $choice = $request->submit;
-        return view('pages.mission', compact('input', 'choice'));
-    }
+        
     
-    public function config() {
+
+
+   public function config() {
         $companies = Company::all();
         return view('pages.config', compact('companies'));
     }

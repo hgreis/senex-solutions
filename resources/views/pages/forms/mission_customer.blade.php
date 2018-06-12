@@ -1,4 +1,4 @@
-<h1>Auftrag anlegen: Touren-Ziel</h1>
+<h1>Auftrag anlegen: Kunde zuweisen</h1>
 <div style="width: 600px; float: left">
     <div class="form-group">
         {{ Form::label('zielDatum', 'Datum:') }}
