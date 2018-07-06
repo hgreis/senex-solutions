@@ -1,5 +1,7 @@
 <h1>Auftrag anlegen: Touren-Ziel</h1>
 <div style="width: 600px; float: left">
+    {{  Form::open(['route' => 'mission_submit'])  }}
+    {{ csrf_field() }}
     <div class="form-group">
         {{ Form::label('zielDatum', 'Datum:') }}
         {{ Form::text('zielDatum', $input->zielDatum, ['class' => 'form-control']) }}

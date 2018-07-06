@@ -11,6 +11,7 @@ Route::get('/menu', 'HomeController@menu')->name('menu');
 Route::get('/mission/new', 'MissionController@mission_new')->name('mission_new');
 
 Route::post('/mission/new', 'MissionController@mission_submit')->name('mission_submit');
+Route::post('/mission/new_customer', 'MissionController@mission_submit_customer')->name('mission_submit_customer');
 
 Route::get('/customer', 'DriverController@customer')->name('customer');
 

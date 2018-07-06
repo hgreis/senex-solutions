@@ -170,7 +170,6 @@ class MissionController extends Controller
     }
 
     public function mission_submit(Request $request) {
-//return $request;
         if (isset($request->id)) {
             $input = Mission::find($request->id);
         }
@@ -181,8 +180,12 @@ class MissionController extends Controller
         $input->save();
         $input = Mission::find($input->id);
         $choice = $request->submit;
-        $customerToEdit = new Customer;
-//return $input;
-        return view('pages.mission', compact('input', 'choice', 'customerToEdit'));
+        $customers = Customer::all();
+        return view('pages.mission', compact('input', 'choice', 'customers'));
     }
+
+    public function mission_submit_customer(Request $request) {
+        return $request;
+    }
+
 }
