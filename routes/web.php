@@ -16,7 +16,7 @@ Route::post('/mission/new_customer', 'MissionController@mission_submit_customer'
 Route::get('/customer', 'DriverController@customer')->name('customer');
 
 
-Route::get('/dekra/new', 'MissionController@new');
+Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');
 Route::post('/dekra/new', 'MissionController@submit')->name('MissionController@submit');
 Route::get('/dekra/view', 'MissionController@viewMissions');
 Route::get('/dekra/view/{id}', 'MissionController@viewMission');
