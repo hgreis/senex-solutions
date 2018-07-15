@@ -177,15 +177,15 @@ class MissionController extends Controller
             $input = new Mission;
         }
         $input->fill($request->all());
+        if (isset ($request->customer)) {
+            $input->kunde = $request->customer_name;
+            $input->preisKunde = $request->preisKunde;
+        }
         $input->save();
         $input = Mission::find($input->id);
         $choice = $request->submit;
-        $customers = Customer::all();
+        $customers = Customer::all()->sortBy('name');
+
         return view('pages.mission', compact('input', 'choice', 'customers'));
     }
-
-    public function mission_submit_customer(Request $request) {
-        return $request;
-    }
-
 }

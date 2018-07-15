@@ -13,7 +13,7 @@ class CustomerAddDuration extends Migration
      */
     public function up()
     {
-        Schema::table('Customers', function (Blueprint $table) {
+        Schema::table('customers', function (Blueprint $table) {
             $table->integer('duration')->nullable()->after('taxes');
         });
     }
@@ -25,7 +25,7 @@ class CustomerAddDuration extends Migration
      */
     public function down()
     {
-        Schema::table('Customers', function (Blueprint $table) {
+        Schema::table('customers', function (Blueprint $table) {
             $table->dropColumn('duration');
         });
     }

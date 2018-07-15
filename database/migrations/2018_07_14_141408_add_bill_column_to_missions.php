@@ -13,7 +13,7 @@ class AddBillColumnToMissions extends Migration
      */
     public function up()
     {
-        Schema::table('Missions', function (Blueprint $table) {
+        Schema::table('missions', function (Blueprint $table) {
             $table->integer('bill_id')->nullable()->after('kunde');
         });
     }
@@ -25,7 +25,7 @@ class AddBillColumnToMissions extends Migration
      */
     public function down()
     {
-        Schema::table('Missions', function (Blueprint $table) {
+        Schema::table('missions', function (Blueprint $table) {
             $table->dropColumn('bill_id');
         });
     }
