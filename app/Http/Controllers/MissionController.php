@@ -29,6 +29,7 @@ class MissionController extends Controller
 
     public function submit(Request $request)
     {   
+return $request;
         // this method fills the model with form-data and stores the uploaded fi
         if (isset($request->id)) {
             $mission = Mission::find($request->id);
@@ -39,7 +40,7 @@ class MissionController extends Controller
         	$mission->fill($request->all());
             $mission->save();
         }
-        
+
         //file upload: order confirmation
         if (isset($request->missionConfirmation)) {
             $file = $request->file('missionConfirmation');
@@ -58,7 +59,7 @@ class MissionController extends Controller
             $mission->save();
         }
         
-        return view('dekra');
+    return view('dekra');
     }
 
     public function viewMissions(Request $request) {
@@ -170,6 +171,7 @@ class MissionController extends Controller
     }
 
     public function mission_submit(Request $request) {
+#return $request;
         if (isset($request->id)) {
             $input = Mission::find($request->id);
         }
@@ -177,15 +179,31 @@ class MissionController extends Controller
             $input = new Mission;
         }
         $input->fill($request->all());
-        if (isset ($request->customer)) {
-            $input->kunde = $request->customer_name;
-            $input->preisKunde = $request->preisKunde;
-        }
         $input->save();
+
+        //file upload: order confirmation
+        if (isset($request->missionConfirmation)) {
+            $file = $request->file('missionConfirmation');
+            $destinationPath = 'uploads';
+            $file->move($destinationPath, $input->id.' Auftragsbestaetigung.'.$file->getClientOriginalExtension() );    
+            $input->missionConfirmation=true;
+            $input->save();
+        }
+
+        //file upload: delivery note
+        if (isset($request->deliveryNote)) {
+            $file = $request->file('deliveryNote');
+            $destinationPath = 'uploads';
+            $file->move($destinationPath, $input->id.' Lieferschein.'.$file->getClientOriginalExtension() );
+            $input->deliveryNote=true;
+            $input->save();
+        }        
+
         $input = Mission::find($input->id);
         $choice = $request->submit;
         $customers = Customer::all()->sortBy('name');
+        $drivers = Driver::all()->sortBy('name');
 
-        return view('pages.mission', compact('input', 'choice', 'customers'));
+        return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
     }
 }

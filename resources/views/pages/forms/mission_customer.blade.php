@@ -1,7 +1,7 @@
 <h1>Auftrag {{ $input->id }}: Kunde zuweisen</h1>
 <div style="width: 600px; float: left">
-    {{  Form::open(['route' => 'mission_submit'])  }}
-    {{ csrf_field() }}
+    <form action="/mission/new" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
     <div class="form-group">
         {{  Form::label('zielName', 'Name:') }}
         <select name='customer_name' class='form-control'">
@@ -25,7 +25,6 @@
         {{ Form::text('preisKunde', $input->preisKunde, ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
-        {{ Form::label('missionConfirmation', 'Auftragsbestätigung:') }}
         @if (isset($input->missionConfirmation))
                  <a target="_blank" href="/uploads/{{ $input->id }} Auftragsbestaetigung.pdf">{{ $input->id }} Auftragsbestätigung.pdf </a> 
             @else
