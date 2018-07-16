@@ -15,6 +15,10 @@
         </select>
     </div>
     <div class="form-group">
+        {{ Form::label('kundeBemerkung', 'Bemerkung:') }}
+        {{ Form::textarea('kundeBemerkung', $input->kundeBemerkung, ['class' => 'form-control']) }}
+    </div>
+    <div class="form-group">
         {{ Form::hidden('id', $input->id) }}
         {{ Form::hidden('customer', 1) }}
         {{ Form::label('preisKunde', 'Preis:') }}
@@ -22,6 +26,11 @@
     </div>
     <div class="form-group">
         {{ Form::label('missionConfirmation', 'Auftragsbestätigung:') }}
-        {{ Form::file('Auftrahsbestätigung', null, ['class' => 'form-control']) }}
+        @if (isset($input->missionConfirmation))
+                 <a target="_blank" href="/uploads/{{ $input->id }} Auftragsbestaetigung.pdf">{{ $input->id }} Auftragsbestätigung.pdf </a> 
+            @else
+                <label>Auftragsbestätigung:</label>
+            @endif
+            <input type="file" name="missionConfirmation"><br>
     </div>
 </div>
