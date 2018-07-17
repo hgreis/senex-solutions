@@ -38,17 +38,9 @@
 				</h3>
 			</div>
 			<div class="panel">
-				<nobr>
-					<b>Abholung:</b> {{ $mission->startName }}: 
-					{{ $mission->startStrasse }}, {{ $mission->startOrt }}.
-				</nobr><br>
-				<nobr>Hinweis:  {{ $mission->startBemerkung }}</nobr><br><br>
-				<nobr>
-					<b>Auslieferung:</b> {{ $mission->zielName }}: 
-					{{ $mission->zielStrasse }}, {{ $mission->zielOrt }}.
-				</nobr><br>
-				<nobr>Hinweis: {{ $mission->zielBemerkung }} </nobr><br>
-				<button type="button" class="whiteButton" onclick="window.location.href='/dekra/view/{{ $mission->id }}'">EDIT</button>
+				<?php $input = $mission; ?>
+				@include('pages.forms.mission_driver_info')
+				<button type="button" class="whiteButton" onclick="window.location.href='/mission/view/{{ $mission->id }}'">EDIT</button>
 			</div>
 		</div>
 	@endforeach

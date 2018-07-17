@@ -86,13 +86,6 @@ return $request;
     }
 
 
-    public function viewMission($id) {
-        $drivers = Driver::all();
-        $customers = Customer::all();
-        $mission = Mission::find($id);
-        return view('pages.new', compact('drivers', 'customers', 'mission'));
-    }
-
     public function createBill() {
         $customers = Customer::whereHas('missions', function($query) {
             $query->whereNull('bill_id');
@@ -168,6 +161,15 @@ return $request;
         $input = new Mission;
         $choice = 'Touren-Start';
         return view('pages.mission', compact('input', 'choice'));
+    }
+
+    public function viewMission($id) {
+        $input = Mission::find($id);
+        $choice = 'Touren-Start';
+        $customers = Customer::all()->sortBy('name');
+        $drivers = Driver::all()->sortBy('name');
+        return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
+
     }
 
     public function mission_submit(Request $request) {

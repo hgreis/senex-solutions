@@ -1,4 +1,4 @@
-<h1>Auftrag anlegen: Touren-Ziel</h1>
+<h1>Auftrag {{ $input->id }}: Touren-Ziel</h1>
 <div style="width: 600px; float: left">
     {{  Form::open(['route' => 'mission_submit'])  }}
     {{ csrf_field() }}
