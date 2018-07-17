@@ -9,6 +9,8 @@
                 @include('pages.forms.mission_customer')
             @elseif($choice == 'Fahrer/Unternehmer')
                 @include('pages.forms.mission_driver')
+            @elseif($choice == 'Auftrag Löschen')
+                @include('pages.forms.mission_delete')
             @endif
 
             @include('pages.forms.mission_menu')

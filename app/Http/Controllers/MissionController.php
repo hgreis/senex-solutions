@@ -171,13 +171,17 @@ return $request;
     }
 
     public function mission_submit(Request $request) {
-#return $request;
         if (isset($request->id)) {
             $input = Mission::find($request->id);
         }
         else {
             $input = new Mission;
         }
+        if (isset($request->delete))    {
+            $input->delete();
+            return view('pages.menu');
+        }
+        
         $input->fill($request->all());
         $input->save();
 

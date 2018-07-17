@@ -49,6 +49,19 @@ html {
         width: 100%;
 	}
 	
+.whitebox2 {
+        background-color: white;
+        border-width: 2px;
+        border-color: black;
+        border-style: solid;
+        border-radius: 5px;
+        color: black;
+        padding: 5px 20px;
+        text-align: left;
+        margin: 4px 0px;
+        cursor: pointer;
+        width: 100%;
+  }
 table {
   border-collapse: separate;
   border-spacing: 0.2em;
@@ -88,6 +101,16 @@ td:empty{
   background-color: black;
   color: white;
   min-width: 300px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.redButton {
+  font: bold 20px Arial;
+  background-color: red;
+  color: white;
+  min-width: 300px;
+  min-height: 50px;
   padding: 20px;
   margin: 10px;
 }

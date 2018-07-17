@@ -28,4 +28,7 @@
         @endif
         {{ Form::file('deliveryNote') }}
     </div>
+    <div class="whitebox2">        
+        @include('pages.forms.mission_driver_info')
+    </div>
 </div>

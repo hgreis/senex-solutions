@@ -1,4 +1,4 @@
-<div style="float: right; width: 30%; padding-top: 50px">
+<div style="float: right; width: 30%; padding-top: 30px">
     <div class="form-group">
         {{ Form::submit('Touren-Start', [
         	'class' => 'form-control',
@@ -16,9 +16,9 @@
         	'class' => 'form-control',
         	'class' => 'blackButton', 
         	'name' => 'submit'])}}
-        {{ Form::submit('Dokumentation', [
+        {{ Form::submit('Auftrag Löschen', [
         	'class' => 'form-control',
-        	'class' => 'blackButton', 
+        	'class' => 'redButton', 
         	'name' => 'submit'])}}
     </div>
 </div>
