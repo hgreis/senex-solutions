@@ -4,7 +4,7 @@
                 {{ csrf_field() }}
     <div class="form-group">
         {{  Form::label('zielName', 'Name:') }}
-        <select name='customer_name' class='form-control'">
+        <select name='kunde' class='form-control'">
                 @if (isset($input->kunde))
                     <option value="{{ $input->kunde }}">{{ $input->kunde }}</option>
                 @endif

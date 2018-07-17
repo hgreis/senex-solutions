@@ -14,54 +14,7 @@ use PDF;
     
 class MissionController extends Controller
 {
-    public function new() {
-    	$drivers = Driver::select('name')
-            ->orderBy('name')
-            ->distinct()
-            ->get();
-        $customers = Customer::select('name')
-            ->orderBy('name')
-            ->distinct()
-            ->get();
-        $mission = new Mission;
-    	return view('pages.new', compact('drivers', 'customers', 'mission'));
-    }
-
-    public function submit(Request $request)
-    {   
-return $request;
-        // this method fills the model with form-data and stores the uploaded fi
-        if (isset($request->id)) {
-            $mission = Mission::find($request->id);
-            $mission->fill($request->all());
-            $mission->save();
-        } else {
-            $mission = new Mission;
-        	$mission->fill($request->all());
-            $mission->save();
-        }
-
-        //file upload: order confirmation
-        if (isset($request->missionConfirmation)) {
-            $file = $request->file('missionConfirmation');
-            $destinationPath = 'uploads';
-            $file->move($destinationPath, $mission->id.' Auftragsbestaetigung.'.$file->getClientOriginalExtension() );    
-            $mission->missionConfirmation=true;
-            $mission->save();
-        }
-
-        //file upload: delivery note
-        if (isset($request->deliveryNote)) {
-            $file = $request->file('deliveryNote');
-            $destinationPath = 'uploads';
-            $file->move($destinationPath, $mission->id.' Ablieferbeleg.'.$file->getClientOriginalExtension() );
-            $mission->deliveryNote=true;
-            $mission->save();
-        }
-        
-    return view('dekra');
-    }
-
+    // old view with all mission details
     public function viewMissions(Request $request) {
     	$missions = Mission::where('bill_id', null)
             ->orderBy('startDatum')
@@ -173,6 +126,7 @@ return $request;
     }
 
     public function mission_submit(Request $request) {
+#return $request;
         if (isset($request->id)) {
             $input = Mission::find($request->id);
         }
