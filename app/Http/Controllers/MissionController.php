@@ -9,6 +9,7 @@ use App\Mission;
 use App\Driver;
 use App\Customer;
 use App\Bill;
+use App\Company;
 use PDF;
 
     
@@ -49,6 +50,7 @@ class MissionController extends Controller
     }
 
     public function saveBill(Request $request) {
+        $company = Company::find(1);
         $customers = Customer::whereHas('missions')
             ->with('missions')
             ->orderBy('name')
@@ -78,7 +80,7 @@ class MissionController extends Controller
                 $bill->taxes = $customer->taxes;
                 $id = $bill->id;
                 $bill->save();
-                $bill->savePDF($id, $customer);
+                $bill->savePDF($id, $customer, $company);
                 unset($bill);
             }
         }
@@ -126,7 +128,6 @@ class MissionController extends Controller
     }
 
     public function mission_submit(Request $request) {
-#return $request;
         if (isset($request->id)) {
             $input = Mission::find($request->id);
         }

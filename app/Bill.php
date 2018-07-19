@@ -7,7 +7,7 @@ use PDF;
 use App\Mission;
 use App\Driver;
 use App\Customer;
-
+use App\Company;
 
 class Bill extends Model
 {
@@ -19,31 +19,43 @@ class Bill extends Model
     	return $this->hasMany('App\Mission');
     }
 
-    public function savePDF($id, $customer) {
+    public function savePDF($id, $customer, $company) {
     	$bill = Bill::with('missions')->find($id);
         $customer = $this->customer;
         $customer = Customer::where('name', $customer)->first();
-    
+        
 
         $html2 ='
                 <p style="text-align: center; font-size:8; font-weight:normal">
-                    Bitte buchen Sie innerhalb von 14 Tagen den Rechnungsbetrag auf das Konto:<br>
-                    Inhaber: DEKRA Transport GmbH / Steuernummer: <br>
-                    Kontonummer: 0648489890  /  BLZ: 50010517<br>
-                    IBAN: DE12500105170648489890 <br>
+                    Bitte buchen Sie innerhalb von '.$customer->duration.' Tagen den Rechnungsbetrag auf das Konto:<br>
+                    Inhaber: '.$company->nameOwner.' / Steuernummer: '.$company->taxNumber.'<br>
+                    IBAN: '.$company->iban.' <br>
+                    BIC: '.$company->bic.'
                 </p>
         ';
         $pdf = new PDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf::SetTitle('Rechnung');
         $pdf::SetMargins(20,30,20,20);
-        $pdf::SetHeaderCallback(function($pdf) {
+        
+        if ($company->id == 2)   {
+            $pdf::SetHeaderCallback(function($pdf) {
                 // Position at 15 mm from bottom
                 $pdf->SetY(15);
                 // Set font
                 $pdf->SetFont('helvetica', 'b', 20);
                 // Page number
-                $pdf->Cell(0, 10,'DEKRA-TRANSPORT' , 0, false, 'C', 0, '', 0, false, 'T', 'M');
-        });
+                $pdf->Cell(0, 10,'Sabine Heinrichs Transporte' , 0, false, 'C', 0, '', 0, false, 'T', 'M');
+            });    
+        } else {
+            $pdf::SetHeaderCallback(function($pdf) {
+                // Position at 15 mm from bottom
+                $pdf->SetY(15);
+                // Set font
+                $pdf->SetFont('helvetica', 'b', 20);
+                // Page number
+                $pdf->Cell(0, 10,'STRERATH Transporte' , 0, false, 'C', 0, '', 0, false, 'T', 'M');
+            });
+        }
         $pdf::setFooterCallback(function($pdf) {
                 // Position at 15 mm from bottom
                 $pdf->SetY(-15);
@@ -57,7 +69,7 @@ class Bill extends Model
         //adressfield
         $pdf::Ln(20);
         $pdf::SetFont('helvetica','',7);
-        $pdf::Cell(0, 0, 'DEKRA-TRANSPORT - Dahlener Str. 570 - 41239 Mönchengladbach', 0, 1, '', 0, '', 0);
+        $pdf::Cell(0, 0, $company->nameCompany.' - '.$company->street.' - '.$company->city, 0, 1, '', 0, '', 0);
         $pdf::SetFont('times','',10);
         $pdf::Cell(0,0,$customer->name,0,1);
         $pdf::Cell(0,0,$customer->street,0,1);
@@ -65,15 +77,15 @@ class Bill extends Model
         $pdf::Cell(0,0,$customer->country,0,1);
 
         // Logo
-        $image_file = 'images/dekra.jpg';
-        $pdf::Image($image_file, 150, 50, 40, '', 'JPG', '', 'R', false, 300, '', false, false, 0, false, false, false);
+        $image_file = 'images/fs logo.jpg';
+        $pdf::Image($image_file, 140, 50, 50, '', 'JPG', '', 'R', false, 300, '', false, false, 0, false, false, false);
 
         // head with invoice-number
         $pdf::Ln(20);
         $pdf::Cell(0,0,'Mönchengladbach, den '.$bill->date ,0,1,'R');
         $pdf::Ln(10);
         $pdf::SetFont('helvetica','B',15);
-        $pdf::Cell(0,0,'Rechnungs-Nr.: '.$bill->id,0,1);
+        $pdf::Cell(0,0,'Rechnungs-Nr.: RE-'.$bill->id,0,1);
 
         // table with missions
         $pdf::Ln(10);
@@ -116,7 +128,7 @@ class Bill extends Model
 		$pdf::writeHTML($html2, true, false, true, false, '');
 
 		//save the PDF file 
-		$pdf::Output(public_path('Rechnungen/Rechnung ' .$bill->id . '.pdf'), 'F');
+		$pdf::Output(public_path('Rechnungen/'.$company->nameCompany.' RE-' .$bill->id . '.pdf'), 'F');
 		$pdf::reset();
 		return;
 	}
