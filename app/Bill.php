@@ -29,6 +29,7 @@ class Bill extends Model
                 <p style="text-align: center; font-size:8; font-weight:normal">
                     Bitte buchen Sie innerhalb von '.$customer->duration.' Tagen den Rechnungsbetrag auf das Konto:<br>
                     Inhaber: '.$company->nameOwner.' / Steuernummer: '.$company->taxNumber.'<br>
+                    Bank: '.$company->bank.'<br>
                     IBAN: '.$company->iban.' <br>
                     BIC: '.$company->bic.'
                 </p>
