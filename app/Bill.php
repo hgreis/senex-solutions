@@ -26,11 +26,13 @@ class Bill extends Model
         
 
         $html2 ='
-                <p style="text-align: center; font-size:8; font-weight:normal">
+                <p style="text-align: center; font-size:6; font-weight:normal">
                     Bitte buchen Sie innerhalb von '.$customer->duration.' Tagen den Rechnungsbetrag auf das Konto:<br>
-                    Inhaber: '.$company->nameOwner.' / Steuernummer: '.$company->taxNumber.'<br>
+                    Inhaber: '.$company->nameOwner.' / '.$company->venue.'<br>
+                    Steuernummer: '.$company->taxNumber.' /  
+                    Umsatzsteuer-ID: '.$company->turnoverTax.'<br>
                     Bank: '.$company->bank.'<br>
-                    IBAN: '.$company->iban.' <br>
+                    IBAN: '.$company->iban.' / 
                     BIC: '.$company->bic.'
                 </p>
         ';
@@ -44,6 +46,7 @@ class Bill extends Model
                 $pdf->SetY(15);
                 // Set font
                 $pdf->SetFont('helvetica', 'b', 20);
+                $pdf->SetTextColor(242,23,23);
                 // Page number
                 $pdf->Cell(0, 10,'Sabine Heinrichs Transporte' , 0, false, 'C', 0, '', 0, false, 'T', 'M');
             });    
@@ -53,6 +56,7 @@ class Bill extends Model
                 $pdf->SetY(15);
                 // Set font
                 $pdf->SetFont('helvetica', 'b', 20);
+                $pdf->SetTextColor(242,23,23);
                 // Page number
                 $pdf->Cell(0, 10,'STRERATH Transporte' , 0, false, 'C', 0, '', 0, false, 'T', 'M');
             });
@@ -69,9 +73,11 @@ class Bill extends Model
 
         //adressfield
         $pdf::Ln(20);
-        $pdf::SetFont('helvetica','',7);
+        $pdf::SetFont('helvetica','',6);
+        $pdf::SetTextColor(242,23,23);
         $pdf::Cell(0, 0, $company->nameCompany.' - '.$company->street.' - '.$company->city, 0, 1, '', 0, '', 0);
         $pdf::SetFont('times','',10);
+        $pdf::SetTextColor(0,0,0);
         $pdf::Cell(0,0,$customer->name,0,1);
         $pdf::Cell(0,0,$customer->street,0,1);
         $pdf::Cell(0,0,$customer->city,0,1);
@@ -91,10 +97,11 @@ class Bill extends Model
         // table with missions
         $pdf::Ln(10);
         $pdf::SetFont('helvetica','B',10);
-        $pdf::Cell(25,0,'Auftrags-Nr.',1,0,'C');
-        $pdf::Cell(25,0,'Lieferdatum',1,0,'C');
-        $pdf::Cell(100,0,'Tourenbeschreibung',1,0,'C');
-        $pdf::Cell(20,0,'Preis',1,1,'C');
+        $pdf::SetFillColor(243,23,23);
+        $pdf::Cell(25,0,'Tour-Nr.',1,0,'C',1,'C');
+        $pdf::Cell(25,0,'Abholung',1,0,'C',1,'C');
+        $pdf::Cell(100,0,'Tourenbeschreibung',1,0,'',1,'C');
+        $pdf::Cell(20,0,'Preis',1,1,'C',1,'C');
         $pdf::SetFont('helvetica','',10);
         $pdf::Ln(2);
         foreach ($bill->missions as $mission) {
@@ -125,7 +132,7 @@ class Bill extends Model
         $pdf::Cell(18,0,number_format($bill->priceGross, 2, ',', '').' €',0,1,'R');
 
 		// payment advice
-		$pdf::SetY(-40);
+		$pdf::SetY(-42);
 		$pdf::writeHTML($html2, true, false, true, false, '');
 
 		//save the PDF file 

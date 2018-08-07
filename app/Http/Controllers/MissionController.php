@@ -88,7 +88,7 @@ class MissionController extends Controller
     }
 
     public function showBill($id) {
-        return response()->file(public_path('Rechnungen/STRERATH Transporte RE-'.$id.'.pdf'));
+        return response()->file(public_path('Rechnungen/Strerath Transporte RE-'.$id.'.pdf'));
     }
 
 //muss dringend überarbeitet werden
