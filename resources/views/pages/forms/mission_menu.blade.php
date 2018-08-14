@@ -20,5 +20,9 @@
         	'class' => 'form-control',
         	'class' => 'redButton', 
         	'name' => 'submit'])}}
+        {{ Form::submit('Speichern/Menu', [
+            'class' => 'form-control',
+            'class' => 'blackButton', 
+            'name' => 'submit'])}}
     </div>
 </div>

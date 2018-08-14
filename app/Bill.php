@@ -46,7 +46,7 @@ class Bill extends Model
                 $pdf->SetY(15);
                 // Set font
                 $pdf->SetFont('helvetica', 'b', 20);
-                $pdf->SetTextColor(242,23,23);
+                $pdf->SetTextColor(200,10,10);
                 // Page number
                 $pdf->Cell(0, 10,'Sabine Heinrichs Transporte' , 0, false, 'C', 0, '', 0, false, 'T', 'M');
             });    
@@ -56,7 +56,7 @@ class Bill extends Model
                 $pdf->SetY(15);
                 // Set font
                 $pdf->SetFont('helvetica', 'b', 20);
-                $pdf->SetTextColor(242,23,23);
+                $pdf->SetTextColor(200,10,10);
                 // Page number
                 $pdf->Cell(0, 10,'STRERATH Transporte' , 0, false, 'C', 0, '', 0, false, 'T', 'M');
             });
@@ -74,7 +74,7 @@ class Bill extends Model
         //adressfield
         $pdf::Ln(20);
         $pdf::SetFont('helvetica','',6);
-        $pdf::SetTextColor(242,23,23);
+        $pdf::SetTextColor(200,10,10);
         $pdf::Cell(0, 0, $company->nameCompany.' - '.$company->street.' - '.$company->city, 0, 1, '', 0, '', 0);
         $pdf::SetFont('times','',10);
         $pdf::SetTextColor(0,0,0);
@@ -97,7 +97,7 @@ class Bill extends Model
         // table with missions
         $pdf::Ln(10);
         $pdf::SetFont('helvetica','B',10);
-        $pdf::SetFillColor(243,23,23);
+        $pdf::SetFillColor(226,14,14);
         $pdf::Cell(25,0,'Tour-Nr.',1,0,'C',1,'C');
         $pdf::Cell(25,0,'Abholung',1,0,'C',1,'C');
         $pdf::Cell(100,0,'Tourenbeschreibung',1,0,'',1,'C');

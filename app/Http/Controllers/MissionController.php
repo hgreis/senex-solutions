@@ -165,6 +165,10 @@ class MissionController extends Controller
         $customers = Customer::all()->sortBy('name');
         $drivers = Driver::all()->sortBy('name');
 
+        if ($choice == 'Speichern/Menu') {
+            return view('pages.menu');
+        }
+
         return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
     }
 }
