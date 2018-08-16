@@ -39,52 +39,50 @@ class MissionController extends Controller
         return view('pages.view', compact('missions', 'drivers', 'customers'));
     }
 
+    
 
-    public function createBill() {
-        $customers = Customer::whereHas('missions', function($query) {
-            $query->whereNull('bill_id');
-        })->with(['missions' => function($query) {
-            $query->whereNull('bill_id');
-        }])->orderBy('name')->get();
-        return view('pages.bill', compact('customers'));
-    }
-
-    public function saveBill(Request $request) {
-        $company = Company::find(1);
-        $customers = Customer::whereHas('missions')
-            ->with('missions')
-            ->orderBy('name')
-            ->get();
-        foreach ($customers as $customer) {
-            $bill = new Bill;
-            $makeBill = 0;
-            $sum = 0;
-            foreach ($customer->missions as $mission) {
-                if(isset($request[$mission->id])) {
-                    ++$makeBill;
-                }
-            }
-            if ($makeBill > 0) {
-                $bill->date = date("d.m.Y");
-                $bill->save();
+    public function saveBill(Request $request) {        
+        for ($i = 1; $i <= 2; $i++) {
+            $customers = Customer::whereHas('missions')
+                ->with('missions')
+                ->orderBy('name')
+                ->get();
+            foreach ($customers as $customer) {
+                $bill = new Bill;
+                $makeBill = 0;
+                $sum = 0;
                 foreach ($customer->missions as $mission) {
                     if(isset($request[$mission->id])) {
-                        $mission->bill_id = $bill->id;
-                        $mission->save();
-                        $sum = $sum + $mission->preisKunde;
+                        if($mission->company == $i) {
+                            ++$makeBill;
+                        }
                     }
                 }
-                $bill->customer = $customer->name;
-                $bill->priceNet = $sum;
-                $bill->priceGross = $sum * (100+$customer->taxes)/100;
-                $bill->taxes = $customer->taxes;
-                $id = $bill->id;
-                $bill->save();
-                $bill->savePDF($id, $customer, $company);
-                unset($bill);
+                if ($makeBill > 0) {
+                    $bill->date = date("d.m.Y");
+                    $bill->save();
+                    foreach ($customer->missions as $mission) {
+                        if(isset($request[$mission->id])) {
+                            if($mission->company == $i) {
+                                $mission->bill_id = $bill->id;
+                                $mission->save();
+                                $sum = $sum + $mission->preisKunde;
+                                $bill->company = $mission->company;
+                            }
+                        }
+                    }
+                    $bill->customer = $customer->name;
+                    $bill->priceNet = $sum;
+                    $bill->priceGross = $sum * (100+$customer->taxes)/100;
+                    $bill->taxes = $customer->taxes;
+                    $id = $bill->id;
+                    $bill->save();
+                    $bill->savePDF($id, $customer);
+                    unset($bill);
+                }
             }
         }
-        return view('dekra');
+        return view('pages.menu');
     }
 
     public function showBill($id) {
@@ -114,6 +112,7 @@ class MissionController extends Controller
 
     public function mission_new() {
         $input = new Mission;
+        $input->company = 1;
         $choice = 'Touren-Start';
         return view('pages.mission', compact('input', 'choice'));
     }
@@ -170,5 +169,22 @@ class MissionController extends Controller
         }
 
         return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
+    }
+    public function createBill() {
+        // for first company
+        $customers = Customer::whereHas('missions', function($query) {
+            $query->whereNull('bill_id')->where('company', 1);
+        })->with(['missions' => function($query) {
+            $query->whereNull('bill_id')->where('company', 1);
+        }])->orderBy('name')->get();
+
+        //for second company
+        $customers2 = Customer::whereHas('missions', function($query) {
+            $query->whereNull('bill_id')->where('company', 2);
+        })->with(['missions' => function($query) {
+            $query->whereNull('bill_id')->where('company', 2);
+        }])->orderBy('name')->get();
+
+        return view('pages.bill', compact('customers', 'customers2'));
     }
 }

@@ -41,7 +41,7 @@
 		 		 	<td>{{ $driver->number_plate }}</td>
 		 		 	<td>{{$driver->phone}}</td>
 		 		 	<td>
-		 		 		<a class="redButton" href="/dekra/drivers/{{ $driver->id }}">LÖSCHEN</a>
+		 		 		<a class="redButton_small" href="/dekra/drivers/{{ $driver->id }}">LÖSCHEN</a>
 		 		 	</td>
 		 		 </tr>
 			@endforeach

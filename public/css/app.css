@@ -38,6 +38,28 @@ html {
         width: 100%;
 	}
 
+.redbox {
+        background-color: #C10C0C;
+        border: none;
+        color: white;
+        padding: 5px 20px;
+        text-align: left;
+        margin: 4px 0px;
+        cursor: pointer;
+        width: 100%;
+  }
+
+.pinkbox {
+        background-color: #F77D7D;
+        border: none;
+        color: white;
+        padding: 5px 20px;
+        text-align: left;
+        margin: 4px 0px;
+        cursor: pointer;
+        width: 100%;
+  }
+
 .whitebox {
         background-color: white;
         border: none;
@@ -106,12 +128,19 @@ td:empty{
 }
 
 .redButton {
-  font: bold 20px Arial;
+  font: bold 16px Arial;
   background-color: red;
   color: white;
   min-width: 300px;
-  min-height: 50px;
   padding: 20px;
+  margin: 10px;
+}
+
+.redButton_small {
+  font: bold 10px Arial;
+  background-color: red;
+  color: white;
+  padding: 5px;
   margin: 10px;
 }
 
@@ -128,18 +157,6 @@ td:empty{
   margin-left: 350px;
 }
 
-.redButton {
-  font: bold 12px Arial;
-  text-decoration: none;
-  background-color: red;
-  color: white;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
-  margin-left: 10px;
-}
 
 .panel {
 	display: none;

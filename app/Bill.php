@@ -12,15 +12,20 @@ use App\Company;
 class Bill extends Model
 {
     protected $fillable = [
-    	'date', 'priceNet', 'priceGross', 'taxes', 'customer',
+    	'date', 'priceNet', 'priceGross', 'taxes', 'customer', 'company', 'path', 'number',
     ];
     
     public function missions() {
     	return $this->hasMany('App\Mission');
     }
 
-    public function savePDF($id, $customer, $company) {
-    	$bill = Bill::with('missions')->find($id);
+    public function company() {
+        return $this->hasOne('App\Company');
+    }
+
+    public function savePDF($id, $customer) {
+        $bill = Bill::with('missions')->find($id);
+        $company = Company::find($bill->company);
         $customer = $this->customer;
         $customer = Customer::where('name', $customer)->first();
         

@@ -9,7 +9,7 @@
             
             <button class="blackButton" onclick="window.location.href='/dekra/drivers'" >Fahrer verwalten</button>
             <button class="blackButton" onclick="window.location.href='/customer'" >Kunden verwalten</button><br>
-            <button class="blackButton" onclick="window.location.href='/dekra/bill'" >Rechnung generieren</button>
+            <button class="blackButton" onclick="window.location.href='/bill'" >Rechnung generieren</button>
             <button class="blackButton" onclick="window.location.href='/dekra/invoices'" >Rechnung - Übersicht</button>
         </p>
     </div>

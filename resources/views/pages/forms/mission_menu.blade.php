@@ -1,5 +1,15 @@
-<div style="float: right; width: 30%; padding-top: 30px">
+<div style="float: right; width: 30%; ">
     <div class="form-group">
+        @if ($input->company == 2)
+            <input type="radio" name="company" value="1"> STRERATH Transporte<br>
+            <input type="radio" name="company" value="2" checked> Sabine Heinrichs Transporte<br>
+        @else
+            <input type="radio" name="company" value="1" checked> STRERATH Transporte<br>
+            <input type="radio" name="company" value="2"> Sabine Heinrichs Transporte<br>
+        @endif
+        
+
+
         {{ Form::submit('Touren-Start', [
         	'class' => 'form-control',
         	'class' => 'blackButton', 

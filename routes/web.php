@@ -11,23 +11,23 @@ Route::get('/menu', 'HomeController@menu')->name('HomeController@menu');
 Route::get('/mission/new', 'MissionController@mission_new')->name('MissionController@mission_new');
 Route::post('/mission/new', 'MissionController@mission_submit')->name('mission_submit');
 Route::get('/mission/view/{id}', 'MissionController@viewMission');
-
 Route::get('/customer', 'DriverController@customer')->name('customer');
+Route::get('/bill', 'MissionController@createBill');
+Route::post('/saveBill', 'MissionController@saveBill');
+
 
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');
 Route::post('/dekra/new', 'MissionController@submit')->name('MissionController@submit');
 Route::get('/dekra/view', 'MissionController@viewMissions');
-Route::get('/dekra/drivers', 'DriverController@driver')->name('drivers.index');
+Route::get('/dekra/drivers', 'DriverController@driver')->name('DriverController@drivers.index');
 Route::post('/dekra/drivers', 'DriverController@submit');
 Route::get('/dekra/drivers/{id}', 'DriverController@driverDelete');
 Route::get('/dekra/new_customer', 'DriverController@newCustomer');
 Route::get('/dekra/new_customer/{id}', 'DriverController@editCustomer');
 Route::post('/dekra/save_customer', 'DriverController@saveCustomer');
-Route::get('/dekra/bill', 'MissionController@createBill');
 Route::get('/dekra/bill/{id}', 'MissionController@showBill');
 Route::get('/dekra/invoices', 'MissionController@listInvoices');
-Route::post('/dekra/saveBill', 'MissionController@saveBill');
 Route::get('/uploadfile','UploadFileController@index') ;
 Route::post('/uploadfile','UploadFileController@showUploadFile');
 Route::get('/config','HomeController@config');
