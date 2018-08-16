@@ -86,12 +86,17 @@ class MissionController extends Controller
     }
 
     public function showBill($id) {
+        $bill = Bill::find($id);
+        if ($bill->company == 2)    {
+            return response()->file(public_path('Rechnungen/Sabine Heinrichs Transporte RE-'.$id.'.pdf'));
+        }
+
         return response()->file(public_path('Rechnungen/Strerath Transporte RE-'.$id.'.pdf'));
     }
 
 //muss dringend überarbeitet werden
-    public function listInvoices() {
-        $bills = Bill::orderBy('id','desc')->get();
+    public function listInvoices($id) {
+        $bills = Bill::where('company', $id)->orderBy('id','desc')->get();
         $missions = array(
             'jan' => Mission::where('zielDatum', '>=', '2018-01-01')->where('zielDatum', '<=', '2018-01-31')->get(),
             'feb' => Mission::where('zielDatum', '>=', '2018-02-01')->where('zielDatum', '<=', '2018-02-28')->get(),

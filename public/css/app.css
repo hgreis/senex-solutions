@@ -127,6 +127,24 @@ td:empty{
   margin: 10px;
 }
 
+.brownButton {
+  font: bold 16px Arial;
+  background-color: #C10C0C;
+  color: white;
+  min-width: 300px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.pinkButton {
+  font: bold 16px Arial;
+  background-color: #F77D7D;
+  color: white;
+  min-width: 300px;
+  padding: 20px;
+  margin: 10px;
+}
+
 .redButton {
   font: bold 16px Arial;
   background-color: red;
