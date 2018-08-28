@@ -75,6 +75,7 @@ class MissionController extends Controller
                     $bill->priceNet = $sum;
                     $bill->priceGross = $sum * (100+$customer->taxes)/100;
                     $bill->taxes = $customer->taxes;
+                    $bill->number = $bill->number();
                     $id = $bill->id;
                     $bill->save();
                     $bill->savePDF($id, $customer);

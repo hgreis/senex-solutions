@@ -23,6 +23,11 @@ class Bill extends Model
         return $this->hasOne('App\Company');
     }
 
+    public function number()    {
+        $maxNumber = Bill::where('company', $this->company)->max('number');
+        return $maxNumber+1;
+    }
+
     public function savePDF($id, $customer) {
         $bill = Bill::with('missions')->find($id);
         $company = Company::find($bill->company);
@@ -97,7 +102,7 @@ class Bill extends Model
         $pdf::Cell(0,0,'Mönchengladbach, den '.$bill->date ,0,1,'R');
         $pdf::Ln(10);
         $pdf::SetFont('helvetica','B',15);
-        $pdf::Cell(0,0,'Rechnungs-Nr.: RE-'.$bill->id,0,1);
+        $pdf::Cell(0,0,'Rechnungs-Nr.: RE-'.$bill->number,0,1);
 
         // table with missions
         $pdf::Ln(10);

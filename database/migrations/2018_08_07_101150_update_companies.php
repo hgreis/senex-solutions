@@ -16,6 +16,7 @@ class UpdateCompanies extends Migration
         //
         Schema::table('companies', function (Blueprint $table) {
             $table->text('turnoverTax')->after('taxNumber')->nullable();
+            $table->text('fax')->after('phone')->nullable();
         });
     }
 
@@ -28,6 +29,7 @@ class UpdateCompanies extends Migration
     {
         //
         Schema::table('companies', function (Blueprint $table) {
+            $table->dropColumn('fax');
             $table->dropColumn('turnoverTax');
         });
     }

@@ -1,24 +1,24 @@
 @extends('layouts.main')
 @section('content')
-	<div style="float: left; width: 500px ;">
+	<div style="float: left; width: 600px ;">
 		<h1>Übersicht aller Rechnungen</h1>
 		<table style="width: 100%">
 			<tr>
-				<th></th>
-				<th>#</th>
-				<th>Datum</th>
-				<th>Kunde</th>
-				<th>Netto</th>
-				<th>Brutto</th>
+				<th style="padding: 3px"></th>
+				<th style="padding: 3px">#</th>
+				<th style="padding: 3px">Datum</th>
+				<th style="padding: 3px">Kunde</th>
+				<th style="padding: 3px">Netto</th>
+				<th style="padding: 3px">Brutto</th>
 			</tr>
 			@foreach($bills as $bill)
 				<tr>
-					<th><a class="button" target="_blank" href="/dekra/bill/{{ $bill->id }}">Details</a></th>
-					<td>{{ $bill->id }} </td>
-					<td>{{ $bill->date }}</td>
-					<td>{{ $bill->customer }}</td>
-					<td>{{ $bill->priceNet }} €</td>
-					<td>{{ number_format($bill->priceGross, 2, ',', ' ') }} €</td>
+					<th style="padding: 3px"><a class="button" target="_blank" href="/dekra/bill/{{ $bill->id }}">Details</a></th>
+					<td style="padding: 3px">{{ $bill->number }} </td>
+					<td style="padding: 3px">{{ $bill->date }}</td>
+					<td style="padding: 3px">{{ $bill->customer }}</td>
+					<td style="padding: 3px">{{ $bill->priceNet }} €</td>
+					<td style="padding: 3px">{{ number_format($bill->priceGross, 2, ',', ' ') }} €</td>
 				</tr>
 			@endforeach
 		</table>
