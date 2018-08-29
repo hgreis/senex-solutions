@@ -146,7 +146,7 @@ class Bill extends Model
 		$pdf::writeHTML($html2, true, false, true, false, '');
 
 		//save the PDF file 
-		$pdf::Output(public_path('Rechnungen/'.$company->nameCompany.' RE-' .$bill->id . '.pdf'), 'F');
+		$pdf::Output(public_path('Rechnungen/'.$company->nameCompany.' RE-' .$bill->number . '.pdf'), 'F');
 		$pdf::reset();
 		return;
 	}

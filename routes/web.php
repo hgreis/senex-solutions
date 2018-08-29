@@ -14,9 +14,9 @@ Route::get('/mission/view/{id}', 'MissionController@viewMission');
 Route::get('/customer', 'DriverController@customer')->name('customer');
 Route::get('/bill', 'MissionController@createBill');
 Route::post('/saveBill', 'MissionController@saveBill');
-
 Route::get('/invoices/{id}', 'MissionController@listInvoices');
-Route::get('/dekra/bill/{id}', 'MissionController@showBill');
+Route::get('/bill/{id}', 'MissionController@showBill');
+
 
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');

@@ -89,10 +89,10 @@ class MissionController extends Controller
     public function showBill($id) {
         $bill = Bill::find($id);
         if ($bill->company == 2)    {
-            return response()->file(public_path('Rechnungen/Sabine Heinrichs Transporte RE-'.$id.'.pdf'));
+            return response()->file(public_path('Rechnungen/Sabine Heinrichs Transporte RE-'.$bill->number.'.pdf'));
         }
 
-        return response()->file(public_path('Rechnungen/Strerath Transporte RE-'.$id.'.pdf'));
+        return response()->file(public_path('Rechnungen/Strerath Transporte RE-'.$bill->number.'.pdf'));
     }
 
 //muss dringend überarbeitet werden
@@ -113,7 +113,7 @@ class MissionController extends Controller
             'dec' => Mission::where('zielDatum', '>=', '2018-12-01')->where('zielDatum', '<=', '2018-12-31')->get(),
             'year' => Mission::where('zielDatum', '>=', '2018-01-01')->where('zielDatum', '<=', '2018-12-31')->get(),
              );
-        return view('pages.invoices', compact('bills', 'missions'));
+        return view('pages.invoices', compact('bills', 'missions', 'id'));
     }
 
     public function mission_new() {

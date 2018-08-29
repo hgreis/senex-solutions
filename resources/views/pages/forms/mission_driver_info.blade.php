@@ -1,4 +1,10 @@
-<h3>Fahrer - Informationen</h3>
+@if ($input->company == 1)
+	<h3>Strerath Transporte</h3>
+@elseif ($input->company == 2)
+	<h3>Sabine Heinrichs Transporte</h3>
+@else
+	<h3>Fahrer - Informationen</h3>
+@endif
 <p>
     <hr><b>Abholung: {{$input->startDatum}}</b><br>
     {{ $input->startName }} <br>

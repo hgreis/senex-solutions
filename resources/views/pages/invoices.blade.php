@@ -1,7 +1,11 @@
 @extends('layouts.main')
 @section('content')
-	<div style="float: left; width: 600px ;">
-		<h1>Übersicht aller Rechnungen</h1>
+@if ($id == 2)
+	<div style="	float: left; width: 600px; background-color: pink">
+@else 
+	<div style="	float: left; width: 600px; background-color: #C10C0C; color: black">
+@endif
+		<h1 style="text-align: center">Übersicht aller Rechnungen</h1>
 		<table style="width: 100%">
 			<tr>
 				<th style="padding: 3px"></th>
@@ -13,7 +17,7 @@
 			</tr>
 			@foreach($bills as $bill)
 				<tr>
-					<th style="padding: 3px"><a class="button" target="_blank" href="/dekra/bill/{{ $bill->id }}">Details</a></th>
+					<th style="padding: 3px"><a class="button" target="_blank" href="/bill/{{ $bill->id }}">Details</a></th>
 					<td style="padding: 3px">{{ $bill->number }} </td>
 					<td style="padding: 3px">{{ $bill->date }}</td>
 					<td style="padding: 3px">{{ $bill->customer }}</td>
