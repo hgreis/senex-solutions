@@ -17,13 +17,13 @@ class DriverController extends Controller
 		$driver = new Driver;
 		$driver->fill($request->all());
 		$driver->save();
-		return redirect(route('drivers.index'));
+		return redirect(route('DriverController@drivers.index'));
     }
 
     public function driverDelete($id) {
         $driver = Driver::find($id);
         $driver->delete();
-        return redirect(route('drivers.index'));
+        return redirect(route('DriverController@drivers.index'));
     }
 
     public function customer() {
