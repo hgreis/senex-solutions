@@ -18,10 +18,10 @@ Route::get('/invoices/{id}', 'MissionController@listInvoices');
 Route::get('/bill/{id}', 'MissionController@showBill');
 
 
+Route::get('/mission/view', 'MissionController@viewMissions')->name('viewMissions');
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');
 Route::post('/dekra/new', 'MissionController@submit')->name('MissionController@submit');
-Route::get('/dekra/view', 'MissionController@viewMissions');
 Route::get('/dekra/drivers', 'DriverController@driver')->name('DriverController@drivers.index');
 Route::post('/dekra/drivers', 'DriverController@submit');
 Route::get('/dekra/drivers/{id}', 'DriverController@driverDelete');

@@ -10,7 +10,7 @@
 	</h1>
 	{{-- filter --}}
 	<div style="width: 60%; margin-left: 20%" >
-		<form method="get" action="/dekra/view" >
+		<form method="get" action="/mission/view" >
 			<select name='driver' class='form-control'>
 				<option value="">--- Fahrer auswählen ---</option>
 				@foreach ($drivers as $driver)
@@ -33,7 +33,7 @@
 				<h3>
 					{{ $mission->zielDatum }} &nbsp; 
 					{{ $mission->startOrt }} -> {{ $mission->zielOrt }} &nbsp;&nbsp; 
-					=> {{ $mission->fahrer }} &nbsp;-&nbsp; 
+					=> {{ $mission->fahrer }} &nbsp;&nbsp; 
 					# {{ $mission->id }}
 				</h3>
 			</div>
