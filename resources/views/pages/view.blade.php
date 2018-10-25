@@ -32,8 +32,8 @@
 			<div class="flip">
 				<h3>
 					{{ $mission->zielDatum }} &nbsp; 
-					{{ $mission->kunde }} &nbsp;-&nbsp; 
-					Fahrer: {{ $mission->fahrer }} &nbsp;-&nbsp; 
+					{{ $mission->startOrt }} -> {{ $mission->zielOrt }} &nbsp;&nbsp; 
+					=> {{ $mission->fahrer }} &nbsp;-&nbsp; 
 					# {{ $mission->id }}
 				</h3>
 			</div>

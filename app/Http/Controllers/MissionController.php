@@ -18,7 +18,7 @@ class MissionController extends Controller
     // old view with all mission details
     public function viewMissions(Request $request) {
     	$missions = Mission::where('bill_id', null)
-            ->orderBy('startDatum')
+            ->orderBy('zielDatum')
             ->get();
         $drivers =  Mission::where('bill_id', null)
             ->select('fahrer')
