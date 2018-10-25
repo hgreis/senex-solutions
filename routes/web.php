@@ -10,6 +10,7 @@ Route::get('/home', 'HomeController@index')->name('HomeController@index');
 Route::get('/menu', 'HomeController@menu')->name('HomeController@menu');
 Route::get('/mission/new', 'MissionController@mission_new')->name('MissionController@mission_new');
 Route::post('/mission/new', 'MissionController@mission_submit')->name('mission_submit');
+Route::get('/mission/view', 'MissionController@viewMissions')->name('viewMissions');
 Route::get('/mission/view/{id}', 'MissionController@viewMission');
 Route::get('/customer', 'DriverController@customer')->name('customer');
 Route::get('/bill', 'MissionController@createBill');
@@ -17,8 +18,8 @@ Route::post('/saveBill', 'MissionController@saveBill');
 Route::get('/invoices/{id}', 'MissionController@listInvoices');
 Route::get('/bill/{id}', 'MissionController@showBill');
 
+Route::get('/mission/viewNoDriver', 'MissionController@viewNoDriver')->name('viewNoDriver');
 
-Route::get('/mission/view', 'MissionController@viewMissions')->name('viewMissions');
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');
 Route::post('/dekra/new', 'MissionController@submit')->name('MissionController@submit');

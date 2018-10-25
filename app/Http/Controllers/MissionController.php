@@ -176,6 +176,7 @@ class MissionController extends Controller
 
         return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
     }
+    
     public function createBill() {
         // for first company
         $customers = Customer::whereHas('missions', function($query) {
@@ -192,5 +193,29 @@ class MissionController extends Controller
         }])->orderBy('name')->get();
 
         return view('pages.bill', compact('customers', 'customers2'));
+    }
+
+    public function viewNoDriver(Request $request)  {
+        $missions = Mission::where('bill_id', null)
+            ->where('fahrer', null)
+            ->orderBy('zielDatum')
+            ->get();
+        $drivers =  Mission::where('bill_id', null)
+            ->select('fahrer')
+            ->orderBy('fahrer')
+            ->distinct()
+            ->get();
+        $customers =  Mission::where('bill_id', null)
+            ->select('kunde')
+            ->orderBy('kunde')
+            ->distinct()
+            ->get();
+        if ($request->customer != null) {
+            $missions = $missions->where('kunde', $request->customer);
+        }
+        if ($request->driver != null) {
+            $missions = $missions->where('fahrer', $request->driver);
+        }
+        return view('pages.view', compact('missions', 'drivers', 'customers'));        
     }
 }
