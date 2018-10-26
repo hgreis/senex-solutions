@@ -41,7 +41,7 @@ class Bill extends Model
                     Inhaber: '.$company->nameOwner.' / '.$company->venue.'<br>
                     Steuernummer: '.$company->taxNumber.' /  
                     Umsatzsteuer-ID: '.$company->turnoverTax.'<br>
-                    Bank: '.$company->bank.'<br>
+                    Bank: '.$company->bank.' /
                     IBAN: '.$company->iban.' / 
                     BIC: '.$company->bic.'
                 </p>
@@ -142,7 +142,7 @@ class Bill extends Model
         $pdf::Cell(18,0,number_format(($bill->priceNet*1.19), 2, ',', '').' €',0,1,'R');
 
 		// payment advice
-		$pdf::SetY(-35);
+		$pdf::SetY(-32);
 		$pdf::writeHTML($html2, true, false, true, false, '');
 
 		//save the PDF file 
