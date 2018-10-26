@@ -37,7 +37,7 @@ class Bill extends Model
 
         $html2 ='
                 <p style="text-align: center; font-size:6; font-weight:normal">
-                    Bitte buchen Sie innerhalb von '.$customer->duration.' Tagen den Rechnungsbetrag auf das Konto:<br>
+                    Zu zahlen ist der Rechnungsbetrag innerhalb von '.$customer->duration.' Tagen auf das Konto:<br>
                     Inhaber: '.$company->nameOwner.' / '.$company->venue.'<br>
                     Steuernummer: '.$company->taxNumber.' /  
                     Umsatzsteuer-ID: '.$company->turnoverTax.'<br>
@@ -83,10 +83,10 @@ class Bill extends Model
 
         //adressfield
         $pdf::Ln(20);
-        $pdf::SetFont('helvetica','',6);
+        $pdf::SetFont('helvetica','',8);
         $pdf::SetTextColor(200,10,10);
         $pdf::Cell(0, 0, $company->nameCompany.' - '.$company->street.' - '.$company->city, 0, 1, '', 0, '', 0);
-        $pdf::SetFont('times','',10);
+        $pdf::SetFont('times','',12);
         $pdf::SetTextColor(0,0,0);
         $pdf::Cell(0,0,$customer->name,0,1);
         $pdf::Cell(0,0,$customer->street,0,1);
@@ -139,10 +139,10 @@ class Bill extends Model
         $pdf::SetFont('helvetica','b',10);
         $pdf::Cell(50,0,'',0,0);
         $pdf::Cell(100,0,'Rechnungsbetrag (brutto)',0,0,'R');
-        $pdf::Cell(18,0,number_format($bill->priceGross, 2, ',', '').' €',0,1,'R');
+        $pdf::Cell(18,0,number_format(($bill->priceNet*1.19), 2, ',', '').' €',0,1,'R');
 
 		// payment advice
-		$pdf::SetY(-42);
+		$pdf::SetY(-35);
 		$pdf::writeHTML($html2, true, false, true, false, '');
 
 		//save the PDF file 
