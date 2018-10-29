@@ -118,7 +118,7 @@
 				@endforeach
 			</select><br>
 			@if (isset($mission->deliveryNote))
-				 <a target="_blank" href="/uploads/{{ $mission->id }} Ablieferbeleg.pdf">{{ $mission->id }} Ablieferbeleg.pdf </a> 
+				 <a target="_blank" href="/uploads/{{ $mission->id }} Lieferschein.pdf">{{ $mission->id }} Lieferschein.pdf </a> 
 			@else
 		    	<label>Ablieferbeleg: </label>
 		    @endif

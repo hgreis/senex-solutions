@@ -22,7 +22,7 @@
     </div>
     <div class="form-group">
         @if (isset($input->deliveryNote))
-                 <a target="_blank" href="/uploads/{{ $input->id }} Ablieferbeleg.pdf">{{ $input->id }} Ablieferbeleg.pdf </a> 
+                 <a target="_blank" href="/uploads/{{ $input->id }} Lieferschein.pdf">{{ $input->id }} Lieferschein.pdf </a> 
         @else
                 <label>Ablieferbeleg: </label>
         @endif
