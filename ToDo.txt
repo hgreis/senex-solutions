@@ -1,0 +1,4 @@
+ToDo
+
+-> Beim Erstellen mehrerer Rechnungen im gleichen Arbeitsschritt, werden die gleichen Rechnungsnummern vergeben
+-> Eine Tour muss in 3 Teilstrecken mit 3 Fahrern aufgeteilt werden können
