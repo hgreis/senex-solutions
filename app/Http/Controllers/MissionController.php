@@ -218,12 +218,16 @@ class MissionController extends Controller
             ->orderBy('kunde')
             ->distinct()
             ->get();
+        $dates = Mission::where('bill_id', null)
+            ->select('zielDatum')
+            ->orderBy('zielDatum')
+            ->distinct()
+            ->get();
         if ($request->customer != null) {
             $missions = $missions->where('kunde', $request->customer);
         }
         if ($request->driver != null) {
             $missions = $missions->where('fahrer', $request->driver);
         }
-        return view('pages.view', compact('missions', 'drivers', 'customers'));        
-    }
+        return view('pages.view', compact('missions', 'dates', 'drivers', 'customers'));    }
 }
