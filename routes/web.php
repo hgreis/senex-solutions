@@ -12,13 +12,14 @@ Route::get('/mission/new', 'MissionController@mission_new')->name('MissionContro
 Route::post('/mission/new', 'MissionController@mission_submit')->name('mission_submit');
 Route::get('/mission/view', 'MissionController@viewMissions')->name('viewMissions');
 Route::get('/mission/view/{id}', 'MissionController@viewMission');
+Route::get('/mission/viewNoDriver', 'MissionController@viewNoDriver')->name('viewNoDriver');
 Route::get('/customer', 'DriverController@customer')->name('customer');
 Route::get('/bill', 'MissionController@createBill');
 Route::post('/saveBill', 'MissionController@saveBill');
 Route::get('/invoices/{id}', 'MissionController@listInvoices');
 Route::get('/bill/{id}', 'MissionController@showBill');
 
-Route::get('/mission/viewNoDriver', 'MissionController@viewNoDriver')->name('viewNoDriver');
+Route::get('/mission/viewNoDeliveryNote', 'MissionController@viewNoDeliveryNote')->name('viewNoDeliveryNote');
 
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');

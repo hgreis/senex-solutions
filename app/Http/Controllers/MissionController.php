@@ -230,4 +230,33 @@ class MissionController extends Controller
             $missions = $missions->where('fahrer', $request->driver);
         }
         return view('pages.view', compact('missions', 'dates', 'drivers', 'customers'));    }
+
+    public function viewNoDeliveryNote(Request $request)  {
+        $missions = Mission::where('bill_id', null)
+            ->where('deliveryNote', null)
+            ->orderBy('zielDatum')
+            ->get();
+        $drivers =  Mission::where('bill_id', null)
+            ->select('fahrer')
+            ->orderBy('fahrer')
+            ->distinct()
+            ->get();
+        $customers =  Mission::where('bill_id', null)
+            ->select('kunde')
+            ->orderBy('kunde')
+            ->distinct()
+            ->get();
+        $dates = Mission::where('bill_id', null)
+            ->select('zielDatum')
+            ->orderBy('zielDatum')
+            ->distinct()
+            ->get();
+        if ($request->customer != null) {
+            $missions = $missions->where('kunde', $request->customer);
+        }
+        if ($request->driver != null) {
+            $missions = $missions->where('fahrer', $request->driver);
+        }
+        return view('pages.view', compact('missions', 'dates', 'drivers', 'customers'));    }
+
 }
