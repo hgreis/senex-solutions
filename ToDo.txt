@@ -1,12 +1,14 @@
 ToDo
 
 #01 Lieferscheine eingeben: Auflistung aller Aufträge ohne Lieferschein
+#02 Beim Erstellen mehrerer Rechnungen im gleichen Arbeitsschritt, werden die gleichen Rechnungsnummern vergeben -> SQL: Spalte als integer
 
 
 -> Auflistung aller Aufträge ohne Lieferschein: direkte Eingabemöglichkeit
--> Beim Erstellen mehrerer Rechnungen im gleichen Arbeitsschritt, werden die gleichen Rechnungsnummern vergeben
 -> Auftragssuche: direkte Suche nach ID, Filter: Fahrer/Kunde/Zeitraum
 -> Eine Tour muss in 3 Teilstrecken mit 3 Fahrern aufgeteilt werden können
 -> Zahlungseingang: gestellte Rechnungen quittieren
 -> Zahlungseingang: Mahnwesen
 -> Verbindlichkeiten: Unternehmer-Rechnungen müssen beim Eingang der Rechnung und nach Bezahlung quittiert werden
+
+
