@@ -14,7 +14,7 @@ class AddPathReNumberToBills extends Migration
     public function up()
     {
         Schema::table('bills', function (Blueprint $table) {
-            $table->text('number')->after('id')->nullable();
+            $table->integer('number')->after('id')->nullable();
             $table->text('path')->after('company')->nullable();
         });
     }
