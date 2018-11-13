@@ -21,7 +21,11 @@
 					<th style="padding: 3px"><a class="button" target="_blank" href="/bill/{{ $bill->id }}">Details</a></th>
 					<td style="padding: 3px">{{ $bill->number }} </td>
 					<td style="padding: 3px">{{ $bill->date }}</td>
-					<td style="padding: 3px">{{ $bill->paid }} </td>
+					@if ($bill->paid == null)
+						<td></td>
+					@else
+						<td style="padding: 3px">{{ date_format($bill->paid, 'd.m.Y') }} </td>
+					@endif
 					<td style="padding: 3px">{{ $bill->customer }}</td>
 					<td style="padding: 3px">{{ $bill->priceNet }} €</td>
 					<td style="padding: 3px">{{ number_format($bill->priceGross, 2, ',', ' ') }} €</td>
