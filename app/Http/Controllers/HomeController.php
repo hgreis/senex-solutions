@@ -21,22 +21,19 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function dekra() {
-        return view('dekra');
-    }
-
         
     public function menu() {
         return view('pages.menu');
     }
     
-
-
-   public function config() {
-        $companies = Company::all();
-        return view('pages.config', compact('companies'));
+    public function menu_invoice() {
+        return view('pages.menu_invoice');
     }
-    
+
+    public function menu_config() {
+        return view('pages.menu_config');
+    }
+
     public function configSafe(Request $request)
     {   
         if (isset($request->saved))

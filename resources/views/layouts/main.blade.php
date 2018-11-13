@@ -27,8 +27,8 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/menu">Auftragsabwicklung</a></li>
-                <li><a href="/dekra">Transport</a></li>
-                <li><a href="/config">Konfiguration</a></li>
+                <li><a href="/menu_invoice">Rechnungswesen</a></li>
+                <li><a href="/menu_config">Konfiguration</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

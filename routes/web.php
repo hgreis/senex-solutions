@@ -8,6 +8,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('HomeController@index');
 Route::get('/menu', 'HomeController@menu')->name('HomeController@menu');
+Route::get('/menu_invoice', 'HomeController@menu_invoice')->name('HomeController@menu_invoice');
+Route::get('/menu_config', 'HomeController@menu_config')->name('HomeController@menu_config');
 Route::get('/mission/new', 'MissionController@mission_new')->name('MissionController@mission_new');
 Route::post('/mission/new', 'MissionController@mission_submit')->name('mission_submit');
 Route::get('/mission/view', 'MissionController@viewMissions')->name('viewMissions');
@@ -18,8 +20,8 @@ Route::get('/bill', 'MissionController@createBill');
 Route::post('/saveBill', 'MissionController@saveBill');
 Route::get('/invoices/{id}', 'MissionController@listInvoices');
 Route::get('/bill/{id}', 'MissionController@showBill');
-
 Route::get('/mission/viewNoDeliveryNote', 'MissionController@viewNoDeliveryNote')->name('viewNoDeliveryNote');
+
 
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');
