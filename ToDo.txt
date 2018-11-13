@@ -3,6 +3,9 @@ ToDo
 #01 Lieferscheine eingeben: Auflistung aller Aufträge ohne Lieferschein
 #02 Beim Erstellen mehrerer Rechnungen im gleichen Arbeitsschritt, werden die gleichen Rechnungsnummern vergeben -> sql: integer
 #03 Menü aufräumen
+#04 Rechnungsübersicht: falsche Statist entfernt, Bezahlt-Datum eingeführt
+	Migration: bei der letzten migration Datumsfeld paid hinzugefügt
+
 
 
 -> Auflistung aller Aufträge ohne Lieferschein: direkte Eingabemöglichkeit

@@ -11,10 +11,11 @@ use App\Company;
 
 class Bill extends Model
 {
+    protected $table = 'bills';
     protected $fillable = [
-    	'date', 'priceNet', 'priceGross', 'taxes', 'customer', 'company', 'path', 'number',
+        'date', 'priceNet', 'priceGross', 'taxes', 'customer', 'company', 'path', 'number', 
     ];
-    
+
     public function missions() {
     	return $this->hasMany('App\Mission');
     }
