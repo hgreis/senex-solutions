@@ -5,6 +5,7 @@ ToDo
 #03 Menü aufräumen
 #04 Rechnungsübersicht: falsche Statist entfernt, Bezahlt-Datum eingeführt
 	Migration: bei der letzten migration Datumsfeld paid hinzugefügt
+#05 Zahlungseingang: Auflistung der offenen Rechnungen funktioniert, das weiterleiten der Formular-Daten scheitert
 
 
 

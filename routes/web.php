@@ -19,10 +19,11 @@ Route::get('/customer', 'DriverController@customer')->name('customer');
 Route::get('/bill', 'MissionController@createBill');
 Route::post('/saveBill', 'MissionController@saveBill');
 Route::get('/invoices/{id}', 'MissionController@listInvoices');
+Route::get('/invoicesPaid/{id}', 'MissionController@paidInvoices');
 Route::get('/bill/{id}', 'MissionController@showBill');
 Route::get('/mission/viewNoDeliveryNote', 'MissionController@viewNoDeliveryNote')->name('viewNoDeliveryNote');
 
-
+Route::post('payBill', 'BillController@mission_submit');
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');
 Route::post('/dekra/new', 'MissionController@submit')->name('MissionController@submit');

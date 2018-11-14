@@ -106,22 +106,15 @@ class MissionController extends Controller
 //muss dringend überarbeitet werden
     public function listInvoices($id) {
         $bills = Bill::where('company', $id)->orderBy('id','desc')->get();
-        $missions = array(
-            'jan' => Mission::where('zielDatum', '>=', '2018-01-01')->where('zielDatum', '<=', '2018-01-31')->get(),
-            'feb' => Mission::where('zielDatum', '>=', '2018-02-01')->where('zielDatum', '<=', '2018-02-28')->get(),
-            'mar' => Mission::where('zielDatum', '>=', '2018-03-01')->where('zielDatum', '<=', '2018-03-31')->get(),
-            'apr' => Mission::where('zielDatum', '>=', '2018-04-01')->where('zielDatum', '<=', '2018-04-31')->get(),
-            'may' => Mission::where('zielDatum', '>=', '2018-05-01')->where('zielDatum', '<=', '2018-05-31')->get(),
-            'jun' => Mission::where('zielDatum', '>=', '2018-06-01')->where('zielDatum', '<=', '2018-06-30')->get(),
-            'jul' => Mission::where('zielDatum', '>=', '2018-07-01')->where('zielDatum', '<=', '2018-07-31')->get(),
-            'aug' => Mission::where('zielDatum', '>=', '2018-08-01')->where('zielDatum', '<=', '2018-08-31')->get(),
-            'sep' => Mission::where('zielDatum', '>=', '2018-09-01')->where('zielDatum', '<=', '2018-09-30')->get(),
-            'oct' => Mission::where('zielDatum', '>=', '2018-10-01')->where('zielDatum', '<=', '2018-10-31')->get(),
-            'nov' => Mission::where('zielDatum', '>=', '2018-11-01')->where('zielDatum', '<=', '2018-11-30')->get(),
-            'dec' => Mission::where('zielDatum', '>=', '2018-12-01')->where('zielDatum', '<=', '2018-12-31')->get(),
-            'year' => Mission::where('zielDatum', '>=', '2018-01-01')->where('zielDatum', '<=', '2018-12-31')->get(),
-             );
-        return view('pages.invoices', compact('bills', 'missions', 'id'));
+        return view('pages.invoices', compact('bills', 'id'));
+    }
+
+    public function paidInvoices($id)   {
+        $bills = Bill::where('company', $id)
+            ->where('paid', null)
+            ->orderBy('id','desc')
+            ->get();
+        return view('pages.invoicesPaid', compact('bills', 'id'));
     }
 
     public function mission_new() {
@@ -257,6 +250,6 @@ class MissionController extends Controller
         if ($request->driver != null) {
             $missions = $missions->where('fahrer', $request->driver);
         }
-        return view('pages.view', compact('missions', 'dates', 'drivers', 'customers'));    }
-
+        return view('pages.view', compact('missions', 'dates', 'drivers', 'customers'));    
+    }
 }
