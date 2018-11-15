@@ -6,7 +6,9 @@
 	<div style="background-color: #C10C0C; color: black; padding: 5px">
 @endif
 		<h1 style="text-align: center">Übersicht aller offenen Rechnungen</h1>
+		
 		<form action="/payBill" method="post">
+			{{ csrf_field() }}
 			<table style="width: 100%">
 				<tr>
 					<th style="padding: 3px"></th>
@@ -23,11 +25,12 @@
 						<td style="padding: 3px">{{ $bill->date }}</td>
 						<td style="padding: 3px">{{ $bill->customer }}</td>
 						<td style="padding: 3px">{{ number_format($bill->priceGross, 2, ',', ' ') }} €</td>
-						<td style="text-align: center"><input type="checkbox" name="{{ $bill->id }}"></td>
+						<td style="text-align: center">
+							<button type="button" onclick="window.location.href='/payBill/{{ $bill->id }}'">BEZAHLT</button>
+						</td>
 					</tr>
 				@endforeach
 			</table>
-			<input type="submit" name="submit" class="form-control">
-	</form>
+		</form>
 	</div>	
 @endsection
