@@ -27,7 +27,7 @@
 						<td style="padding: 3px">{{ date_format($bill->paid, 'd.m.Y') }} </td>
 					@endif
 					<td style="padding: 3px">{{ $bill->customer }}</td>
-					<td style="padding: 3px">{{ $bill->priceNet }} €</td>
+					<td style="padding: 3px">{{ number_format($bill->priceNet, 2, ',', ' ') }} €</td>
 					<td style="padding: 3px">{{ number_format($bill->priceGross, 2, ',', ' ') }} €</td>
 				</tr>
 			@endforeach
