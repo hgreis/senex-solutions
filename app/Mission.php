@@ -8,7 +8,7 @@ class Mission extends Model
 {
     protected $table = 'missions';
     protected $fillable = [
-    	'startDatum', 'startName', 'startStrasse', 'startOrt', 'startLand', 'startBemerkung', 'zielDatum', 'zielName', 'zielStrasse', 'zielOrt', 'zielLand', 'zielBemerkung', 'preisFahrer', 'preisKunde', 'fahrer', 'company', 'kunde', 'kundeBemerkung', 'bill_id', 
+    	'startDatum', 'startName', 'startStrasse', 'startOrt', 'startLand', 'startBemerkung', 'zielDatum', 'zielName', 'zielStrasse', 'zielOrt', 'zielLand', 'zielBemerkung', 'preisFahrer', 'preisKunde', 'fahrer', 'company', 'kunde', 'kundeBemerkung', 'bill_id', 'bill_paid', 'credit', 'credit_paid'
     ];
     /**
     * get the driver for this mission

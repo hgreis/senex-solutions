@@ -7,7 +7,10 @@ ToDo
 	Migration: bei der letzten migration Datumsfeld paid hinzugefügt
 #05 Zahlungseingang: Auflistung der offenen Rechnungen funktioniert, das weiterleiten der Formular-Daten scheitert
 #05.01 Zahlungseingang: Zeitstempel wird korrekt eingetragen, redirect
+#05.02 Missions: add column bill_paid / credit / credit_paid
+#05.03 function listForCredits($company): gibt die Fahrer mit bezahlten Auftraggeber-Rechnungen, aber nicht bezahlte Unternehmer-Rechnungen aus
 
+-> Gutschriften: wenn der Geldeingang vom Auftraggeber verbucht ist, soll eine Gutschrift an die Unternehmer erstellt werden, die Fahrten auf dieser Rechnung getätigt haben
 
 -> Auflistung aller Aufträge ohne Lieferschein: direkte Eingabemöglichkeit
 -> Auftragssuche: direkte Suche nach ID, Filter: Fahrer/Kunde/Zeitraum
@@ -15,6 +18,4 @@ ToDo
 -> Zahlungseingang: gestellte Rechnungen quittieren
 -> Zahlungseingang: Mahnwesen
 -> Verbindlichkeiten: Unternehmer-Rechnungen müssen beim Eingang der Rechnung und nach Bezahlung quittiert werden
--> Gutschriften: wenn der Geldeingang vom Auftraggeber verbucht ist, soll eine Gutschrift an die Unternehmer erstellt werden, die Fahrten auf dieser Rechnung getätigt
-
 

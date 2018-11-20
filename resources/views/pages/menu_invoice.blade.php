@@ -12,8 +12,8 @@
             <button class="brownButton" onclick="window.location.href='/invoicesPaid/1'" >Zahlungseingang</button>
             <button class="pinkButton" onclick="window.location.href='/invoicesPaid/2'" >Zahlungseingang</button><hr>
             <h2>Unternehmer - Gutschriften</h2>
-            <button class="brownButton" onclick="window.location.href='/invoices/1'" >Gutschrift erstellen</button>
-            <button class="pinkButton" onclick="window.location.href='/invoices/2'" >Gutschrift erstellen</button>
+            <button class="brownButton" onclick="window.location.href='/credits/1'" >Gutschrift erstellen</button>
+            <button class="pinkButton" onclick="window.location.href='/credits/2'" >Gutschrift erstellen</button>
         </p>
     </div>
 @endsection
