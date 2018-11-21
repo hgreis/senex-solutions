@@ -25,28 +25,24 @@ class BillController extends Controller
     public function listForCredits($company) {
         if($company == 1) {
             $drivers = Driver::whereHas('missions', function($query) {
-                    $query->whereNotNull('bill_id')
-                        ->where('company', 1)
-                        ->whereNotNull('bill_paid');
+                    $query->whereNull('credit')
+                        ->where('company', 1);
                 })->with(['missions' => function($query) {
-                    $query->whereNotNull('bill_id')
-                        ->where('company', 1)
-                        ->whereNotNull('bill_paid');
+                    $query->whereNull('credit')
+                        ->where('company', 1);
                 }])->orderBy('name')->get();
         }
         if($company == 2) {
             $drivers = Driver::whereHas('missions', function($query) {
-                    $query->whereNotNull('bill_id')
-                        ->where('company', 2)
-                        ->whereNotNull('bill_paid');
+                    $query->whereNull('credit')
+                        ->where('company', 2);
                 })->with(['missions' => function($query) {
-                    $query->whereNotNull('bill_id')
-                        ->where('company', 2)
-                        ->whereNotNull('bill_paid');
+                    $query->whereNull('credit')
+                        ->where('company', 2);
                 }])->orderBy('name')->get();
         }
 
-        return $drivers;
+        return view('pages.creditsGenerate', compact('company', 'drivers'));
     }
 }
 

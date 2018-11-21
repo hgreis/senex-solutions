@@ -9,6 +9,8 @@ ToDo
 #05.01 Zahlungseingang: Zeitstempel wird korrekt eingetragen, redirect
 #05.02 Missions: add column bill_paid / credit / credit_paid
 #05.03 function listForCredits($company): gibt die Fahrer mit bezahlten Auftraggeber-Rechnungen, aber nicht bezahlte Unternehmer-Rechnungen aus
+#05.04 listForCredits($company): Ausgabe übersichtlich gestaltet
+
 
 -> Gutschriften: wenn der Geldeingang vom Auftraggeber verbucht ist, soll eine Gutschrift an die Unternehmer erstellt werden, die Fahrten auf dieser Rechnung getätigt haben
 
