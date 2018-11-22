@@ -254,6 +254,7 @@ class MissionController extends Controller
     }
 
     public function overview($id) {
-        return $id;
+        $mission = Mission::find($id);
+        return view('pages.mission_overview', compact('mission'));
     }
 }

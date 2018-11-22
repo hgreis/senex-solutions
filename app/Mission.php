@@ -16,6 +16,12 @@ class Mission extends Model
     public function driver() {
     	return $this->belongsTo('App\Driver', 'fahrer', 'name');
     }
+
+    // public function driver() {
+    //     return $this->hasOne('App\Driver', 'fahrer', 'name');
+    // }
+
+    
     /**
     * get a customer for this mission
     */
