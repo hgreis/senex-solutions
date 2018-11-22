@@ -15,6 +15,7 @@ Route::post('/mission/new', 'MissionController@mission_submit')->name('mission_s
 Route::get('/mission/view', 'MissionController@viewMissions')->name('viewMissions');
 Route::get('/mission/view/{id}', 'MissionController@viewMission');
 Route::get('/mission/viewNoDriver', 'MissionController@viewNoDriver')->name('viewNoDriver');
+Route::get('/mission_overview/{id}', 'MissionController@overview')->name('overview');
 Route::get('/customer', 'DriverController@customer')->name('customer');
 Route::get('/bill', 'MissionController@createBill');
 Route::post('/saveBill', 'MissionController@saveBill');
@@ -23,7 +24,6 @@ Route::get('/invoicesPaid/{id}', 'MissionController@paidInvoices');
 Route::get('/bill/{id}', 'MissionController@showBill');
 Route::get('/mission/viewNoDeliveryNote', 'MissionController@viewNoDeliveryNote')->name('viewNoDeliveryNote');
 Route::get('/payBill/{id}', 'BillController@payBill')->name('payBill');
-
 
 Route::get('/credits/{company}', 'BillController@listForCredits')->name('listForCredits');
 

@@ -10,7 +10,7 @@ ToDo
 #05.02 Missions: add column bill_paid / credit / credit_paid
 #05.03 function listForCredits($company): gibt die Fahrer mit bezahlten Auftraggeber-Rechnungen, aber nicht bezahlte Unternehmer-Rechnungen aus
 #05.04 listForCredits($company): Ausgabe übersichtlich gestaltet
-
+#05.05 Detail-Button leitet auf neuen Tab weiter, hier sollen alle Auftrags-Details hin
 
 -> Gutschriften: wenn der Geldeingang vom Auftraggeber verbucht ist, soll eine Gutschrift an die Unternehmer erstellt werden, die Fahrten auf dieser Rechnung getätigt haben
 

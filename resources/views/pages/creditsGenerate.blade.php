@@ -13,7 +13,7 @@
 		<div class="redbox"> 
 	@endif
 			<div class="flip">
-				<h2>{{ $driver->name }}</h2>
+				<h3>{{ $driver->name }}</h3>
 			</div>
 			<div class='panel'>
 				@foreach($driver->missions as $mission)
@@ -21,9 +21,22 @@
 						<tr>
 							<td><input type="checkbox"></td>
 							@if( $mission->bill_paid != null)
-								<td style="width: 100px"><button style="color: black; background-color: green; width: 80px">{{ $mission->id }}</button></td>
+								<td style="width: 100px">
+									<a class="button" 
+										target="_blank" 
+										href="/mission_overview/{{ $mission->id }}"
+										style="color: black; background-color: green;">Tour-Nr.: {{ $mission->id }}
+									</a>
+								</td>
+
 							@else
-								<td style="width: 100px"><button style="color: black; background-color: red; width: 80px">{{ $mission->id }}</button></td>
+								<td style="width: 100px">
+									<a class="button" 
+										target="_blank" 
+										href="/mission_overview/{{ $mission->id }}"
+										style="color: black; background-color: red;">Tour-Nr.: {{ $mission->id }}
+									</a>
+								</td>
 							@endif
 							<td style="width: 100px">{{ $mission->startDatum }}</td>
 							<td style="width: 300px">{{ $mission->kunde}}</td>

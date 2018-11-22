@@ -252,4 +252,8 @@ class MissionController extends Controller
         }
         return view('pages.view', compact('missions', 'dates', 'drivers', 'customers'));    
     }
+
+    public function overview($id) {
+        return $id;
+    }
 }
