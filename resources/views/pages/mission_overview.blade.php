@@ -1,61 +1,56 @@
 @extends('layouts.main')
 @section('content')
-    <h2>Auftragsübersicht #{{ $mission->id }}</h2><br> 
+@if($mission->company == 1)
+    <h2>STRERATH TRANSPORTE - Auftragsübersicht #{{ $mission->id }}</h2>
+@else
+    <h2>SABINE HEINRICHS TRANSPORTE - Auftragsübersicht #{{ $mission->id }}</h2>
+@endif
     <h3>Touren-Details</h3>
         <table style="width: 100%">
             <tr>
-                <th style="width: 60px"></th>
-                <th style="width: 100px">Datum</th>
-                <th>Name</th>
-                <th>Strasse</th>
-                <th>Ort</th>
-                <th>Bemerkung</th>
+                <th style="width: 50%">Abholung</th>
+                <th style="width: 50%">Auslieferung</th>
             </tr>
             <tr>
-                <td><b>START:</b></td>
-                <td>{{ $mission->startDatum }}</td>
-                <td>{{ $mission->startName }}</td>
-                <td>{{ $mission->startStrasse }}</td>
-                <td>{{ $mission->startOrt }}</td>
-                <td>{{ $mission->startBemerkung }}</td>
-            </tr>
-            <tr>
-                <td><b>ZIEL:</b></td>
-                <td>{{ $mission->zielDatum }}</td>
-                <td>{{ $mission->zielName }}</td>
-                <td>{{ $mission->zielStrasse }}</td>
-                <td>{{ $mission->zielOrt }}</td>
-                <td>{{ $mission->zielBemerkung }}</td>
+                <td style="padding-right: 30px">
+                    Datum: {{ $mission->startDatum }}<br>
+                    Name: {{ $mission->startName }}<br>
+                    Strasse: {{ $mission->startStrasse }}<br>
+                    Ort: {{ $mission->startOrt }}<br>
+                    Bemerkung: {{ $mission->startBemerkung }}
+                </td>
+                <td>
+                    Datum: {{ $mission->zielDatum }}<br>
+                    Name: {{ $mission->zielName }}<br>
+                    Strasse: {{ $mission->zielStrasse }}<br>
+                    Ort: {{ $mission->zielOrt }}<br>
+                    Bemerkung: {{ $mission->zielBemerkung }}
+                </td>
             </tr>
         </table><hr>
     <h3>Fahrer-Details</h3>
-        <table>
+        <table style="width: 100%">
             <tr>
-                <td style="padding: 10px">
-                    <b>Fahrer: </b>{{ $mission->driver->name }}
-                </td>
-                <td style="padding: 10px">
-                    Telefon: {{ $mission->driver->phone }}
-                </td>
-                <td style="padding: 10px">
+                <th><b>Fahrer</b></th>
+                <th><b>Unternehmer</b></th>
+                <th><b>Vergütung</b></th>
+            </tr>
+            <tr>
+                <td>
+                    Name: {{ $mission->driver->name }}<br>
+                    Telefon: {{ $mission->driver->phone }}<br>
                     Nummernschild: {{ $mission->driver->number_plate }}
                 </td>
-            </tr>
-            <tr>
-                <td style="padding: 10px">
-                    <b>Unternehmer: </b>{{ $mission->driver->contractor }}
-                </td>
-                <td style="padding: 10px">
-                    Anschrift: {{ $mission->driver->street }}, {{ $mission->driver->city }}
-                </td>
-                <td style="padding: 10px">
+                <td>
+                    Firma: {{ $mission->driver->contractor }}<br>
+                    Anschrift: {{ $mission->driver->street }}, {{ $mission->driver->city }}<br>
                     Emailadresse: {{ $mission->driver->email }}
                 </td>
-            </tr>
-            <tr>
-                <td style="padding: 10px">Vergütung: {{ $mission->preisFahrer }} €</td>
-                <td style="padding: 10px">Gutschrift-Nr.:  </td>
-                <td style="padding: 10px">Bezahlt am: </td>
+                <td>
+                    Vereinbarter Preis: {{ $mission->preisFahrer }} €<br>
+                    Gutschrift-Nr.: <br>
+                    Bezahlt am: 
+                </td>
             </tr>
         </table><hr>
     <h3>Auftraggeber</h3>
