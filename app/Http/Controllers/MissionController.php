@@ -255,6 +255,10 @@ class MissionController extends Controller
 
     public function overview($id) {
         $mission = Mission::find($id);
+        if(isset($mission->bill_id))    {
+            $mission->bill_number = Bill::find($mission->bill_id)->number;
+            $mission->bill_price = Bill::find($mission->bill_id)->priceGross;
+        }
         return view('pages.mission_overview', compact('mission'));
     }
 }

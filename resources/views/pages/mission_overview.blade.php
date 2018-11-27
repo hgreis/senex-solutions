@@ -26,6 +26,22 @@
                     Ort: {{ $mission->zielOrt }}<br>
                     Bemerkung: {{ $mission->zielBemerkung }}
                 </td>
+            </tr><tr><td>&nbsp;</td></tr>
+            <tr>
+                <td>Auftragsbestätigung: 
+                    @if($mission->missionConfirmation == null)
+                        <b style="color: red">KEINE AUFTRAGSBESTÄTIGUNG HINTERLEGT</b>
+                    @else
+                        <a href="/uploads/{{$mission->id}} Auftragsbestaetigung.pdf" target="_blank">{{ $mission->id }} Auftragsbestätigung.pdf </a>
+                    @endif
+                </td>
+                <td>Ablieferbeleg: 
+                    @if($mission->deliveryNote == null)
+                        <b style="color: red">KEIN ABLIEFERBELEG HINTERLEGT</b>
+                    @else
+                        <a href="/uploads/{{$mission->id}} Lieferschein.pdf" target="_blank">{{ $mission->id }} Ablieferbeleg.pdf </a>
+                    @endif
+                </td>
             </tr>
         </table><hr>
     <h3>Fahrer-Details</h3>
@@ -47,11 +63,39 @@
                     Emailadresse: {{ $mission->driver->email }}
                 </td>
                 <td>
-                    Vereinbarter Preis: {{ $mission->preisFahrer }} €<br>
+                    Vereinbarter Preis: {{ number_format($mission->preisFahrer, 2) }} €<br>
                     Gutschrift-Nr.: <br>
                     Bezahlt am: 
                 </td>
             </tr>
         </table><hr>
     <h3>Auftraggeber</h3>
+        <table style="width: 100%">
+            <tr>
+                <td>
+                    <b>{{ $mission->customer->name }}</b><br>
+                    {{ $mission->customer->street }}<br>
+                    {{ $mission->customer->city}}<br>
+                </td>
+                <td>
+                    <b>Kontaktdaten:</b><br>
+                    Telefon: {{ $mission->customer->phone }}<br>
+                    Email: {{ $mission->customer->email }}
+                </td>
+                <td>
+                    Tourenpreis: {{ number_format($mission->preisKunde, 2) }} €<br>
+                        @if(isset($mission->bill_id))
+                            Rechnungsnummer: RE-{{ $mission->bill_number }}<br>
+                        @else
+                            <b style="color: red"> ES WURDE NOCH KEINE RECHNUNG ERSTELLT</b><br>
+                        @endif
+                    Rechnungsbetrag: {{ number_format($mission->bill_price,2) }}€<br>
+                    Zahlungseingang: {{ $mission->bill_paid }}<br>
+                </td>
+            </tr>
+        </table>
 @endsection
+
+
+
+

@@ -19,7 +19,8 @@ class Bill extends Model
 
 
     public function missions() {
-    	return $this->hasMany('App\Mission');
+    	return $this->hasMany('App\Mission', 'bill_id', 'id');
+
     }
 
     public function company() {
