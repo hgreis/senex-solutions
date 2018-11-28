@@ -5,12 +5,16 @@
 	</script>
 
 	<h1 style="text-align: center">Unternehmer-Gutschrift erstellen</h1>
+	<form action="/saveCredit" method="post">
+				{{ csrf_field() }}
 	
 @foreach($drivers as $driver)
 	@if($company == 2)
 		<div class="pinkbox"> 
+		<input type="hidden" name="company" value="2">
 	@else
 		<div class="redbox"> 
+		<input type="hidden" name="company" value="1">
 	@endif
 			<div class="flip">
 				<h3>{{ $driver->name }}</h3>
@@ -19,7 +23,9 @@
 				@foreach($driver->missions as $mission)
 					<table>
 						<tr>
-							<td><input type="checkbox"></td>
+							<td>
+								<input type="checkbox" name="{{ $mission->id }}">
+							</td>
 							@if( $mission->deliveryNote != null)
 								<td style="width: 100px">
 									<a class="button" 
@@ -46,12 +52,17 @@
 						</tr>
 					</table>	
 				@endforeach	
-				<button class="form-control" style="background-color: grey; color: white"><b>Gutschrift erstellen</b></button>	
+				<button class="form-control" 
+						value="{{ $mission->fahrer }}"
+						name="submit" 
+						style="background-color: grey; color: white">
+							<b>Gutschrift erstellen</b>
+				</button>	
 			</div>
 		</div>
 @endforeach
-
-
+	</div>
+	</form>
 
 
 	<script>

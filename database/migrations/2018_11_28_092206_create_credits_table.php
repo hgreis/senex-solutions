@@ -16,11 +16,11 @@ class CreateCreditsTable extends Migration
         Schema::create('credits', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamp('date');
-            $table->integer('number');
+            $table->integer('number')->nullable();
             $table->text('company');
-            $table->float('priceNet');
-            $table->float('priceGross');
-            $table->timestamp('credit_paid');
+            $table->float('priceNet')->nullable();
+            $table->float('priceGross')->nullable();
+            $table->timestamp('credit_paid')->nullable();
             $table->timestamps();
         });
     }
