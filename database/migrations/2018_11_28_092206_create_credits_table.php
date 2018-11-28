@@ -16,6 +16,7 @@ class CreateCreditsTable extends Migration
         Schema::create('credits', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamp('date');
+            $table->integer('driver');
             $table->integer('number')->nullable();
             $table->text('company');
             $table->float('priceNet')->nullable();

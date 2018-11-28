@@ -1,7 +1,6 @@
 ToDo
 
 
--> Gutschriften: PDF generieren
 -> Gutschriften: Übersicht erstellen
 -> Gutschriften: Überweisung bestätigen
 
@@ -16,6 +15,7 @@ ToDo
 
 
 
+#05.10 Gutschriften: PDF generieren
 #05.09 Gutschriften: Nummer generieren
 #05.08 Gutschrift: Model mit Daten befüllen
 #05.07 Gutschrift: Model Credit erstellen & Migration

@@ -19,6 +19,7 @@ class CreditController extends Controller
     public function saveCredit(Request $request)	{
     	$summe = 0;
     	$driver = Driver::where('name', $request->submit)->first();
+        $driver->company = Company::find($request->company);
     	$driver->missions = Mission::where('fahrer', $driver->name)
     				->where('company', $request->company)
     				->where('credit', null)
@@ -26,22 +27,21 @@ class CreditController extends Controller
     	
     	$credit = new Credit;
     	$credit->date = now();
+        $credit->driver = $driver->id;
     	$credit->company = $request->company;
     	$credit->number = $credit->getNumber();
     	$credit->save();
     	foreach ($driver->missions as $mission) {
     		if(isset($request[$mission->id])) {
-    			Mission::find($mission->id)->update(['credit' => $credit->id]);
+    			Mission::find($mission->id)->update(['credit' => $credit->number]);
     			$summe = $summe + $mission->preisFahrer;
     		}
     	}
     	$credit->priceNet = $summe;
     	$credit->priceGross = $summe * 1.19;
     	$credit->save();
+        $credit->savePDF();
 
-    	if ($request->company == 2)  {
-        return redirect('/credits/2');
-        }
-        return redirect('/credits/1');
+        return redirect('/credits/'.$request->company);
     }
 }
