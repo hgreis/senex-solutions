@@ -39,6 +39,9 @@ class CreditController extends Controller
     	$credit->priceGross = $summe * 1.19;
     	$credit->save();
 
-    	return $summe;
+    	if ($request->company == 2)  {
+        return redirect('/credits/2');
+        }
+        return redirect('/credits/1');
     }
 }
