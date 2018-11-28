@@ -16,6 +16,10 @@ class Credit extends Model
 	}
 
 	public function getNumber()	{
-		return 7777;
+		return Credit::where('company', $this->company)->max('number')+1;
+	}
+
+	public function savePDF()	{
+		return;
 	}
 }

@@ -1,8 +1,10 @@
 ToDo
 
 
--> Gutschriften: Nummer generieren
 -> Gutschriften: PDF generieren
+-> Gutschriften: Übersicht erstellen
+-> Gutschriften: Überweisung bestätigen
+
 
 
 -> Auflistung aller Aufträge ohne Lieferschein: direkte Eingabemöglichkeit
@@ -14,6 +16,7 @@ ToDo
 
 
 
+#05.09 Gutschriften: Nummer generieren
 #05.08 Gutschrift: Model mit Daten befüllen
 #05.07 Gutschrift: Model Credit erstellen & Migration
 #05.06 Auftrag-Details

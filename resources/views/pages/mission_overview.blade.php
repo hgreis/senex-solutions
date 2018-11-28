@@ -64,8 +64,8 @@
                 </td>
                 <td>
                     Vereinbarter Preis: {{ number_format($mission->preisFahrer, 2) }} €<br>
-                    Gutschrift-Nr.: <br>
-                    Bezahlt am: 
+                    Gutschrift-Nr.: {{ $mission->credit }} <br>
+                    Bezahlt am: {{ $mission->credit_paid }}
                 </td>
             </tr>
         </table><hr>
