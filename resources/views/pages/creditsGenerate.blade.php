@@ -20,7 +20,7 @@
 					<table>
 						<tr>
 							<td><input type="checkbox"></td>
-							@if( $mission->bill_paid != null)
+							@if( $mission->deliveryNote != null)
 								<td style="width: 100px">
 									<a class="button" 
 										target="_blank" 

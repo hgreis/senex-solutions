@@ -8,7 +8,7 @@ class Customer extends Model
 {
     protected $table='customers';
     protected $fillable=[
-    	'name','street','city','country','phone','email','notice', 'taxes','duration', 
+    	'name','street','city','country','phone','email','notice', 'taxes', 'duration', 
     ];
 
     public function missions() {
