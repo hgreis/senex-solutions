@@ -14,7 +14,7 @@ ToDo
 -> Verbindlichkeiten: Unternehmer-Rechnungen müssen beim Eingang der Rechnung und nach Bezahlung quittiert werden
 
 
-
+#05.11 Gutschriften: Menü-Rechnungswesen optimiert
 #05.10 Gutschriften: PDF generieren
 #05.09 Gutschriften: Nummer generieren
 #05.08 Gutschrift: Model mit Daten befüllen
