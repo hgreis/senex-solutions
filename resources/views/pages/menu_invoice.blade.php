@@ -19,6 +19,8 @@
             <h2>Unternehmer-Gutschriften</h2>
             <button class="brownButton" onclick="window.location.href='/credits/1'" >Gutschrift erstellen</button>
             <button class="pinkButton" onclick="window.location.href='/credits/2'" >Gutschrift erstellen</button><br>
+            <button class="brownButton" onclick="window.location.href='/listCredits/1'" >Gutschriften Übersicht</button>
+            <button class="pinkButton" onclick="window.location.href='/listCredits/2'" >Gutschriften Übersicht</button><br>
             <button class="brownButton" onclick="window.location.href=''" >Überweisung bestätigen</button>
             <button class="pinkButton" onclick="window.location.href=''" >Überweisung bestätigen</button>
         </div>

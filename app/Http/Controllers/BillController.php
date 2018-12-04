@@ -9,6 +9,7 @@ use App\Bill;
 use App\Mission;
 use App\Customer;
 use App\Driver;
+use App\Credit;
     
 class BillController extends Controller
 {
@@ -41,8 +42,16 @@ class BillController extends Controller
                         ->where('company', 2);
                 }])->orderBy('name')->get();
         }
-
         return view('pages.creditsGenerate', compact('company', 'drivers'));
+    }
+
+    public function listCredits($company)   {
+        $credits = Credit::where('company', $company)->get()->sortByDesc('number');
+        $credits->company = $company;
+        foreach ($credits as $credit) {
+            $credit->driver = Driver::find($credit->driver);
+        }
+        return view('pages.listCredits', compact('credits'));
     }
 }
 
