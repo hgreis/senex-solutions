@@ -44,4 +44,35 @@ class CreditController extends Controller
 
         return redirect('/credits/'.$request->company);
     }
+
+    public function listForCredits($company) {
+        if($company == 1) {
+            $drivers = Driver::whereHas('missions', function($query) {
+                    $query->whereNull('credit')
+                        ->where('company', 1);
+                })->with(['missions' => function($query) {
+                    $query->whereNull('credit')
+                        ->where('company', 1);
+                }])->orderBy('name')->get();
+        }
+        if($company == 2) {
+            $drivers = Driver::whereHas('missions', function($query) {
+                    $query->whereNull('credit')
+                        ->where('company', 2);
+                })->with(['missions' => function($query) {
+                    $query->whereNull('credit')
+                        ->where('company', 2);
+                }])->orderBy('name')->get();
+        }
+        return view('pages.creditsGenerate', compact('company', 'drivers'));
+    }
+
+    public function listCredits($company)   {
+        $credits = Credit::where('company', $company)->get()->sortByDesc('number');
+        $credits->company = $company;
+        foreach ($credits as $credit) {
+            $credit->driver = Driver::find($credit->driver);
+        }
+        return view('pages.listCredits', compact('credits'));
+    }
 }
