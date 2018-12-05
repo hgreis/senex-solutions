@@ -8,26 +8,26 @@ ToDo
 -> Verbindlichkeiten: Unternehmer-Rechnungen müssen beim Eingang der Rechnung und nach Bezahlung quittiert werden
 
 
+-> Fahrtenauflistung zur Gutschriftserstellung
 
 
-
-
-#05.13 Gutschriften: Überweisung bestätigen
-#05.12 Gutschriften: Übersicht erstellt
-#05.11 Gutschriften: Menü-Rechnungswesen optimiert
-#05.10 Gutschriften: PDF generieren
-#05.09 Gutschriften: Nummer generieren
-#05.08 Gutschrift: Model mit Daten befüllen
-#05.07 Gutschrift: Model Credit erstellen & Migration
-#05.06 Auftrag-Details
-#05.05 Detail-Button leitet auf neuen Tab weiter, hier sollen alle Auftrags-Details hin
-#05.04 listForCredits($company): Ausgabe übersichtlich gestaltet
-#05.03 function listForCredits($company): gibt die Fahrer mit bezahlten Auftraggeber-Rechnungen, aber nicht bezahlte Unternehmer-Rechnungen aus
-#05.02 Missions: add column bill_paid / credit / credit_paid
-#05.01 Zahlungseingang: Zeitstempel wird korrekt eingetragen, redirect
-#05 Zahlungseingang: Auflistung der offenen Rechnungen funktioniert, das weiterleiten der Formular-Daten scheitert
-#04 Rechnungsübersicht: falsche Statist entfernt, Bezahlt-Datum eingeführt
+#06.01	Fahrtenauflistung zur Gutschriftserstellung: model, migration, data->view
+#05.13 	Gutschriften: Überweisung bestätigen
+#05.12 	Gutschriften: Übersicht erstellt
+#05.11 	Gutschriften: Menü-Rechnungswesen optimiert
+#05.10 	Gutschriften: PDF generieren
+#05.09 	Gutschriften: Nummer generieren
+#05.08 	Gutschrift: Model mit Daten befüllen
+#05.07 	Gutschrift: Model Credit erstellen & Migration
+#05.06 	Auftrag-Details
+#05.05 	Detail-Button leitet auf neuen Tab weiter, hier sollen alle Auftrags-Details hin
+#05.04 	listForCredits($company): Ausgabe übersichtlich gestaltet
+#05.03 	function listForCredits($company): gibt die Fahrer mit bezahlten Auftraggeber-Rechnungen, aber nicht bezahlte Unternehmer-Rechnungen aus
+#05.02 	Missions: add column bill_paid / credit / credit_paid
+#05.01 	Zahlungseingang: Zeitstempel wird korrekt eingetragen, redirect
+#05 	Zahlungseingang: Auflistung der offenen Rechnungen funktioniert, das weiterleiten der Formular-Daten scheitert
+#04 	Rechnungsübersicht: falsche Statist entfernt, Bezahlt-Datum eingeführt
 	Migration: bei der letzten migration Datumsfeld paid hinzugefügt
-#03 Menü aufräumen
-#02 Beim Erstellen mehrerer Rechnungen im gleichen Arbeitsschritt, werden die gleichen Rechnungsnummern vergeben -> sql: integer
-#01 Lieferscheine eingeben: Auflistung aller Aufträge ohne Lieferschein
+#03 	Menü aufräumen
+#02 	Beim Erstellen mehrerer Rechnungen im gleichen Arbeitsschritt, werden die gleichen Rechnungsnummern vergeben -> sql: integer
+#01 	Lieferscheine eingeben: Auflistung aller Aufträge ohne Lieferschein
