@@ -1,11 +1,5 @@
 ToDo
 
-
--> Gutschriften: Übersicht erstellen
--> Gutschriften: Überweisung bestätigen
-
-
-
 -> Auflistung aller Aufträge ohne Lieferschein: direkte Eingabemöglichkeit
 -> Auftragssuche: direkte Suche nach ID, Filter: Fahrer/Kunde/Zeitraum
 -> Eine Tour muss in 3 Teilstrecken mit 3 Fahrern aufgeteilt werden können
@@ -14,6 +8,11 @@ ToDo
 -> Verbindlichkeiten: Unternehmer-Rechnungen müssen beim Eingang der Rechnung und nach Bezahlung quittiert werden
 
 
+
+
+
+
+#05.13 Gutschriften: Überweisung bestätigen
 #05.12 Gutschriften: Übersicht erstellt
 #05.11 Gutschriften: Menü-Rechnungswesen optimiert
 #05.10 Gutschriften: PDF generieren

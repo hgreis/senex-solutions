@@ -17,6 +17,7 @@
 				<th>Unternehmer</th>
 				<th style="text-align: center">Netto</th>
 				<th style="text-align: center">Brutto</th>
+				<th></th>
 			</tr>
 			@foreach( $credits as $credit)
 				<tr>
@@ -29,14 +30,13 @@
 					</td>
 					<td>{{ $credit->number }} </td>
 					<td>{{ date_format(date_create($credit->date), 'd.m.Y') }}</td>
-					@if($credit->credit_paid != null)
-						<td>{{ date_format(date_create($credit->credit_paid), 'd.m.Y') }}</td>
-					@else
-						<td></td>
-					@endif
+					<td>{{ $credit->credit_paid }}</td>
 					<td>{{ $credit->driver->name }}</td>
 					<td style="text-align: right; width: 80px">{{ number_format($credit->priceNet, 2, ',', ' ') }} €</td>
 					<td style="text-align: right; width: 80px">{{ number_format($credit->priceGross, 2, ',', ' ') }} €</td>
+					<td style="text-align: center">
+							<button type="button" onclick="window.location.href='/payCredit/{{ $credit->id }}'">BEZAHLT</button>
+					</td>
 				</tr>
 			@endforeach
 		</table>

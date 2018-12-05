@@ -75,4 +75,22 @@ class CreditController extends Controller
         }
         return view('pages.listCredits', compact('credits'));
     }
+
+    public function payCredits($company) {
+        $credits = Credit::where('company', $company)
+            ->where('credit_paid', null)
+            ->get();
+        $credits->company = $company;
+        foreach ($credits as $credit) {
+            $credit->driver = Driver::find($credit->driver);
+        }
+        return view('pages.payCredits', compact('credits'));
+    }
+
+    public function payCredit($id)  {
+        $credit = Credit::find($id);
+        $credit->credit_paid = now();
+        $credit->save();
+        return redirect('/payCredits/'.$credit->company);
+    }
 }

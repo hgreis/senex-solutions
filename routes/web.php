@@ -26,8 +26,11 @@ Route::get('/mission/viewNoDeliveryNote', 'MissionController@viewNoDeliveryNote'
 Route::get('/payBill/{id}', 'BillController@payBill')->name('payBill');
 Route::get('/credits/{company}', 'CreditController@listForCredits')->name('listForCredits');
 Route::post('/saveCredit', 'CreditController@saveCredit')->name('saveCredit');
-
 Route::get('/listCredits/{company}', 'CreditController@listCredits')->name('listCredits');
+
+
+Route::get('/payCredits/{company}', 'CreditController@payCredits')->name('payCredits');
+Route::get('/payCredit/{id}', 'CreditController@payCredit')->name('payCredit');
 
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');

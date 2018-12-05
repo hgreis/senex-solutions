@@ -21,7 +21,7 @@
             <button class="pinkButton" onclick="window.location.href='/credits/2'" >Gutschrift erstellen</button><br>
             <button class="brownButton" onclick="window.location.href='/listCredits/1'" >Gutschriften Übersicht</button>
             <button class="pinkButton" onclick="window.location.href='/listCredits/2'" >Gutschriften Übersicht</button><br>
-            <button class="brownButton" onclick="window.location.href=''" >Überweisung bestätigen</button>
-            <button class="pinkButton" onclick="window.location.href=''" >Überweisung bestätigen</button>
+            <button class="brownButton" onclick="window.location.href='/payCredits/1'" >Überweisung bestätigen</button>
+            <button class="pinkButton" onclick="window.location.href='/payCredits/2'" >Überweisung bestätigen</button>
         </div>
 @endsection
