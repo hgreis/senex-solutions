@@ -8,9 +8,9 @@ ToDo
 -> Verbindlichkeiten: Unternehmer-Rechnungen müssen beim Eingang der Rechnung und nach Bezahlung quittiert werden
 
 
--> Fahrtenauflistung zur Gutschriftserstellung
+-> Fahrtenauflistung zur Gutschriftserstellung: Übersicht mit Aufruffunktion
 
-
+#06.02	Fahrtenauflistung zur Gutschriftserstellung: PDF wird gespeichert
 #06.01	Fahrtenauflistung zur Gutschriftserstellung: model, migration, data->view
 #05.13 	Gutschriften: Überweisung bestätigen
 #05.12 	Gutschriften: Übersicht erstellt

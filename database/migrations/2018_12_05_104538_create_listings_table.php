@@ -18,8 +18,8 @@ class CreateListingsTable extends Migration
             $table->integer('company');
             $table->integer('customer');
             $table->timestamp('date');
-            $table->float('priceNet');
-            $table->float('priceGross');
+            $table->float('priceNet')->nullable();
+            $table->float('priceGross')->nullable();
             $table->timestamps();
         });
     }
