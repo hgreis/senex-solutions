@@ -57,4 +57,12 @@ class ListingController extends Controller
 
         return view('pages.menu_invoice');
     }
+
+    public function listListings()  {
+        $listings = Listing::all()->sortByDesc('id');
+        foreach ($listings as $listing) {
+            $listing->customer = Customer::find($listing->customer);
+        }
+        return view('pages.listingsList', compact('listings'));
+    }
 }

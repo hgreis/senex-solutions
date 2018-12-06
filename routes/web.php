@@ -33,6 +33,7 @@ Route::get('/payCredit/{id}', 'CreditController@payCredit')->name('payCredit');
 
 Route::get('/listing', 'ListingController@listForListings');
 Route::post('/listingSave', 'ListingController@listingSave')->name('listingSave');
+Route::get('/listings', 'ListingController@listListings');
 
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');

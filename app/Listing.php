@@ -85,16 +85,16 @@ class Listing extends Model
         $pdf::Ln(10);
         $pdf::SetFont('helvetica','B',10);
         $pdf::SetFillColor(226,14,14);
-        $pdf::Cell(18,0,'Tour-Nr.',1,0,'C',1,'C');
+        $pdf::Cell(25,0,'Tour-Nr.',1,0,'C',1,'C');
         $pdf::Cell(25,0,'Lieferdatum',1,0,'C',1,'C');
-        $pdf::Cell(107,0,'Tourenbeschreibung',1,0,'',1,'C');
+        $pdf::Cell(100,0,'Tourenbeschreibung',1,0,'',1,'C');
         $pdf::Cell(20,0,'Preis',1,1,'C',1,'C');
         $pdf::SetFont('helvetica','',9);
         $pdf::Ln(2);
         foreach ($missions as $mission) {
-            $pdf::Cell(18,0,$mission->id,0,0,'C');
+            $pdf::Cell(25,0,$mission->kundeBemerkung,0,0,'C');
             $pdf::Cell(25,0,date("d.m.Y", strtotime($mission->zielDatum)),0,0,'C');
-            $pdf::Cell(107,0,$mission->startOrt.' => '.$mission->zielOrt,0,0,'L');
+            $pdf::Cell(100,0,$mission->startOrt.' => '.$mission->zielOrt,0,0,'L');
             $pdf::Cell(18,0,number_format($mission->preisKunde, 2, ",", "").' €',0,1,'R');
             $pdf::Ln(2);
         };

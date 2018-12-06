@@ -7,12 +7,13 @@
         <div style="float: left; text-align: center; padding: 10px" >
             <h2>Rechnungen an Auftraggeber</h2>
                 <button class="blackButton" onclick="window.location.href='/bill'" >Rechnung generieren</button><br>
-                <button class="blackButton" onclick="window.location.href='/listing'" >Auflistung-Gutschrift</button>
             <p>
                 <button class="brownButton" onclick="window.location.href='/invoices/1'" >Rechnung - Übersicht</button>
                 <button class="pinkButton" onclick="window.location.href='/invoices/2'" >Rechnung - Übersicht</button><br>
                 <button class="brownButton" onclick="window.location.href='/invoicesPaid/1'" >Zahlungseingang</button>
-                <button class="pinkButton" onclick="window.location.href='/invoicesPaid/2'" >Zahlungseingang</button>
+                <button class="pinkButton" onclick="window.location.href='/invoicesPaid/2'" >Zahlungseingang</button><br>
+                <button class="brownButton" onclick="window.location.href='/listing'" >Fahrtenauflistung erstellen</button>
+                <button class="brownButton" onclick="window.location.href='/listings'" >Fahrtenauflistungen</button>
             </p>
         </div>
         <div style="float: left; text-align: center; padding: 10px">
