@@ -29,11 +29,12 @@ Route::post('/saveCredit', 'CreditController@saveCredit')->name('saveCredit');
 Route::get('/listCredits/{company}', 'CreditController@listCredits')->name('listCredits');
 Route::get('/payCredits/{company}', 'CreditController@payCredits')->name('payCredits');
 Route::get('/payCredit/{id}', 'CreditController@payCredit')->name('payCredit');
-
-
 Route::get('/listing', 'ListingController@listForListings');
 Route::post('/listingSave', 'ListingController@listingSave')->name('listingSave');
 Route::get('/listings', 'ListingController@listListings');
+
+
+Route::get('/unpaidMissions/{company}', 'MissionController@unpaidMissions');
 
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');

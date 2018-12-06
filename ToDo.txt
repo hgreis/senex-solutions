@@ -3,10 +3,11 @@ ToDo
 -> Auflistung aller Aufträge ohne Lieferschein: direkte Eingabemöglichkeit
 -> Auftragssuche: direkte Suche nach ID, Filter: Fahrer/Kunde/Zeitraum
 -> Eine Tour muss in 3 Teilstrecken mit 3 Fahrern aufgeteilt werden können
--> Zahlungseingang: gestellte Rechnungen quittieren
 -> Zahlungseingang: Mahnwesen
 -> Verbindlichkeiten: Unternehmer-Rechnungen müssen beim Eingang der Rechnung und nach Bezahlung quittiert werden
 
+
+->eingereichte Gutschrift: Fahrten quitieren
 
 
 #06.03	Fahrtenauflistung zur Gutschriftserstellung: Übersicht mit Aufruffunktion

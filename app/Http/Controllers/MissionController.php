@@ -103,7 +103,6 @@ class MissionController extends Controller
         return response()->file(public_path('Rechnungen/Strerath Transporte RE-'.$bill->number.'.pdf'));
     }
 
-//muss dringend überarbeitet werden
     public function listInvoices($id) {
         $bills = Bill::where('company', $id)->orderBy('id','desc')->get();
         return view('pages.invoices', compact('bills', 'id'));
@@ -260,5 +259,13 @@ class MissionController extends Controller
             $mission->bill_price = Bill::find($mission->bill_id)->priceGross;
         }
         return view('pages.mission_overview', compact('mission'));
+    }
+
+    public function unpaidMissions($company)    {
+        $missions = Mission::where('bill_id', null)
+                        ->where('company', $company)
+                        ->get()
+                        ->groupBy('kunde');
+        return $missions;
     }
 }
