@@ -8,22 +8,29 @@ use App\Customer;
 
 class DriverController extends Controller
 {
-	public function driver() {
-    	$drivers = Driver::orderBy('name')->get();
-    	return view('pages.drivers', compact('drivers'));
+	public function edit($id)  {
+        $drivers = Driver::orderBy('name')->get();
+        $drivers->driver = Driver::find($id);
+        return view('pages.drivers', compact('drivers'));    
     }
 
-	public function submit(Request $request) {
-		$driver = new Driver;
-		$driver->fill($request->all());
-		$driver->save();
-		return redirect(route('DriverController@drivers.index'));
+    public function new()   {
+        $drivers = Driver::orderBy('name')->get();
+        $drivers->driver = new Driver;
+        return view('pages.drivers', compact('drivers'));       
+    }
+
+    public function submit(Request $request) {
+        $driver = Driver::find($request->id);       
+        $driver->fill($request->all());
+        $driver->save();
+		return redirect(route('newDriver'));
     }
 
     public function driverDelete($id) {
         $driver = Driver::find($id);
         $driver->delete();
-        return redirect(route('DriverController@drivers.index'));
+        return redirect(route('newDriver'));
     }
 
     public function customer() {

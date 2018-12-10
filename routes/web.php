@@ -32,16 +32,18 @@ Route::get('/payCredit/{id}', 'CreditController@payCredit')->name('payCredit');
 Route::get('/listing', 'ListingController@listForListings');
 Route::post('/listingSave', 'ListingController@listingSave')->name('listingSave');
 Route::get('/listings', 'ListingController@listListings');
+Route::get('/drivers/{id}', 'DriverController@edit');
+Route::get('/drivers', 'DriverController@new')->name('newDriver');
+Route::get('/drivers/{id}/delete', 'DriverController@driverDelete')->name('deleteDriver');
+Route::post('/drivers', 'DriverController@submit');
 
 
 Route::get('/unpaidMissions/{company}', 'MissionController@unpaidMissions');
 
 
+
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');
 Route::post('/dekra/new', 'MissionController@submit')->name('MissionController@submit');
-Route::get('/dekra/drivers', 'DriverController@driver')->name('DriverController@drivers.index');
-Route::post('/dekra/drivers', 'DriverController@submit');
-Route::get('/dekra/drivers/{id}', 'DriverController@driverDelete');
 Route::get('/dekra/new_customer', 'DriverController@newCustomer');
 Route::get('/dekra/new_customer/{id}', 'DriverController@editCustomer');
 Route::post('/dekra/save_customer', 'DriverController@saveCustomer');
