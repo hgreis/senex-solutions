@@ -21,7 +21,11 @@ class DriverController extends Controller
     }
 
     public function submit(Request $request) {
-        $driver = Driver::find($request->id);       
+        if(isset($request->id)) {
+            $driver = Driver::find($request->id);       
+        } else {
+            $driver = new Driver;
+        }
         $driver->fill($request->all());
         $driver->save();
 		return redirect(route('newDriver'));
