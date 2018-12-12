@@ -7,9 +7,9 @@ ToDo
 -> Verbindlichkeiten: Unternehmer-Rechnungen müssen beim Eingang der Rechnung und nach Bezahlung quittiert werden
 
 
-->eingereichte Gutschrift: Fahrten quitieren
 
 
+#08.01 eingereichte Gutschrift: Fahrten quitieren
 #07.02	Menü-Rechnungen neu gestaltet
 #07.01	Fahrer: Eingabe neu gestaltet
 #06.03	Fahrtenauflistung zur Gutschriftserstellung: Übersicht mit Aufruffunktion
@@ -29,8 +29,7 @@ ToDo
 #05.02 	Missions: add column bill_paid / credit / credit_paid
 #05.01 	Zahlungseingang: Zeitstempel wird korrekt eingetragen, redirect
 #05 	Zahlungseingang: Auflistung der offenen Rechnungen funktioniert, das weiterleiten der Formular-Daten scheitert
-#04 	Rechnungsübersicht: falsche Statist entfernt, Bezahlt-Datum eingeführt
-	Migration: bei der letzten migration Datumsfeld paid hinzugefügt
+#04 	Rechnungsübersicht: falsche Statist entfernt, Bezahlt-Datum eingeführt 
 #03 	Menü aufräumen
 #02 	Beim Erstellen mehrerer Rechnungen im gleichen Arbeitsschritt, werden die gleichen Rechnungsnummern vergeben -> sql: integer
 #01 	Lieferscheine eingeben: Auflistung aller Aufträge ohne Lieferschein

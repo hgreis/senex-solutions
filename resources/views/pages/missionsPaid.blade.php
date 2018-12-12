@@ -11,9 +11,46 @@
 				<h3> {{ $customer[0]->kunde }} </h3>
 			</div>
 				<div class="panel">
-					@foreach($customer as $mission)
-						Start: {{ $mission->startOrt }}<br>
-					@endforeach
+					<table style="width: 100%">
+						<tr>
+							<th>#</th>
+							<th>Datum</th>
+							<th>Beschreibung</th>
+							<th>Bemerkung</th>
+							<th>Netto</th>
+							<th></th>
+						</tr>
+						@foreach($customer as $mission)
+							<tr>
+								@if( $mission->deliveryNote != null)
+									<td style="width: 100px">
+										<a class="button" 
+											target="_blank" 
+											href="/mission_overview/{{ $mission->id }}"
+											style="color: black; background-color: green;">Tour-Nr.: {{ $mission->id }}
+										</a>
+									</td>
+								@else
+									<td style="width: 100px">
+										<a class="button" 
+											target="_blank" 
+											href="/mission_overview/{{ $mission->id }}"
+											style="color: black; background-color: red;">Tour-Nr.: {{ $mission->id }}
+										</a>
+									</td>
+								@endif
+								<td style="text-align: center">
+									{{ date_format(date_create($mission->startDatum), 'd.m.Y') }}
+								</td>
+								<td>von {{ $mission->startOrt }} nach {{ $mission->zielOrt }} </td>
+								<td> {{ $mission->kundeBemerkung }} </td>
+								<td style="text-align: right; padding-right: 15px"> {{ number_format($mission->preisKunde,2)  }} </td>
+								<td>
+									<button class="form-control" onclick="window.location.href='/payMission/{{ $mission->id }}'">BEZAHLT</button>
+								</td>
+							</tr>
+						@endforeach
+					</table>
 				</div>
 		@endforeach
 	</div>

@@ -90,7 +90,7 @@
                             <b style="color: red"> ES WURDE NOCH KEINE RECHNUNG ERSTELLT</b><br>
                         @endif
                     Rechnungsbetrag: {{ number_format($mission->bill_price,2) }}€<br>
-                    Zahlungseingang: {{ $mission->bill_paid }}<br>
+                    Zahlungseingang: {{ date_format(date_create($mission->bill_paid), 'd.m.Y') }}<br>
                 </td>
             </tr>
         </table>

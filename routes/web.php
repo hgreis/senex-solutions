@@ -39,7 +39,7 @@ Route::post('/drivers', 'DriverController@submit');
 
 
 Route::get('/unpaidMissions/{company}', 'MissionController@unpaidMissions');
-
+Route::get('payMission/{id}', 'MissionController@payMission');
 
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');

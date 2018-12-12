@@ -261,11 +261,20 @@ class MissionController extends Controller
         return view('pages.mission_overview', compact('mission'));
     }
 
-    public function unpaidMissions($company)    {
+    public function unpaidMissions($company) {
         $missions = Mission::where('bill_id', null)
+                        ->where('bill_paid', null)
                         ->where('company', $company)
                         ->get()
+                        ->sortBy('kunde')
                         ->groupBy('kunde');
         return view('pages.missionsPaid', compact('missions'));
+    }
+
+    public function payMission($id) {
+        $mission = Mission::find($id);
+        $mission->bill_paid = now();
+        $mission->save();
+        return redirect('/unpaidMissions/'.$mission->company);
     }
 }
