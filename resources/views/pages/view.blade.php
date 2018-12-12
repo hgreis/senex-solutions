@@ -46,7 +46,7 @@
 			<div class="panel">
 				<?php $input = $mission; ?>
 				@include('pages.forms.mission_driver_info')
-				<button type="button" class="whiteButton" onclick="window.location.href='/mission/view/{{ $mission->id }}'">EDIT</button>
+				<button type="button" class="form-control" onclick="window.location.href='/mission/view/{{ $mission->id }}'">EDIT</button>
 			</div>
 		</div>
 	@endforeach

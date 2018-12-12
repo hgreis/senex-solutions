@@ -266,6 +266,6 @@ class MissionController extends Controller
                         ->where('company', $company)
                         ->get()
                         ->groupBy('kunde');
-        return $missions;
+        return view('pages.missionsPaid', compact('missions'));
     }
 }
