@@ -9,7 +9,7 @@
 				@foreach ($customer->missions as $mission)
 					<div>
 						<input type="checkbox" name="{{ $mission->id }}"> &nbsp;
-						{{ $mission->zielDatum }} von {{ $mission->startOrt }} nach {{ $mission->zielOrt}}
+						{{ date_format(date_create($mission->zielDatum), 'd.m.Y') }} von {{ $mission->startOrt }} nach {{ $mission->zielOrt}}
 					</div>
 				@endforeach
 			</div>

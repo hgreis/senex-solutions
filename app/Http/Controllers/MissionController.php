@@ -180,16 +180,24 @@ class MissionController extends Controller
     public function createBill() {
         // for first company
         $customers = Customer::whereHas('missions', function($query) {
-            $query->whereNull('bill_id')->where('company', 1);
+            $query->whereNull('bill_id')
+                ->whereNull('bill_paid')
+                ->where('company', 1);
         })->with(['missions' => function($query) {
-            $query->whereNull('bill_id')->where('company', 1);
+            $query->whereNull('bill_id')
+                ->whereNull('bill_paid')
+                ->where('company', 1);
         }])->orderBy('name')->get();
 
         //for second company
         $customers2 = Customer::whereHas('missions', function($query) {
-            $query->whereNull('bill_id')->where('company', 2);
+            $query->whereNull('bill_id')
+                ->whereNull('bill_paid')
+                ->where('company', 2);
         })->with(['missions' => function($query) {
-            $query->whereNull('bill_id')->where('company', 2);
+            $query->whereNull('bill_id')
+                ->whereNull('bill_paid')
+                ->where('company', 2);
         }])->orderBy('name')->get();
 
         return view('pages.bill', compact('customers', 'customers2'));
@@ -268,6 +276,7 @@ class MissionController extends Controller
                         ->get()
                         ->sortBy('kunde')
                         ->groupBy('kunde');
+        $missions->company = $company;
         return view('pages.missionsPaid', compact('missions'));
     }
 

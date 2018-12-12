@@ -8,8 +8,8 @@ ToDo
 
 
 
-
-#08.01 eingereichte Gutschrift: Fahrten quitieren
+#08.02	eingereichte Gutschrift: für beide companies
+#08.01	eingereichte Gutschrift: Fahrten quitieren
 #07.02	Menü-Rechnungen neu gestaltet
 #07.01	Fahrer: Eingabe neu gestaltet
 #06.03	Fahrtenauflistung zur Gutschriftserstellung: Übersicht mit Aufruffunktion
