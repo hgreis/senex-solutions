@@ -273,6 +273,7 @@ class MissionController extends Controller
         $missions = Mission::where('bill_id', null)
                         ->where('bill_paid', null)
                         ->where('company', $company)
+                        ->orderBy('startDatum')
                         ->get()
                         ->sortBy('kunde')
                         ->groupBy('kunde');
