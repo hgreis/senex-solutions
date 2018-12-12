@@ -10,6 +10,8 @@ ToDo
 ->eingereichte Gutschrift: Fahrten quitieren
 
 
+#07.02	Menü-Rechnungen neu gestaltet
+#07.01	Fahrer: Eingabe neu gestaltet
 #06.03	Fahrtenauflistung zur Gutschriftserstellung: Übersicht mit Aufruffunktion
 #06.02	Fahrtenauflistung zur Gutschriftserstellung: PDF wird gespeichert
 #06.01	Fahrtenauflistung zur Gutschriftserstellung: model, migration, data->view
