@@ -25,6 +25,7 @@ Route::post('/saveBill', 'MissionController@saveBill');
 Route::get('/invoices/{id}', 'MissionController@listInvoices');
 Route::get('/invoicesPaid/{id}', 'MissionController@paidInvoices');
 Route::get('/bill/{id}', 'MissionController@showBill');
+Route::get('/bill/{id}/printPDF', 'BillController@printPDF');
 Route::get('/mission/viewNoDeliveryNote', 'MissionController@viewNoDeliveryNote')->name('viewNoDeliveryNote');
 Route::get('/payBill/{id}', 'BillController@payBill')->name('payBill');
 Route::get('/credits/{company}', 'CreditController@listForCredits')->name('listForCredits');
@@ -49,8 +50,6 @@ Route::get('/mission/{id}/delete', 'MissionController@mission_delete');
 Route::get('/mission/calendar', 'MissionController@calendar')->name('calendar');
 
 
-Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');
-Route::post('/dekra/new', 'MissionController@submit')->name('MissionController@submit');
 Route::get('/dekra/new_customer', 'DriverController@newCustomer');
 Route::get('/dekra/new_customer/{id}', 'DriverController@editCustomer');
 Route::post('/dekra/save_customer', 'DriverController@saveCustomer');

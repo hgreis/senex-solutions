@@ -8,7 +8,7 @@ ToDo
 
 
 
-
+#10		PDF-Rechnung kann neu erzeugt werden: /bill/$id/printPDF
 #09		Kalender Ansicht
 #08.03	eingereichte Gutschrift: orderBy startDatum
 #08.02	eingereichte Gutschrift: für beide companies

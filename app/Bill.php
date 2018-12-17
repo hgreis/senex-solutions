@@ -32,8 +32,8 @@ class Bill extends Model
         return $maxNumber+1;
     }
 
-    public function savePDF($id, $customer) {
-        $bill = Bill::with('missions')->find($id);
+    public function savePDF() {
+        $bill = Bill::with('missions')->find($this->id);
         $company = Company::find($bill->company);
         $customer = $this->customer;
         $customer = Customer::where('name', $customer)->first();

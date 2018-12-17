@@ -86,7 +86,7 @@ class MissionController extends Controller
                     $bill->number = $bill->number();
                     $id = $bill->id;
                     $bill->save();
-                    $bill->savePDF($id, $customer);
+                    $bill->savePDF();
                     unset($bill);
                 }
             }

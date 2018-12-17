@@ -22,6 +22,12 @@ class BillController extends Controller
         }
         return redirect('/invoicesPaid/1');
     }
+
+    public function printPDF($id) {
+    	$bill = Bill::find($id);
+    	$bill->savePDF();
+    	return 'Es wurde eine neue PDF erzeugt';
+    }
 }
 
 
