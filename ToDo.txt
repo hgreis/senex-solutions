@@ -7,6 +7,9 @@ ToDo
 -> Verbindlichkeiten: Unternehmer-Rechnungen müssen beim Eingang der Rechnung und nach Bezahlung quittiert werden
 
 
+
+
+#09		Kalender Ansicht
 #08.03	eingereichte Gutschrift: orderBy startDatum
 #08.02	eingereichte Gutschrift: für beide companies
 #08.01	eingereichte Gutschrift: Fahrten quitieren

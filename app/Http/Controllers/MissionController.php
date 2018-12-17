@@ -123,6 +123,15 @@ class MissionController extends Controller
         return view('pages.mission', compact('input', 'choice'));
     }
 
+    public function mission_newDate($date) {
+        $input = new Mission;
+        $input->company = 1;
+        $input->startDatum = $date;
+        $input->zielDatum = $date;
+        $choice = 'Touren-Start';
+        return view('pages.mission', compact('input', 'choice'));
+    }
+
     public function viewMission($id) {
         $input = Mission::find($id);
         $choice = 'Touren-Start';
@@ -130,6 +139,22 @@ class MissionController extends Controller
         $drivers = Driver::all()->sortBy('name');
         return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
 
+    }
+
+    public function viewMissionDriver($id) {
+        $input = Mission::find($id);
+        $choice = 'Fahrer/Unternehmer';
+        $customers = Customer::all()->sortBy('name');
+        $drivers = Driver::all()->sortBy('name');
+        return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
+    }
+
+    public function viewMissionCustomer($id) {
+        $input = Mission::find($id);
+        $choice = 'Kunde';
+        $customers = Customer::all()->sortBy('name');
+        $drivers = Driver::all()->sortBy('name');
+        return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
     }
 
     public function mission_submit(Request $request) {
@@ -313,5 +338,11 @@ class MissionController extends Controller
                     ->sortByDesc('startDatum')
                     ->groupBy('startDatum');
         return view('pages.calendar', compact('missions'));
+    }
+
+    public function mission_delete($id) {
+        $mission = Mission::find($id);
+        $mission->delete();
+        return;
     }
 }

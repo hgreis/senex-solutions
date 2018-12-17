@@ -11,6 +11,7 @@
         {{ Form::label('startDatum', 'Datum:') }}
         {{ Form::text('startDatum', $input->startDatum, ['class' => 'form-control', 'required']) }}
         {{ Form::text('id', $input->id, ['hidden' => 'true']) }}
+        {{ Form::text('zielDatum', $input->zielDatum, ['hidden' => 'true']) }}
     </div>
     <div class="form-group">
         {{ Form::label('startName', 'Name:') }}
@@ -21,12 +22,8 @@
         {{ Form::text('startStrasse', $input->startStrasse, ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
-        {{ Form::label('startOrt', 'PLZ und Stadt:') }}
+        {{ Form::label('startOrt', 'Länderkennung - PLZ und Stadt:') }}
         {{ Form::text('startOrt', $input->startOrt, ['class' => 'form-control']) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('startLand', 'Land:') }}
-        {{ Form::text('startLand', $input->startLand, ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
         {{ Form::label('startBemerkung', 'Bemerkung:') }}

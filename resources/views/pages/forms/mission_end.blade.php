@@ -20,10 +20,6 @@
         {{ Form::text('zielOrt', $input->zielOrt, ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
-        {{ Form::label('zielLand', 'Land:') }}
-        {{ Form::text('zielLand', $input->zielLand, ['class' => 'form-control']) }}
-    </div>
-    <div class="form-group">
         {{ Form::label('zielBemerkung', 'Bemerkung:') }}
         {{ Form::textarea('zielBemerkung', $input->zielBemerkung, ['class' => 'form-control']) }}
     </div>
