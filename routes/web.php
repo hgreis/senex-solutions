@@ -36,10 +36,13 @@ Route::get('/drivers/{id}', 'DriverController@edit');
 Route::get('/drivers', 'DriverController@new')->name('newDriver');
 Route::get('/drivers/{id}/delete', 'DriverController@driverDelete')->name('deleteDriver');
 Route::post('/drivers', 'DriverController@submit');
-
-
 Route::get('/unpaidMissions/{company}', 'MissionController@unpaidMissions');
 Route::get('payMission/{id}', 'MissionController@payMission');
+Route::get('/missionsPayDriver/{company}', 'MissionController@payDriverList');
+Route::get('/mission/{id}/payDriver', 'MissionController@PayDriver');
+
+
+Route::get('/mission/calendar', 'MissionController@calendar')->name('calendar');
 
 
 Route::get('/dekra/new', 'MissionController@new')->name('MissionController@new');

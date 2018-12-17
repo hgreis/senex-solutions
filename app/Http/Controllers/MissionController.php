@@ -287,4 +287,31 @@ class MissionController extends Controller
         $mission->save();
         return redirect('/unpaidMissions/'.$mission->company);
     }
+
+    public function payDriverList($company) {
+        $missions = Mission::where('company', $company)
+                    ->whereNull('credit')
+                    ->whereNull('credit_paid')
+                    ->whereNotNull('fahrer')
+                    ->orderBy('startDatum')
+                    ->get()
+                    ->sortBy('fahrer')
+                    ->groupBy('fahrer');
+        $missions->company = $company;
+        return view('pages.missionsPayDriver', compact('missions'));
+    }
+
+    public function payDriver($id) {
+        $mission = Mission::find($id);
+        $mission->credit_paid = now();
+        $mission->save();
+        return redirect('/missionsPayDriver/'.$mission->company);
+    }
+
+    public function calendar() {
+        $missions = Mission::all()
+                    ->sortByDesc('startDatum')
+                    ->groupBy('startDatum');
+        return view('pages.calendar', compact('missions'));
+    }
 }

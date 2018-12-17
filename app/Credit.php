@@ -101,7 +101,7 @@ class Credit extends Model
         foreach ($missions as $mission) {
             $pdf::Cell(18,0,$mission->id,0,0,'C');
             $pdf::Cell(25,0,date("d.m.Y", strtotime($mission->zielDatum)),0,0,'C');
-            $pdf::Cell(107,0,$mission->startOrt.' => '.$mission->zielOrt,0,0,'L');
+            $pdf::Cell(107,0,$mission->startOrt.' nach '.$mission->zielOrt,0,0,'L');
             $pdf::Cell(18,0,number_format($mission->preisFahrer, 2, ",", "").' €',0,1,'R');
             $pdf::Ln(2);
         };

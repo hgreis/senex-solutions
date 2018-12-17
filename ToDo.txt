@@ -33,3 +33,9 @@ ToDo
 #03 	Menü aufräumen
 #02 	Beim Erstellen mehrerer Rechnungen im gleichen Arbeitsschritt, werden die gleichen Rechnungsnummern vergeben -> sql: integer
 #01 	Lieferscheine eingeben: Auflistung aller Aufträge ohne Lieferschein
+
+
+
+Direkte Funktionen
+Route::get('/drivers/{id}/delete', 'DriverController@driverDelete')->name('deleteDriver'); //Fahrer löschen
+Route::get('payMission/{id}', 'MissionController@payMission'); //Auftraggeber hat bezahlt
