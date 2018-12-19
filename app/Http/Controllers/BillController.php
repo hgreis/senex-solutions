@@ -25,6 +25,9 @@ class BillController extends Controller
 
     public function printPDF($id) {
     	$bill = Bill::find($id);
+    	$bill->priceNet = Mission::where('bill_id', $id)->sum('preisKunde');
+    	$bill->priceGross = $bill->priceNet * $bill->taxes/100;
+    	$bill->save();
     	$bill->savePDF();
     	return 'Es wurde eine neue PDF erzeugt';
     }

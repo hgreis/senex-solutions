@@ -7,7 +7,7 @@ ToDo
 -> Verbindlichkeiten: Unternehmer-Rechnungen müssen beim Eingang der Rechnung und nach Bezahlung quittiert werden
 
 
-
+#10.01	Rechungssumme wird neu berechnet, gespeichert und dann erst die PDF erstellt
 #10		PDF-Rechnung kann neu erzeugt werden: /bill/$id/printPDF
 #09		Kalender Ansicht
 #08.03	eingereichte Gutschrift: orderBy startDatum
@@ -40,5 +40,7 @@ ToDo
 
 
 Direkte Funktionen
-Route::get('/drivers/{id}/delete', 'DriverController@driverDelete')->name('deleteDriver'); //Fahrer löschen
-Route::get('payMission/{id}', 'MissionController@payMission'); //Auftraggeber hat bezahlt
+/drivers/{id}/delete			//Fahrer löschen
+/payMission/{id}				//Auftraggeber hat bezahlt
+/mission/{id}/delete 			//Tour löschen
+/bill/{id}/printPDF				//Rechnung neu erzeugen
