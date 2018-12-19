@@ -4,9 +4,9 @@ ToDo
 -> Auftragssuche: direkte Suche nach ID, Filter: Fahrer/Kunde/Zeitraum
 -> Eine Tour muss in 3 Teilstrecken mit 3 Fahrern aufgeteilt werden können
 -> Zahlungseingang: Mahnwesen
--> Verbindlichkeiten: Unternehmer-Rechnungen müssen beim Eingang der Rechnung und nach Bezahlung quittiert werden
 
 
+11		Übersicht aller Aufträge neu gestaltet
 #10.01	Rechungssumme wird neu berechnet, gespeichert und dann erst die PDF erstellt
 #10		PDF-Rechnung kann neu erzeugt werden: /bill/$id/printPDF
 #09		Kalender Ansicht

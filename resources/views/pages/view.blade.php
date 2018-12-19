@@ -33,23 +33,27 @@
 		</form>
 	</div>
 	<hr>
-	@foreach ($missions as $mission)
-		<div class="greybox"> 
-			<div class="flip">
-				<h3>
-					{{ $mission->zielDatum }} &nbsp; 
-					{{ $mission->startOrt }} -> {{ $mission->zielOrt }} &nbsp;&nbsp; 
-					=> {{ $mission->fahrer }} &nbsp;&nbsp; 
-					# {{ $mission->id }}
-				</h3>
+		@foreach ($missions as $mission)
+			<div class="greybox"> 
+				<div class="flip">
+					<table style="width: 100%">
+						<tr>
+							<th style="width: 8%">#{{ $mission->id }}</th>
+							<th style="width: 10%">{{ $mission->zielDatum }}</th>
+							<th style="width: 40%">
+								{{ $mission->startOrt }} -> {{ $mission->zielOrt }}
+							</th>
+							<th>{{ $mission->kundeBemerkung }}</th>
+						</tr>
+					</table>
+				</div>
+				<div class="panel">
+					<?php $input = $mission; ?>
+					@include('pages.forms.mission_details')
+					<button type="button" class="form-control" onclick="window.location.href='/mission/view/{{ $mission->id }}'">EDIT</button>
+				</div>
 			</div>
-			<div class="panel">
-				<?php $input = $mission; ?>
-				@include('pages.forms.mission_driver_info')
-				<button type="button" class="form-control" onclick="window.location.href='/mission/view/{{ $mission->id }}'">EDIT</button>
-			</div>
-		</div>
-	@endforeach
+		@endforeach
 <script>
 	var acc = document.getElementsByClassName("flip");
 	var i;

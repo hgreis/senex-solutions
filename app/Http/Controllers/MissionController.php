@@ -17,20 +17,20 @@ class MissionController extends Controller
 {
     // old view with all mission details
     public function viewMissions(Request $request) {
-    	$missions = Mission::where('bill_id', null)
-            ->orderBy('zielDatum')
+    	$missions = Mission::whereNotNull('id')
+            ->orderBy('zielDatum', 'desc')
             ->get();
-        $drivers =  Mission::where('bill_id', null)
+        $drivers =  Mission::whereNotNull('id')
             ->select('fahrer')
             ->orderBy('fahrer')
             ->distinct()
             ->get();
-        $customers =  Mission::where('bill_id', null)
+        $customers =  Mission::whereNotNull('id')
             ->select('kunde')
             ->orderBy('kunde')
             ->distinct()
             ->get();
-        $dates = Mission::where('bill_id', null)
+        $dates = Mission::whereNotNull('id')
             ->select('zielDatum')
             ->orderBy('zielDatum')
             ->distinct()
@@ -104,15 +104,17 @@ class MissionController extends Controller
     }
 
     public function listInvoices($id) {
-        $bills = Bill::where('company', $id)->orderBy('id','desc')->get();
+        $bills = Bill::where('company', $id)
+                    ->orderBy('number','desc')
+                    ->get();
         return view('pages.invoices', compact('bills', 'id'));
     }
 
     public function paidInvoices($id)   {
         $bills = Bill::where('company', $id)
-            ->where('paid', null)
-            ->orderBy('id','desc')
-            ->get();
+                    ->where('paid', null)
+                    ->orderBy('id')
+                    ->get();
         return view('pages.invoicesPaid', compact('bills', 'id'));
     }
 
@@ -290,6 +292,10 @@ class MissionController extends Controller
         if(isset($mission->bill_id))    {
             $mission->bill_number = Bill::find($mission->bill_id)->number;
             $mission->bill_price = Bill::find($mission->bill_id)->priceGross;
+        }
+        if($mission->driver == null) {
+            $mission->driver = new Driver;
+            $mission->driver->name = 'KEIN FAHRER ZUGEWIESEN';
         }
         return view('pages.mission_overview', compact('mission'));
     }
