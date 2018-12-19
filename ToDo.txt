@@ -6,6 +6,9 @@ ToDo
 -> Zahlungseingang: Mahnwesen
 
 
+
+
+#11.01	Detailansicht korrigiert
 11		Übersicht aller Aufträge neu gestaltet
 #10.01	Rechungssumme wird neu berechnet, gespeichert und dann erst die PDF erstellt
 #10		PDF-Rechnung kann neu erzeugt werden: /bill/$id/printPDF

@@ -20,6 +20,12 @@ class MissionController extends Controller
     	$missions = Mission::whereNotNull('id')
             ->orderBy('zielDatum', 'desc')
             ->get();
+            foreach ($missions as $mission) {
+                if($mission->bill_id != null)    {
+                    $mission->bill_number = Bill::find($mission->bill_id)->number;
+                    $mission->bill_price = Bill::find($mission->bill_id)->priceGross;
+                }
+            }
         $drivers =  Mission::whereNotNull('id')
             ->select('fahrer')
             ->orderBy('fahrer')
@@ -289,7 +295,7 @@ class MissionController extends Controller
 
     public function overview($id) {
         $mission = Mission::find($id);
-        if(isset($mission->bill_id))    {
+        if($mission->bill_id != null)    {
             $mission->bill_number = Bill::find($mission->bill_id)->number;
             $mission->bill_price = Bill::find($mission->bill_id)->priceGross;
         }
