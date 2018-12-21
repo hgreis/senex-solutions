@@ -136,9 +136,19 @@ class MissionController extends Controller
         $input->company = 1;
         $input->startDatum = $date;
         $input->zielDatum = $date;
-        $choice = 'Touren-Start';
-        return view('pages.mission', compact('input', 'choice'));
+        $customers = Customer::all()->sortBy('name');
+        $drivers = Driver::all()->sortBy('name');
+        return view('pages.missionNew', compact('input', 'drivers', 'customers'));
     }
+
+    // public function mission_newDate($date) {
+    //     $input = new Mission;
+    //     $input->company = 1;
+    //     $input->startDatum = $date;
+    //     $input->zielDatum = $date;
+    //     $choice = 'Touren-Start';
+    //     return view('pages.mission', compact('input', 'choice'));
+    // }
 
     public function viewMission($id) {
         $input = Mission::find($id);

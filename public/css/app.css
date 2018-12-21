@@ -63,7 +63,8 @@ html {
 
 .whitebox {
         background-color: white;
-        border: none;
+        border: 2px;
+        border-color: black;  
         color: black;
         padding: 5px 20px;
         text-align: left;
