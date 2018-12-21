@@ -214,7 +214,7 @@ class MissionController extends Controller
         $drivers = Driver::all()->sortBy('name');
 
         if ($choice == 'Speichern/Menu') {
-            return view('pages.menu');
+            return redirect('/mission/calendar');
         }
 
         return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
