@@ -6,10 +6,10 @@
         <h3>
             
             @if ($input->company == 2)
-                <input type="radio" name="company" value="1"> STRERATH Transporte &nbsp &nbsp &nbsp
+                <input type="radio" name="company" value="1"> Strerath Transporte &nbsp &nbsp &nbsp
                 <input type="radio" name="company" value="2" checked> <nobr> Sabine Heinrichs Transporte</nobr><br>
             @else
-                <input type="radio" name="company" value="1" checked> STRERATH Transporte &nbsp &nbsp &nbsp
+                <input type="radio" name="company" value="1" checked> Strerath Transporte &nbsp &nbsp &nbsp
                 <input type="radio" name="company" value="2"> Sabine Heinrichs Transporte<br>
             @endif
         </h3>
