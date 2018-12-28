@@ -1,4 +1,4 @@
-<h1>Auftrag {{ $input->id }}: Fahrer zuweisen</h1>
+    <h1>Auftrag {{ $input->id }}: Fahrer zuweisen</h1>
 <div style="width: 600px; float: left">
     <form action="/mission/new" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}

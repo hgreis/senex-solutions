@@ -28,6 +28,30 @@ html {
   bottom: 10px;
  }
 
+.my1003 {
+  background-color: #C10C0C;
+  color: white;
+  padding: 3%;
+  padding-top: 1%;
+}
+
+
+.my1002 {
+  background-color: pink;
+  padding: 3%;
+  padding-top: 1%;
+}
+
+.my1001 {
+  background-color: white !important;
+  color: black;
+}
+
+.my1000 {
+  background-color: black !important;
+  color: white;
+}
+
 .greybox {
         background-color: grey;
         border: none;
@@ -46,7 +70,6 @@ html {
         padding: 5px 20px;
         text-align: left;
         margin: 4px 0px;
-        cursor: pointer;
         width: 100%;
   }
 
@@ -57,7 +80,6 @@ html {
         padding: 5px 20px;
         text-align: left;
         margin: 4px 0px;
-        cursor: pointer;
         width: 100%;
   }
 

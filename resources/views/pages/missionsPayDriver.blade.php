@@ -12,7 +12,7 @@
 				<h3>{{ $driver[0]->fahrer }}</h3>
 			</div>
 			<div class='panel'>
-				<table style="width: 100%">
+				<table class="table">
 						<tr>
 							<th>#</th>
 							<th>Datum</th>
@@ -24,7 +24,7 @@
 						@foreach($driver as $mission)
 							<tr>
 								@if( $mission->deliveryNote != null)
-									<td style="width: 100px">
+									<td style="width: 110px">
 										<a class="button" 
 											target="_blank" 
 											href="/mission_overview/{{ $mission->id }}"
@@ -32,7 +32,7 @@
 										</a>
 									</td>
 								@else
-									<td style="width: 100px">
+									<td style="width: 110px">
 										<a class="button" 
 											target="_blank" 
 											href="/mission_overview/{{ $mission->id }}"
@@ -44,7 +44,7 @@
 									{{ date_format(date_create($mission->startDatum), 'd.m.Y') }}
 								</td>
 								<td> {{ $mission->kunde }} </td>
-								<td>von {{ $mission->startOrt }} nach {{ $mission->zielOrt }} </td>
+								<td>{{ $mission->startOrt }} -> {{ $mission->zielOrt }} </td>
 								<td style="text-align: right; padding-right: 15px"> {{ number_format($mission->preisFahrer,2)  }} </td>
 								<td>
 									<button class="form-control" onclick="window.location.href='/mission/{{ $mission->id }}/payDriver'">BEZAHLT</button>

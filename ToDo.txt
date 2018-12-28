@@ -6,6 +6,11 @@ ToDo
 -> Zahlungseingang: Mahnwesen
 
 
+
+
+
+
+13		Design update: Tabellen neu gestaltet
 12.02	Neue Touren-Eingabe: update design
 12.01	Neue Touren-Eingabe (verkürzt), Auftraggeber fehlt noch
 #11.01	Detailansicht korrigiert

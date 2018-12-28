@@ -1,7 +1,7 @@
 @if ($input->company == 1)
-	<h3>Strerath Transporte</h3>
+	<h3>Strerath Transporte #{{ $input->id }}</h3>
 @elseif ($input->company == 2)
-	<h3>Sabine Heinrichs Transporte</h3>
+	<h3>Sabine Heinrichs Transporte #{{ $input->id }}</h3>
 @else
 	<h3>Fahrer - Informationen</h3>
 @endif

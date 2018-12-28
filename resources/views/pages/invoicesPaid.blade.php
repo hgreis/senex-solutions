@@ -1,32 +1,39 @@
 @extends('layouts.main')
 @section('content')
 @if ($id == 2)
-	<div style="background-color: pink; padding: 5px">
+	<div class="my1002">
 @else 
-	<div style="background-color: #C10C0C; color: black; padding: 5px">
+	<div class="my1003">
 @endif
 		<h1 style="text-align: center">Übersicht aller offenen Rechnungen</h1>
 		
 		<form action="/payBill" method="post">
 			{{ csrf_field() }}
-			<table style="width: 100%">
-				<tr>
-					<th style="padding: 3px"></th>
-					<th style="padding: 3px">#</th>
-					<th style="padding: 3px">Datum</th>
-					<th style="padding: 3px">Kunde</th>
-					<th style="padding: 3px">Brutto</th>
+			<table class="table">
+				<tr class="my1000">
+					<th style="text-align: center">#</th>
+					<th style="text-align: center">Datum</th>
+					<th>Kunde</th>
+					<th style="text-align: center">Brutto</th>
 					<th style="text-align: center">Bezahlt</th>
 				</tr>
 				@foreach($bills as $bill)
-					<tr>
-						<th style="padding: 3px"><a class="button" target="_blank" href="/bill/{{ $bill->id }}">Details</a></th>
-						<td style="padding: 3px">{{ $bill->number }} </td>
-						<td style="padding: 3px">{{ $bill->date }}</td>
-						<td style="padding: 3px">{{ $bill->customer }}</td>
-						<td style="padding: 3px">{{ number_format($bill->priceGross, 2, ',', ' ') }} €</td>
+					<tr class="my1001">
+						<td style="text-align: center; width: 150px">
+							<a class="button" target="_blank" href="/bill/{{ $bill->id }}">
+								Rechn.Nr.: {{ $bill->number }}
+							</a>
+						</td>
+						<td style="text-align: center">{{ $bill->date }}</td>
+						<td>{{ $bill->customer }}</td>
+						<td style="text-align: right; 
+								width: 150px">{{ number_format($bill->priceGross, 2, ',', ' ') }} €
+						</td>
 						<td style="text-align: center">
-							<button type="button" onclick="window.location.href='/payBill/{{ $bill->id }}'">BEZAHLT</button>
+							<button class="form-control" 
+									onclick="window.location.href='/payBill/{{ $bill->id }}'">
+										BEZAHLT
+							</button>
 						</td>
 					</tr>
 				@endforeach

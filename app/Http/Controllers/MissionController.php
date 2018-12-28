@@ -332,7 +332,19 @@ class MissionController extends Controller
         $mission = Mission::find($id);
         $mission->bill_paid = now();
         $mission->save();
-        return redirect('/unpaidMissions/'.$mission->company);
+        $missions = Mission::where('bill_id', null)
+                        ->where('bill_paid', null)
+                        ->where('company', $mission->company)
+                        ->where('kunde', $mission->kunde)
+                        ->orderBy('startDatum')
+                        ->get()
+                        ->sortBy('kunde')
+                        ->groupBy('kunde');
+        $missions->company = $mission->company;
+        if($missions->count() == 0) {
+            return view('pages.menu_invoice');
+        }
+        return view('pages.missionsPaidCustomer', compact('missions'));
     }
 
     public function payDriverList($company) {

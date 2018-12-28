@@ -2,32 +2,31 @@
 @section('content')
 
 @if($credits->company == 2)
-	<div style="background-color: pink; padding: 5px">
+	<div class="my1002">
 @else
-	<div style="background-color: #C10C0C; color: black; padding: 5px">
+	<div class="my1003">
 @endif
 
-		<h1 style="text-align: center">Übersicht aller Gutschriften</h1>
-		<table style="width: 70%">
-			<tr>
-				<th></th>
+	<h1 style="text-align: center">Übersicht aller Gutschriften</h1>
+		<table class="table" align="center">
+			<tr class="my1000">
 				<th>#</th>
 				<th style="width: 90px">Datum</th>
 				<th style="width: 90px">Bezahlt</th>
+				<th>Fahrer</th>
 				<th>Unternehmer</th>
 				<th style="text-align: center">Netto</th>
 				<th style="text-align: center">Brutto</th>
 			</tr>
 			@foreach( $credits as $credit)
-				<tr>
+				<tr class="my1001">
 					<td style="text-align: center; width: 80px">
 						@if($credits->company == 2)
-							<a class="button" target="_blank" href="/Gutschriften/Sabine Heinrichs Transporte GS-{{$credit->number}}.pdf">Details</a>
+							<a class="button" target="_blank" href="/Gutschriften/Sabine Heinrichs Transporte GS-{{$credit->number}}.pdf">GS-{{ $credit->number }}</a>
 						@else
-							<a class="button" target="_blank" href="/Gutschriften/Strerath Transporte GS-{{$credit->number}}.pdf">Details</a>
+							<a class="button" target="_blank" href="/Gutschriften/Strerath Transporte GS-{{$credit->number}}.pdf">GS-{{ $credit->number }}</a>
 						@endif
 					</td>
-					<td>{{ $credit->number }} </td>
 					<td>{{ date_format(date_create($credit->date), 'd.m.Y') }}</td>
 					@if($credit->credit_paid != null)
 						<td>{{ date_format(date_create($credit->credit_paid), 'd.m.Y') }}</td>
@@ -35,8 +34,9 @@
 						<td></td>
 					@endif
 					<td>{{ $credit->driver->name }}</td>
-					<td style="text-align: right; width: 80px">{{ number_format($credit->priceNet, 2, ',', ' ') }} €</td>
-					<td style="text-align: right; width: 80px">{{ number_format($credit->priceGross, 2, ',', ' ') }} €</td>
+					<td>{{ $credit->driver->contractor }}</td>
+					<td style="text-align: right; width: 100px">{{ number_format($credit->priceNet, 2, ',', ' ') }} €</td>
+					<td style="text-align: right; width: 100px">{{ number_format($credit->priceGross, 2, ',', ' ') }} €</td>
 				</tr>
 			@endforeach
 		</table>

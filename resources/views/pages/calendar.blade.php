@@ -53,12 +53,12 @@
 									</td>
 							@endif
 							<td>
-								<a href="/mission/view/{{$mission->id}}/driver" target="_blank">
+								<a href="/mission/view/{{$mission->id}}/driver">
 									{{ $mission->fahrer }}
 								</a>
 							</td>
 							<td>
-								<a href="/mission/view/{{$mission->id}}/customer" target="_blank">
+								<a href="/mission/view/{{$mission->id}}/customer">
 									{{ $mission->kunde }}
 								</td>
 							<td>

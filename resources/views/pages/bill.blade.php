@@ -6,23 +6,72 @@
 		@foreach ($customers as $customer)
 			<div class="redbox">
 				<h3>{{ $customer->name }}</h3>
-				@foreach ($customer->missions as $mission)
-					<div>
-						<input type="checkbox" name="{{ $mission->id }}"> &nbsp;
-						{{ date_format(date_create($mission->zielDatum), 'd.m.Y') }} von {{ $mission->startOrt }} nach {{ $mission->zielOrt}}
-					</div>
-				@endforeach
+				<table class="table">
+					@foreach ($customer->missions as $mission)
+						<tr class="my1001">
+							<td style="width: 50px; text-align: center">
+								<input type="checkbox" name="{{ $mission->id }}"> &nbsp;
+							</td>
+							@if( $mission->deliveryNote != null)
+								<td style="width: 110px">
+									<a class="button" 
+										target="_blank" 
+										href="/mission_overview/{{ $mission->id }}"
+										style="color: black; background-color: green;">Tour-Nr.: {{ $mission->id }}
+									</a>
+								</td>
+							@else
+								<td style="width: 110px">
+									<a class="button" 
+										target="_blank" 
+										href="/mission_overview/{{ $mission->id }}"
+										style="color: black; background-color: red;">Tour-Nr.: {{ $mission->id }}
+									</a>
+								</td>
+							@endif
+							<td style="width: 100px">
+								{{ date_format(date_create($mission->startDatum), 'd.m.Y') }}
+							</td>
+							<td>{{ $mission->startOrt }} -> {{ $mission->zielOrt}}</td>
+							<td>{{ $mission->kundeBemerkung }}</td>
+						</tr>
+					@endforeach
+				</table>
 			</div>
 		@endforeach
 		@foreach ($customers2 as $customer2)
 			<div class="pinkbox">
 				<h3>{{ $customer2->name }}</h3>
-				@foreach ($customer2->missions as $mission)
-					<div>
-						<input type="checkbox" name="{{ $mission->id }}"> &nbsp;
-						{{ $mission->zielDatum }} von {{ $mission->startOrt }} nach {{ $mission->zielOrt}}
-					</div>
-				@endforeach
+				<table class="table">
+					@foreach ($customer2->missions as $mission)
+						<tr class="my1001">
+							<td style="width: 50px">
+								<input type="checkbox" name="{{ $mission->id }}"> &nbsp;
+							</td>
+							@if( $mission->deliveryNote != null)
+								<td style="width: 110px">
+									<a class="button" 
+										target="_blank" 
+										href="/mission_overview/{{ $mission->id }}"
+										style="color: black; background-color: green;">Tour-Nr.: {{ $mission->id }}
+									</a>
+								</td>
+							@else
+								<td style="width: 110px">
+									<a class="button" 
+										target="_blank" 
+										href="/mission_overview/{{ $mission->id }}"
+										style="color: black; background-color: red;">Tour-Nr.: {{ $mission->id }}
+									</a>
+								</td>
+							@endif
+
+							<td style="width: 100px">{{ date_format(date_create($mission->startDatum), 'd.m.Y') }}</td>
+							<td>{{ $mission->startOrt }} -> {{ $mission->zielOrt}}</td>
+							<td>{{ $mission->kundeBemerkung }}</td>
+						</tr>
+					@endforeach
+				</table>
 			</div>
 		@endforeach
 		<input type="submit" name="submit" class="form-control">
