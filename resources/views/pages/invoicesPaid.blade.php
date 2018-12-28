@@ -6,9 +6,6 @@
 	<div class="my1003">
 @endif
 		<h1 style="text-align: center">Übersicht aller offenen Rechnungen</h1>
-		
-		<form action="/payBill" method="post">
-			{{ csrf_field() }}
 			<table class="table">
 				<tr class="my1000">
 					<th style="text-align: center">#</th>
@@ -30,14 +27,10 @@
 								width: 150px">{{ number_format($bill->priceGross, 2, ',', ' ') }} €
 						</td>
 						<td style="text-align: center">
-							<button class="form-control" 
-									onclick="window.location.href='/payBill/{{ $bill->id }}'">
-										BEZAHLT
-							</button>
+							<button class="form-control" onclick="window.location.href='/payBill/{{$bill->id}}'">BEZAHLT</button>
 						</td>
 					</tr>
 				@endforeach
 			</table>
-		</form>
 	</div>	
 @endsection

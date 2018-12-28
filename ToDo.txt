@@ -9,13 +9,13 @@ ToDo
 
 
 
-
 13		Design update: Tabellen neu gestaltet
 12.02	Neue Touren-Eingabe: update design
 12.01	Neue Touren-Eingabe (verkürzt), Auftraggeber fehlt noch
 #11.01	Detailansicht korrigiert
 11		Übersicht aller Aufträge neu gestaltet
 #10.01	Rechungssumme wird neu berechnet, gespeichert und dann erst die PDF erstellt
+#10.02	Rechnung: bug -> falsche Routenaufruf beim bezahlen
 #10		PDF-Rechnung kann neu erzeugt werden: /bill/$id/printPDF
 #09		Kalender Ansicht
 #08.03	eingereichte Gutschrift: orderBy startDatum

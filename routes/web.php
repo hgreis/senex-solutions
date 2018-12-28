@@ -26,7 +26,7 @@ Route::get('/invoicesPaid/{id}', 'MissionController@paidInvoices');
 Route::get('/bill/{id}', 'MissionController@showBill');
 Route::get('/bill/{id}/printPDF', 'BillController@printPDF');
 Route::get('/mission/viewNoDeliveryNote', 'MissionController@viewNoDeliveryNote')->name('viewNoDeliveryNote');
-Route::get('/payBill/{id}', 'BillController@payBill')->name('payBill');
+Route::get('/payBill/{id}', 'BillController@payBill');
 Route::get('/credits/{company}', 'CreditController@listForCredits')->name('listForCredits');
 Route::post('/saveCredit', 'CreditController@saveCredit')->name('saveCredit');
 Route::get('/listCredits/{company}', 'CreditController@listCredits')->name('listCredits');

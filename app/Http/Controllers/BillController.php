@@ -17,10 +17,7 @@ class BillController extends Controller
         Bill::find($id)->update(['paid' => now()]);
         Mission::where('bill_id', $id)->update(['bill_paid' => now()]);
         $company = Bill::find($id)->company;
-        if ($company == 2)  {
-        return redirect('/invoicesPaid/2');
-        }
-        return redirect('/invoicesPaid/1');
+        return redirect('/invoicesPaid/'.$company);
     }
 
     public function printPDF($id) {
