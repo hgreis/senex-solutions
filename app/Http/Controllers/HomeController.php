@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Company;
 use App\Mission;
+use App\Customer;
 
 class HomeController extends Controller
 {
@@ -56,5 +57,10 @@ class HomeController extends Controller
             $company->save();
        
         return view('dekra');
+    }
+
+    public function customerDelete($id) {
+        Customer::find($id)->delete();
+        return redirect('/customer');
     }
 }

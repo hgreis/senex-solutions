@@ -7,7 +7,7 @@ ToDo
 
 
 
-
+15		Kunde direkt löschen: /customer/{id}/delete
 14		Datums-Eingabe auf deutsches Format umgestellt
 13		Design update: Tabellen neu gestaltet
 12.02	Neue Touren-Eingabe: update design
@@ -49,6 +49,7 @@ ToDo
 
 Direkte Funktionen
 /drivers/{id}/delete			//Fahrer löschen
+/customer/{id}/delete			//Kunde löschen
 /payMission/{id}				//Auftraggeber hat bezahlt
 /mission/{id}/delete 			//Tour löschen
 /bill/{id}/printPDF				//Rechnung neu erzeugen

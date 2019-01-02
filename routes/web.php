@@ -49,7 +49,7 @@ Route::get('/mission/{id}/delete', 'MissionController@mission_delete');
 
 Route::get('/mission/calendar', 'MissionController@calendar')->name('calendar');
 
-
+Route::get('dekra/new_customer/{id}/delete', 'HomeController@customerDelete');
 
 Route::get('/dekra/new_customer', 'DriverController@newCustomer');
 Route::get('/dekra/new_customer/{id}', 'DriverController@editCustomer');
