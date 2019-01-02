@@ -97,11 +97,10 @@ class MissionController extends Controller
                     $id = $bill->id;
                     $bill->save();
                     $bill->savePDF();
-                    unset($bill);
                 }
             }
         }
-        return view('pages.menu');
+        return redirect(route('HomeController@menu_invoice'));
     }
 
     public function showBill($id) {
@@ -400,6 +399,6 @@ class MissionController extends Controller
     public function mission_delete($id) {
         $mission = Mission::find($id);
         $mission->delete();
-        return;
+        return redirect(route('calendar'));
     }
 }

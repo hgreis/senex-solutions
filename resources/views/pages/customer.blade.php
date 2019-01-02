@@ -15,7 +15,7 @@
 						Email: {{$customer->email}}<br>
 						Steuersatz: {{ $customer->taxes }} %<br>
 						Notiz: {{$customer->notice}}<br>
-						<button type="button" class="whiteButton" onclick="window.location.href='/dekra/new_customer/{{$customer->id}}'">
+						<button type="button" class="form-control" onclick="window.location.href='/dekra/new_customer/{{$customer->id}}'">
 							EDIT
 						</button>
 

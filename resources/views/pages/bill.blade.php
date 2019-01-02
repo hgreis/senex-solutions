@@ -16,7 +16,7 @@
 								<td style="width: 110px">
 									<a class="button" 
 										target="_blank" 
-										href="/mission_overview/{{ $mission->id }}"
+										href="/mission/{{ $mission->id }}/details"
 										style="color: black; background-color: green;">Tour-Nr.: {{ $mission->id }}
 									</a>
 								</td>
@@ -24,7 +24,7 @@
 								<td style="width: 110px">
 									<a class="button" 
 										target="_blank" 
-										href="/mission_overview/{{ $mission->id }}"
+										href="/mission/{{ $mission->id }}/details"
 										style="color: black; background-color: red;">Tour-Nr.: {{ $mission->id }}
 									</a>
 								</td>
@@ -51,8 +51,8 @@
 							@if( $mission->deliveryNote != null)
 								<td style="width: 110px">
 									<a class="button" 
-										target="_blank" 
-										href="/mission_overview/{{ $mission->id }}"
+										target="_blank"
+										href="/mission/{{ $mission->id }}/details"
 										style="color: black; background-color: green;">Tour-Nr.: {{ $mission->id }}
 									</a>
 								</td>
@@ -60,7 +60,7 @@
 								<td style="width: 110px">
 									<a class="button" 
 										target="_blank" 
-										href="/mission_overview/{{ $mission->id }}"
+										href="/mission/{{ $mission->id }}/details"
 										style="color: black; background-color: red;">Tour-Nr.: {{ $mission->id }}
 									</a>
 								</td>

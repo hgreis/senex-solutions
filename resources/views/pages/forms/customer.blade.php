@@ -30,8 +30,8 @@
 		</select>´<br><br>
 		<label>Zahlungsziel: &nbsp;</label>
 		<select name="duration">
-			<option value="14">14 Tage</option>
 			<option value="30">30 Tage</option>
+			<option value="14">14 Tage</option>
 			<option value="7">7 Tage</option>
 		</select>´<br><br>
 		<input type="submit" name="submit" class="form-control">

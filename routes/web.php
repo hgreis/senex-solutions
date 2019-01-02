@@ -45,12 +45,14 @@ Route::get('payMission/{id}', 'MissionController@payMission');
 Route::get('/missionsPayDriver/{company}', 'MissionController@payDriverList');
 Route::get('/mission/{id}/payDriver', 'MissionController@PayDriver');
 Route::get('/mission/{id}/delete', 'MissionController@mission_delete');
+Route::get('/mission/{id}/details', 'MissionController@overview');
+Route::get('/mission/{id}/edit', 'MissionController@viewMissionCustomer');
 
 
 Route::get('/mission/calendar', 'MissionController@calendar')->name('calendar');
 
-Route::get('dekra/new_customer/{id}/delete', 'HomeController@customerDelete');
 
+Route::get('dekra/new_customer/{id}/delete', 'HomeController@customerDelete');
 Route::get('/dekra/new_customer', 'DriverController@newCustomer');
 Route::get('/dekra/new_customer/{id}', 'DriverController@editCustomer');
 Route::post('/dekra/save_customer', 'DriverController@saveCustomer');
