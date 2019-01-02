@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use App\Mission;
 use App\Driver;
 use App\Customer;
@@ -24,6 +25,9 @@ class MissionController extends Controller
                 if($mission->bill_id != null)    {
                     $mission->bill_number = Bill::find($mission->bill_id)->number;
                     $mission->bill_price = Bill::find($mission->bill_id)->priceGross;
+                }
+                if($mission->customer == null) {
+                    $mission->customer = new Customer;
                 }
             }
         $drivers =  Mission::whereNotNull('id')
@@ -134,8 +138,8 @@ class MissionController extends Controller
     public function mission_newDate($date) {
         $input = new Mission;
         $input->company = 1;
-        $input->startDatum = $date;
-        $input->zielDatum = $date;
+        $input->startDatum = date_format(date_create($date), 'd.m.Y');
+        $input->zielDatum = date_format(date_create($date), 'd.m.Y');
         $customers = Customer::all()->sortBy('name');
         $drivers = Driver::all()->sortBy('name');
         return view('pages.missionNew', compact('input', 'drivers', 'customers'));
@@ -186,8 +190,20 @@ class MissionController extends Controller
             $input->delete();
             return view('pages.menu');
         }
-        
+
         $input->fill($request->all());
+
+        if (isset($request->startDatum)) {
+            $datum = $request->startDatum;
+            $arr = explode('.', $datum);
+            $input->startDatum = Carbon::createFromDate($arr[2], $arr[1], $arr[0]);
+        }
+        if (isset($request->zielDatum)) {
+            $datum = $request->zielDatum;
+            $arr = explode('.', $datum);
+            $input->zielDatum = Carbon::createFromDate($arr[2], $arr[1], $arr[0]);
+        }
+
         $input->save();
 
         //file upload: order confirmation
@@ -208,14 +224,17 @@ class MissionController extends Controller
             $input->save();
         }        
 
-        $input = Mission::find($input->id);
         $choice = $request->submit;
-        $customers = Customer::all()->sortBy('name');
-        $drivers = Driver::all()->sortBy('name');
-
         if ($choice == 'Speichern/Menu') {
             return redirect('/mission/calendar');
         }
+
+        $input = Mission::find($input->id);
+        $input->startDatum = date_format(date_create($input->startDatum), 'd.m.Y');
+        $input->zielDatum = date_format(date_create($input->zielDatum), 'd.m.Y');
+
+        $customers = Customer::all()->sortBy('name');
+        $drivers = Driver::all()->sortBy('name');
 
         return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
     }
@@ -312,6 +331,10 @@ class MissionController extends Controller
         if($mission->driver == null) {
             $mission->driver = new Driver;
             $mission->driver->name = 'KEIN FAHRER ZUGEWIESEN';
+        }
+        if($mission->customer == null) {
+            $mission->customer = new Customer;
+            $mission->customer->name = 'KEIN AUFTRAGGEBER ZUGEWIESEN';
         }
         return view('pages.mission_overview', compact('mission'));
     }

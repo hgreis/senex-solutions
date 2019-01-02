@@ -10,8 +10,9 @@ Route::get('/home', 'HomeController@index')->name('HomeController@index');
 Route::get('/menu', 'HomeController@menu')->name('HomeController@menu');
 Route::get('/menu_invoice', 'HomeController@menu_invoice')->name('HomeController@menu_invoice');
 Route::get('/menu_config', 'HomeController@menu_config')->name('HomeController@menu_config');
-Route::get('/mission/new', 'MissionController@mission_new')->name('MissionController@mission_new');
 Route::post('/mission/new', 'MissionController@mission_submit')->name('mission_submit');
+Route::get('/mission/new', 'MissionController@mission_new')->name('MissionController@mission_new');
+Route::get('/mission/new/{date}', 'MissionController@mission_newDate');
 Route::get('/mission/view', 'MissionController@viewMissions')->name('viewMissions');
 Route::get('/mission/view/{id}', 'MissionController@viewMission');
 Route::get('/mission/view/{id}/driver', 'MissionController@viewMissionDriver');
@@ -47,7 +48,6 @@ Route::get('/mission/{id}/delete', 'MissionController@mission_delete');
 
 
 Route::get('/mission/calendar', 'MissionController@calendar')->name('calendar');
-Route::get('/mission/new/{date}', 'MissionController@mission_newDate');
 
 
 
