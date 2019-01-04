@@ -11,7 +11,6 @@
         {{ Form::label('startDatum', 'Datum:') }}
         {{ Form::text('startDatum', $input->startDatum, ['class' => 'form-control', 'required']) }}
         {{ Form::text('id', $input->id, ['hidden' => 'true']) }}
-        {{ Form::text('zielDatum', $input->zielDatum, ['hidden' => 'true']) }}
     </div>
     <div class="form-group">
         {{ Form::label('startName', 'Name:') }}

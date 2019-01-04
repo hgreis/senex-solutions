@@ -179,6 +179,7 @@ class MissionController extends Controller
     }
 
     public function mission_submit(Request $request) {
+
         if (isset($request->id)) {
             $input = Mission::find($request->id);
         }
@@ -224,7 +225,7 @@ class MissionController extends Controller
         }        
 
         $choice = $request->submit;
-        if ($choice == 'Speichern/Menu') {
+        if ($choice == 'Speichern/Menu') {            
             return redirect('/mission/calendar');
         }
 
@@ -232,10 +233,12 @@ class MissionController extends Controller
         $input->startDatum = date_format(date_create($input->startDatum), 'd.m.Y');
         if($input->zielDatum == null){
             $input->zielDatum =date_format(date_create($input->startDatum), 'd.m.Y');
+        } else {
+            $input->zielDatum =date_format(date_create($input->zielDatum), 'd.m.Y');
         }
-
         $customers = Customer::all()->sortBy('name');
         $drivers = Driver::all()->sortBy('name');
+
 
         return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
     }
