@@ -6,6 +6,11 @@ ToDo
 -> Zahlungseingang: Mahnwesen
 
 
+
+
+
+
+#16		Fixed Bug: Auftrags-Schnellanlage -> Datei-Upload
 #15		Kunde direkt löschen: /customer/{id}/delete
 #14		Datums-Eingabe auf deutsches Format umgestellt
 #13.01	Design Update: Tabelle 'Übersicht Fahrtenauflistungen' neu gestaltet

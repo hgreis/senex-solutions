@@ -1,8 +1,8 @@
 @extends('layouts.main')
 @section('content')
     <h1>Neuen Auftrag anlegen</h1>
-        {{  Form::open(['route' => 'mission_submit'])  }}
-        {{ csrf_field() }}
+        <form action="/mission/new" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
         <h3>
             
             @if ($input->company == 2)
@@ -80,9 +80,6 @@
                     'name' => 'submit',
                     'style' => 'width: 100%' ])}}
         </div>
-
-
-    {{  Form::close() }}
-
+    </form>
 @endsection
 
