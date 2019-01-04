@@ -13,6 +13,7 @@ ToDo
 #16		Fixed Bug: Auftrags-Schnellanlage -> Datei-Upload
 #15		Kunde direkt löschen: /customer/{id}/delete
 #14		Datums-Eingabe auf deutsches Format umgestellt
+#13.02	Design Update: Auftrags-Menü neu gestaltet
 #13.01	Design Update: Tabelle 'Übersicht Fahrtenauflistungen' neu gestaltet
 #13		Design update: Tabellen neu gestaltet
 #12.02	Neue Touren-Eingabe: update design

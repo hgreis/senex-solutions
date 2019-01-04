@@ -6,7 +6,7 @@
 </script>
 
 <div style="float: left; width: 50%; min-width: 400px">
-    <h1 style="text-align: left">STRERATH Transporte</h1><hr>
+    <h1 style="text-align: left">Strerath Transporte</h1><hr>
     <div class="redbox" style="width: 90%">
         <div class="flip">
             <h3>Auftraggeber</h3>
