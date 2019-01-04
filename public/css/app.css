@@ -28,6 +28,28 @@ html {
   bottom: 10px;
  }
 
+ .missionOK {
+  color: black;
+  background-color: green;
+  border: 1px solid black;
+  border-color: black;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px;
+ }
+
+ .missionNotOK {
+  color: black;
+  background-color: red;
+  border: 1px solid black;
+  border-color: black;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px;
+ }
+
 .myth {
   background-color: black !important;
   color: white;

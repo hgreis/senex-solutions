@@ -179,6 +179,7 @@ class MissionController extends Controller
     }
 
     public function mission_submit(Request $request) {
+return $request;        
         if (isset($request->id)) {
             $input = Mission::find($request->id);
         }
@@ -202,7 +203,7 @@ class MissionController extends Controller
             $arr = explode('.', $datum);
             $input->zielDatum = Carbon::createFromDate($arr[2], $arr[1], $arr[0]);
         }
-
+//return $input;
         $input->save();
 
         //file upload: order confirmation
@@ -230,7 +231,9 @@ class MissionController extends Controller
 
         $input = Mission::find($input->id);
         $input->startDatum = date_format(date_create($input->startDatum), 'd.m.Y');
-        $input->zielDatum = date_format(date_create($input->zielDatum), 'd.m.Y');
+        if($input->zielDatum == null){
+            $input->zielDatum =date_format(date_create($input->startDatum), 'd.m.Y');
+        }
 
         $customers = Customer::all()->sortBy('name');
         $drivers = Driver::all()->sortBy('name');

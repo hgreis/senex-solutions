@@ -37,18 +37,16 @@
 						@endif
 							@if( $mission->deliveryNote != null)
 									<td style="width: 100px">
-										<a class="button" 
+										<a class="missionOK" 
 											target="_blank" 
-											href="/mission/{{ $mission->id }}/details"
-											style="color: black; background-color: green;">Tour-Nr.: {{ $mission->id }}
+											href="/mission/{{ $mission->id }}/details">Tour-Nr.: {{ $mission->id }}
 										</a>
 									</td>
 							@else
 									<td style="width: 100px">
-										<a class="button" 
+										<a class="missionNotOK" 
 											target="_blank" 
-											href="/mission/{{ $mission->id }}/details"
-											style="color: black; background-color: red;">Tour-Nr.: {{ $mission->id }}
+											href="/mission/{{ $mission->id }}/details">Tour-Nr.: {{ $mission->id }}
 										</a>
 									</td>
 							@endif
@@ -61,8 +59,8 @@
 								<a href="/mission/view/{{$mission->id}}/customer">
 									{{ $mission->kunde }}
 								</td>
-							<td>
-								{{ $mission->startOrt }} -> {{ $mission->zielOrt }}
+							<td style="max-width: 300px">
+								{{ $mission->startOrt }} &rarr; {{ $mission->zielOrt }}
 							</td>
 							<td style="text-align: right">{{ number_format($mission->preisFahrer, 2) }} € </td>
 							<td style="text-align: right">{{ number_format($mission->preisKunde, 2) }} € </td>
