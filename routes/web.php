@@ -47,9 +47,10 @@ Route::get('/mission/{id}/payDriver', 'MissionController@PayDriver');
 Route::get('/mission/{id}/delete', 'MissionController@mission_delete');
 Route::get('/mission/{id}/details', 'MissionController@overview');
 Route::get('/mission/{id}/edit', 'MissionController@viewMissionCustomer');
-
-
 Route::get('/mission/calendar', 'MissionController@calendar')->name('calendar');
+
+
+Route::get('/chart/{start}/{end}', 'HomeController@chartMission')->name('chartMission');
 
 
 Route::get('dekra/new_customer/{id}/delete', 'HomeController@customerDelete');

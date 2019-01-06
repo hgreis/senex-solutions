@@ -63,4 +63,33 @@ class HomeController extends Controller
         Customer::find($id)->delete();
         return redirect('/customer');
     }
+
+    public function chartMission($start, $end) {
+        $companies = Company::all();
+        $companies->start = date_format(date_create($start), 'd.m.Y');
+        $companies->end = date_format(date_create($end), 'd.m.Y');
+        foreach ($companies as $company) {
+            $company->umsatz = Mission::where('company', $company->id)
+                            ->where('startDatum', '>=', $start)
+                            ->where('startDatum', '<=', $end)
+                            ->sum('preisKunde');
+            $company->kosten = Mission::where('company', $company->id)
+                            ->where('startDatum', '>=', $start)
+                            ->where('startDatum', '<=', $end)
+                            ->sum('preisFahrer');
+            $company->gewinn = $company->umsatz - $company->kosten;
+        }
+        $companies[2] = new Company;
+        $companies[2]->nameCompany = 'beide Firmen zusammen';
+        $companies[2]->umsatz = Mission::where('startDatum', '>=', $start)
+                            ->where('startDatum', '<=', $end)
+                            ->sum('preisKunde');
+        $companies[2]->kosten = Mission::where('startDatum', '>=', $start)
+                            ->where('startDatum', '<=', $end)
+                            ->sum('preisFahrer');
+        $companies[2]->gewinn = $companies[2]->umsatz - $companies[2]->kosten;
+        $companies[2]->customers = Customer::all();
+
+        return view('pages.chart', compact('companies'));
+    }
 }

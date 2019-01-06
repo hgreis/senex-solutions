@@ -20,7 +20,7 @@
 			</div>
 			<div class="panel">
 				<table style="width: 100%">
-					<tr style="background-color: black; color: white">
+					<tr class="myth">
 						<th>#</th>
 						<th>Fahrer</th>
 						<th>Auftraggeber</th>
