@@ -29,7 +29,7 @@
 						<th style="text-align: center">Umsatz</th>
 						<th style="text-align: center">Gewinn</th>
 					</tr>
-					@foreach($date as $mission)
+					@foreach($date->sortBy('fahrer') as $mission)
 						@if($mission->company == 2)
 							<tr style="background-color: yellow">
 						@else
