@@ -52,7 +52,8 @@ class CreditController extends Controller
                         ->where('company', 1);
                 })->with(['missions' => function($query) {
                     $query->whereNull('credit')
-                        ->where('company', 1);
+                        ->where('company', 1)
+                        ->orderBy('zielDatum');
                 }])->orderBy('name')->get();
         }
         if($company == 2) {

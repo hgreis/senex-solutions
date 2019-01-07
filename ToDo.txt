@@ -32,6 +32,7 @@ ToDo
 #06.03	Fahrtenauflistung zur Gutschriftserstellung: Übersicht mit Aufruffunktion
 #06.02	Fahrtenauflistung zur Gutschriftserstellung: PDF wird gespeichert
 #06.01	Fahrtenauflistung zur Gutschriftserstellung: model, migration, data->view
+#05.14 	Gutschriften: PDF mit Bankinfos
 #05.13 	Gutschriften: Überweisung bestätigen
 #05.12 	Gutschriften: Übersicht erstellt
 #05.11 	Gutschriften: Menü-Rechnungswesen optimiert

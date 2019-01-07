@@ -26,6 +26,16 @@ class Credit extends Model
 		$company = Company::find($this->company);
 		$driver = Driver::find($this->driver);
 
+        $html2 ='
+                <p style="text-align: center; font-size:6; font-weight:normal">
+                    Inhaber: '.$company->nameOwner.' / '.$company->venue.'<br>
+                    Steuernummer: '.$company->taxNumber.' /  
+                    Umsatzsteuer-ID: '.$company->turnoverTax.'<br>
+                    Bank: '.$company->bank.' /
+                    IBAN: '.$company->iban.' / 
+                    BIC: '.$company->bic.'
+                </p>';
+
 		$pdf = new PDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf::SetTitle('Gutschrift');
         $pdf::SetMargins(20,30,20,20);
@@ -92,16 +102,16 @@ class Credit extends Model
         $pdf::Ln(10);
         $pdf::SetFont('helvetica','B',10);
         $pdf::SetFillColor(226,14,14);
-        $pdf::Cell(18,0,'Tour-Nr.',1,0,'C',1,'C');
-        $pdf::Cell(25,0,'Lieferdatum',1,0,'C',1,'C');
-        $pdf::Cell(107,0,'Tourenbeschreibung',1,0,'',1,'C');
+        $pdf::Cell(15,0,'Tour',1,0,'C',1,'C');
+        $pdf::Cell(20,0,'Lieferung',1,0,'C',1,'C');
+        $pdf::Cell(115,0,'Tourenbeschreibung',1,0,'',1,'C');
         $pdf::Cell(20,0,'Preis',1,1,'C',1,'C');
         $pdf::SetFont('helvetica','',9);
         $pdf::Ln(2);
         foreach ($missions as $mission) {
-            $pdf::Cell(18,0,$mission->id,0,0,'C');
-            $pdf::Cell(25,0,date("d.m.Y", strtotime($mission->zielDatum)),0,0,'C');
-            $pdf::Cell(107,0,$mission->startOrt.' nach '.$mission->zielOrt,0,0,'L');
+            $pdf::Cell(15,0,$mission->id,0,0,'C');
+            $pdf::Cell(20,0,date("d.m.Y", strtotime($mission->zielDatum)),0,0,'C');
+            $pdf::Cell(115,0,$mission->startOrt.' nach '.$mission->zielOrt,0,0,'L');
             $pdf::Cell(18,0,number_format($mission->preisFahrer, 2, ",", "").' €',0,1,'R');
             $pdf::Ln(2);
         };
@@ -128,7 +138,9 @@ class Credit extends Model
         	</p>
         ');
 
-
+        // payment advice
+        $pdf::SetY(-32);
+        $pdf::writeHTML($html2, true, false, true, false, '');
 
 
 		//save the PDF file 
