@@ -98,8 +98,14 @@ class Bill extends Model
         $pdf::Cell(0,0,$customer->country,0,1);
 
         // Logo
-        $image_file = 'images/fs logo.jpg';
-        $pdf::Image($image_file, 140, 50, 50, '', 'JPG', '', 'R', false, 300, '', false, false, 0, false, false, false);
+
+        if ($company->id == 2) {
+            $image_file = 'images/sh logo.jpg';
+            $pdf::Image($image_file, 140, 50, 50, '', 'JPG', '', 'R', false, 300, '', false, false, 0, false, false, false);
+        } else {
+            $image_file = 'images/fs logo.jpg';
+            $pdf::Image($image_file, 140, 50, 50, '', 'JPG', '', 'R', false, 300, '', false, false, 0, false, false, false);
+        }
 
         // head with invoice-number
         $pdf::Ln(20);
