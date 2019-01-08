@@ -234,7 +234,7 @@ class MissionController extends Controller
 
         $choice = $request->submit;
         if ($choice == 'Speichern/Menu') {            
-            return redirect('/mission/calendar');
+            return redirect('/mission/calendar/'.$input->id);
         }
 
         $input = Mission::find($input->id);
