@@ -17,6 +17,12 @@
 					<option value="{{ $driver->fahrer }} ">{{ $driver->fahrer }}</option>
 				@endforeach
 			</select>
+			<select name='contractor' class='form-control'>
+				<option value="">--- Unternehmer auswählen ---</option>
+				@foreach ($contractors as $contractor)
+					<option value="{{ $contractor }} ">{{ $contractor->contractor }}</option>
+				@endforeach
+			</select>
 			<select name='customer' class='form-control'>
 				<option value="">--- Kunde auswählen ---</option>
 				@foreach ($customers as $customer)

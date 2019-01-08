@@ -35,6 +35,11 @@ class MissionController extends Controller
             ->orderBy('fahrer')
             ->distinct()
             ->get();
+        $contractors = Driver::whereNotNull('id')
+            ->select('contractor')
+            ->orderBy('contractor')
+            ->distinct()
+            ->get();
         $customers =  Mission::whereNotNull('id')
             ->select('kunde')
             ->orderBy('kunde')
@@ -54,7 +59,10 @@ class MissionController extends Controller
         if ($request->date != null) {
             $missions = $missions->where('zielDatum', $request->date);
         }
-        return view('pages.view', compact('missions', 'dates', 'drivers', 'customers'));
+        if ($request->contractor != null) {
+            return 'Der Filter "Unternehmer" muss noch programmiert werden';
+        }
+        return view('pages.view', compact('missions', 'dates', 'drivers', 'contractors', 'customers'));
     }
 
     
@@ -279,6 +287,11 @@ class MissionController extends Controller
             ->orderBy('fahrer')
             ->distinct()
             ->get();
+        $contractors = Driver::whereNotNull('id')
+            ->select('contractor')
+            ->orderBy('contractor')
+            ->distinct()
+            ->get();
         $customers =  Mission::where('bill_id', null)
             ->select('kunde')
             ->orderBy('kunde')
@@ -295,9 +308,10 @@ class MissionController extends Controller
         if ($request->driver != null) {
             $missions = $missions->where('fahrer', $request->driver);
         }
-        return view('pages.view', compact('missions', 'dates', 'drivers', 'customers'));    }
+        return view('pages.view', compact('missions', 'dates', 'drivers', 'contractors', 'customers'));    }
 
     public function viewNoDeliveryNote(Request $request)  {
+return 'der Bereich muss noch programmiert werden';
         $missions = Mission::where('bill_id', null)
             ->where('deliveryNote', null)
             ->orderBy('zielDatum')
@@ -307,6 +321,11 @@ class MissionController extends Controller
             ->orderBy('fahrer')
             ->distinct()
             ->get();
+        $contractors = Driver::whereNotNull('id')
+            ->select('contractor')
+            ->orderBy('contractor')
+            ->distinct()
+            ->get();
         $customers =  Mission::where('bill_id', null)
             ->select('kunde')
             ->orderBy('kunde')
@@ -323,7 +342,7 @@ class MissionController extends Controller
         if ($request->driver != null) {
             $missions = $missions->where('fahrer', $request->driver);
         }
-        return view('pages.view', compact('missions', 'dates', 'drivers', 'customers'));    
+        return view('pages.view', compact('missions', 'dates', 'drivers', 'contractors', 'customers'));    
     }
 
     public function overview($id) {
