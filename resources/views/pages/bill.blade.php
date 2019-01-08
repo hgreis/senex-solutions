@@ -7,7 +7,7 @@
 			<div class="redbox">
 				<h3>{{ $customer->name }}</h3>
 				<table class="table">
-					@foreach ($customer->missions as $mission)
+					@foreach ($customer->missions->sortBy('startDatum') as $mission)
 						<tr class="my1001">
 							<td style="width: 50px; text-align: center">
 								<input type="checkbox" name="{{ $mission->id }}"> &nbsp;
