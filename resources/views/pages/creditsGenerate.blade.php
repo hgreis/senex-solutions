@@ -20,7 +20,7 @@
 				<h3>{{ $driver->name }}</h3>
 			</div>
 			<div class='panel'>
-				@foreach($driver->missions as $mission)
+				@foreach($driver->missions->sortBy('startDatum') as $mission)
 					<table>
 						<tr>
 							<td>

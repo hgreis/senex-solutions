@@ -14,7 +14,7 @@
 				<h3>{{ $customer->name }}</h3>
 			</div>
 			<div class='panel'>
-				@foreach($customer->missions as $mission)
+				@foreach($customer->missions->sortBy('startDatum') as $mission)
 					<table>
 						<tr>
 							<td>
