@@ -256,6 +256,7 @@ class MissionController extends Controller
         $customers = Customer::whereHas('missions', function($query) {
             $query->whereNull('bill_id')
                 ->whereNull('bill_paid')
+                ->whereNotNull('preisKunde')
                 ->where('company', 1);
         })->with(['missions' => function($query) {
             $query->whereNull('bill_id')
