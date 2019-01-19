@@ -37,7 +37,13 @@ class Bill extends Model
         $company = Company::find($bill->company);
         $customer = $this->customer;
         $customer = Customer::where('name', $customer)->first();
-        
+        if($customer->taxes == 300) {
+            $customer->taxes = 0;
+            $customer->paragraph = 300;
+        }elseif($customer->taxes == 305) {
+            $customer->taxes = 0;
+            $customer->paragraph = 305;
+        }
 
         $html2 ='
                 <p style="text-align: center; font-size:6; font-weight:normal">
@@ -50,14 +56,28 @@ class Bill extends Model
                     BIC: '.$company->bic.'
                 </p>
         ';
+        $html300 ='
+                    <p>
+                        <hr><h3>HINWEIS   §300</h3><br><br>
+                        Den genauen Wortlaut bitte per Mail an Heiko.Greis@gmail.com
+                        <hr>
+                    </p>
+        ';
+        $html305 ='
+                    <p>
+                        <hr><h3>HINWEIS   §305</h3><br><br>
+                        Den genauen Wortlaut bitte per Mail an Heiko.Greis@gmail.com
+                        <hr>
+                    </p>
+        ';
         $pdf = new PDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf::SetTitle('Rechnung');
         $pdf::SetMargins(20,30,20,20);
         
         if ($company->id == 2)   {
             $pdf::SetHeaderCallback(function($pdf) {
-                // Position at 15 mm from bottom
-                $pdf->SetY(15);
+                // Position at 30 mm from bottom
+                $pdf->SetY(30);
                 // Set font
                 $pdf->SetFont('helvetica', 'b', 20);
                 $pdf->SetTextColor(200,10,10);
@@ -149,7 +169,13 @@ class Bill extends Model
         $pdf::SetFont('helvetica','b',10);
         $pdf::Cell(50,0,'',0,0);
         $pdf::Cell(100,0,'Rechnungsbetrag (brutto)',0,0,'R');
-        $pdf::Cell(18,0,number_format(($bill->priceNet*1.19), 2, ',', '').' €',0,1,'R');
+        $pdf::Cell(18,0,number_format(($bill->priceNet*(1 + $customer->taxes/100)), 2, ',', '').' €',0,1,'R');
+
+        if($customer->paragraph == 300) {
+            $pdf::writeHTML($html300, true, false, true, false, '');
+        }elseif($customer->paragraph == 305) {
+            $pdf::writeHTML($html305, true, false, true, false, '');
+        }
 
 		// payment advice
 		$pdf::SetY(-32);
