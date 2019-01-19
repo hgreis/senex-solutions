@@ -124,13 +124,13 @@ class Bill extends Model
         $pdf::Cell(20,0,'Preis',1,1,'C',1,'C');
         $pdf::SetFont('helvetica','',10);
         $pdf::Ln(2);
-        foreach ($bill->missions as $mission) {
+        foreach ($bill->missions->sortBy('startDatum') as $mission) {
             if (isset($mission->kundeBemerkung)) {
                 $pdf::Cell(50,0,'',0,0,'C');
                 $pdf::Cell(100,0,$mission->kundeBemerkung,0,1,'L');
             }
             $pdf::Cell(25,0,$mission->id,0,0,'C');
-            $pdf::Cell(25,0,date("d.m.Y", strtotime($mission->zielDatum)),0,0,'C');
+            $pdf::Cell(25,0,date("d.m.Y", strtotime($mission->startDatum)),0,0,'C');
             $pdf::Cell(100,0,'Abholung: '.$mission->startOrt,0,0,'L');
             $pdf::Cell(18,0,number_format($mission->preisKunde, 2, ",", "").' €',0,1,'R');
             $pdf::Cell(50,0,'',0,0,'C');

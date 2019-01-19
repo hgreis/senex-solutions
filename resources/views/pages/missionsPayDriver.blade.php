@@ -13,16 +13,16 @@
 			</div>
 			<div class='panel'>
 				<table class="table">
-						<tr>
-							<th>#</th>
-							<th>Datum</th>
-							<th>Kunde</th>
-							<th>Beschreibung</th>
-							<th>Netto</th>
+						<tr class="my1000">
+							<th style="text-align: center">#</th>
+							<th style="text-align: center">Datum</th>
+							<th style="text-align: center">Kunde</th>
+							<th style="text-align: center">Beschreibung</th>
+							<th style="text-align: center">Netto</th>
 							<th></th>
 						</tr>
 						@foreach($driver as $mission)
-							<tr>
+							<tr class="my1001">
 								@if( $mission->deliveryNote != null)
 									<td style="width: 110px">
 										<a class="button" 
