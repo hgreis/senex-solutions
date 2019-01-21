@@ -170,6 +170,8 @@ class Bill extends Model
         $pdf::Cell(50,0,'',0,0);
         $pdf::Cell(100,0,'Rechnungsbetrag (brutto)',0,0,'R');
         $pdf::Cell(18,0,number_format(($bill->priceNet*(1 + $customer->taxes/100)), 2, ',', '').' €',0,1,'R');
+        $bill->priceGross = $bill->priceNet*(1 + $customer->taxes/100);
+        $bill->save();
 
         if($customer->paragraph == 300) {
             $pdf::writeHTML($html300, true, false, true, false, '');

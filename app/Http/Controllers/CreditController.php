@@ -94,4 +94,34 @@ class CreditController extends Controller
         $credit->save();
         return redirect('/payCredits/'.$credit->company);
     }
+
+    public function edit($id) {
+        $credit = Credit::find($id);
+        $credit->fahrer = Driver::find($credit->driver);
+        $credit->missions = Mission::where('credit', $id)->get();
+        $missions = Mission::where('fahrer', $credit->fahrer->name)
+                            ->whereNull('credit')
+                            ->get();
+        return view('pages.credit.edit', compact('credit', 'missions'));
+    }
+
+    public function deleteMission($id, $mission) {
+        Mission::find($mission)->update(['credit' => null]);
+        return redirect('credit/'.$id.'/edit');
+    }
+
+    public function addMission($id, $mission) {
+        Mission::find($mission)->update(['credit' => $id]);
+        return redirect('credit/'.$id.'/edit');    
+    }
+
+    public function printPDF($id) {
+        $credit = Credit::find($id);
+        $missions = Mission::where('credit', $id)->get();
+        $credit->priceNet = $missions->sum('preisFahrer');
+        $credit->priceGross = $credit->priceNet * 1.19;
+        $credit->save();
+        $credit->savePDF();
+        return redirect('listCredits/1');    
+    }
 }

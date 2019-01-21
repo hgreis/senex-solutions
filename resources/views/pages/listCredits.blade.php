@@ -13,8 +13,7 @@
 				<th>#</th>
 				<th style="width: 90px">Datum</th>
 				<th style="width: 90px">Bezahlt</th>
-				<th>Fahrer</th>
-				<th>Unternehmer</th>
+				<th colspan="2">Unternehmer</th>
 				<th style="text-align: center">Netto</th>
 				<th style="text-align: center">Brutto</th>
 			</tr>
@@ -33,8 +32,14 @@
 					@else
 						<td></td>
 					@endif
-					<td>{{ $credit->driver->name }}</td>
 					<td>{{ $credit->driver->contractor }}</td>
+					<td style="text-align: center">
+							<button class="form-control" 
+									onclick="window.location.href=
+										'/credit/{{ $credit->id }}/edit'">
+								<b>edit</b>
+							</button>
+						</td>
 					<td style="text-align: right; width: 100px">{{ number_format($credit->priceNet, 2, ',', ' ') }} €</td>
 					<td style="text-align: right; width: 100px">{{ number_format($credit->priceGross, 2, ',', ' ') }} €</td>
 				</tr>
