@@ -8,7 +8,7 @@ ToDo
 
 
 
-
+#18		Welcome: news-table angelegt
 #17		Chart
 #16		Fixed Bug: Auftrags-Schnellanlage -> Datei-Upload
 #15		Kunde direkt löschen: /customer/{id}/delete
