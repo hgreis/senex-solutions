@@ -8,7 +8,7 @@ ToDo
 
 
 
-
+#18		Welcome: news-table angelegt
 #17		Chart
 #16		Fixed Bug: Auftrags-Schnellanlage -> Datei-Upload
 #15		Kunde direkt löschen: /customer/{id}/delete
@@ -21,8 +21,10 @@ ToDo
 #12.01	Neue Touren-Eingabe (verkürzt), Auftraggeber fehlt noch
 #11.01	Detailansicht korrigiert
 #11		Übersicht aller Aufträge neu gestaltet
-#10.01	Rechungssumme wird neu berechnet, gespeichert und dann erst die PDF erstellt
+#10.04	Rechnung: §300 §305 vorbereitet. Nur noch $html300, $html305 eintragen
+#10.03	Rechnung: nach Start-Datum sortiert
 #10.02	Rechnung: bug -> falsche Routenaufruf beim bezahlen
+#10.01	Rechungssumme wird neu berechnet, gespeichert und dann erst die PDF erstellt
 #10		PDF-Rechnung kann neu erzeugt werden: /bill/$id/printPDF
 #09.01	Kalender Ansicht: täglich nach Fahrern sortiert
 #09		Kalender Ansicht

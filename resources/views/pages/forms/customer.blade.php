@@ -26,7 +26,8 @@
 		<label>Steuersatz: &nbsp;</label>
 		<select name="taxes">
 			<option value="19">19% Mehrwertsteuer</option>
-			<option value="0">Mehrwertsteuer befreit</option>
+			<option value="300">Mehrwertsteuer befreit §300</option>
+			<option value="305">Mehrwertsteuer befreit §305</option>
 		</select>´<br><br>
 		<label>Zahlungsziel: &nbsp;</label>
 		<select name="duration">

@@ -67,15 +67,7 @@
             <h3>Unternehmer</h3>
         </div>
         <div class="panel">
-            <label>Gutschriften</label>
-            <button class="form-control" onclick="window.location.href='/credits/2'" >Gutschrift erstellen</button>
-            <button class="form-control" onclick="window.location.href='/listCredits/2'" >
-                Gutschriften Übersicht
-            </button>
-            <button class="form-control" onclick="window.location.href='/payCredits/2'" >
-                Überweisung bestätigen
-            </button>
-            <br><label>Rechnungen</label>
+            <label>Rechnungen</label>
             <button class="form-control" onclick="window.location.href='/missionsPayDriver/2'" >eingereichte Rechnung</button>
         </div>
     </div>

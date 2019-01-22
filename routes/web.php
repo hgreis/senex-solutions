@@ -53,6 +53,12 @@ Route::get('/mission/calendar/{lastMissionID}', 'MissionController@calendar')->n
 
 Route::get('/chart/{start}/{end}', 'HomeController@chartMission')->name('chartMission');
 
+Route::get('/credit/{id}/edit', 'CreditController@edit');
+Route::get('/credit/{id}/delete/{mission}', 'CreditController@deleteMission');
+Route::get('/credit/{id}/add/{mission}', 'CreditController@addMission');
+Route::get('/credit/{id}/printPDF', 'CreditController@printPDF');
+
+
 
 Route::get('dekra/new_customer/{id}/delete', 'HomeController@customerDelete');
 Route::get('/dekra/new_customer', 'DriverController@newCustomer');
