@@ -27,8 +27,8 @@
 					</td>
 					<td>{{ date_format(date_create($credit->date), 'd.m.Y') }}</td>
 					<td>{{ $credit->driver->name }}</td>
-					<td style="text-align: right; width: 80px">{{ number_format($credit->priceNet, 2, ',', ' ') }} €</td>
-					<td style="text-align: right; width: 80px">{{ number_format($credit->priceGross, 2, ',', ' ') }} €</td>
+					<td style="text-align: right; width: 100px">{{ number_format($credit->priceNet, 2, ',', ' ') }} €</td>
+					<td style="text-align: right; width: 100px">{{ number_format($credit->priceGross, 2, ',', ' ') }} €</td>
 					<td style="text-align: center">
 							<button type="button" onclick="window.location.href='/payCredit/{{ $credit->id }}'">BEZAHLT</button>
 					</td>

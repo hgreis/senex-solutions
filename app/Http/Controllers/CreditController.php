@@ -57,13 +57,7 @@ class CreditController extends Controller
                 }])->orderBy('name')->get();
         }
         if($company == 2) {
-            $drivers = Driver::whereHas('missions', function($query) {
-                    $query->whereNull('credit')
-                        ->where('company', 2);
-                })->with(['missions' => function($query) {
-                    $query->whereNull('credit')
-                        ->where('company', 2);
-                }])->orderBy('name')->get();
+            return 'Für Sabine Heinrichs Transporte sind keine Gutschriften vorgesehen.'
         }
         return view('pages.creditsGenerate', compact('company', 'drivers'));
     }

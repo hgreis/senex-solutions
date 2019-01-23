@@ -4,6 +4,12 @@
     <div>
     	<table class="table">
     		<tr>
+                <td style="min-width: 100px">22.01.2018</td>
+                <td>
+                    Rechnungen: Der Hinweis-Text für die Steuerbefreiung ist eingefügt. Vorgehensweise siehe weiter unten.
+                </td>
+            </tr>
+            <tr>
     			<td style="min-width: 100px">21.01.2018</td>
     			<td>
     				Gutschriften: In der <a href="listCredits/1">Gutschriften-Übersicht</a> ist jetzt ein EDIT-Button. Es lassen sich Auträge im Nachhinein hinzufügen oder entfernen.<br>
