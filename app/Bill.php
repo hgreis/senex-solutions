@@ -58,15 +58,15 @@ class Bill extends Model
         ';
         $html300 ='
                     <p>
-                        <hr><h3>HINWEIS   §300</h3><br><br>
-                        Den genauen Wortlaut bitte per Mail an Heiko.Greis@gmail.com
+                        <hr><h3>HINWEIS</h3><br><br>
+                         Übergang der Steuerschuldnerschaft nach §3a UStg grenzüberschreitende Beförderung
                         <hr>
                     </p>
         ';
         $html305 ='
                     <p>
-                        <hr><h3>HINWEIS   §305</h3><br><br>
-                        Den genauen Wortlaut bitte per Mail an Heiko.Greis@gmail.com
+                        <hr><h3>HINWEIS</h3><br><br>
+                        Steuerfrei nach § 4(3) lit. a (aa/bb) UStG grenzüberschreitende Beförderung
                         <hr>
                     </p>
         ';
