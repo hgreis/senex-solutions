@@ -57,7 +57,7 @@ class CreditController extends Controller
                 }])->orderBy('name')->get();
         }
         if($company == 2) {
-            return 'Für Sabine Heinrichs Transporte sind keine Gutschriften vorgesehen.'
+            return 'Für Sabine Heinrichs Transporte sind keine Gutschriften vorgesehen.';
         }
         return view('pages.creditsGenerate', compact('company', 'drivers'));
     }
