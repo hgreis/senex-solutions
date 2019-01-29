@@ -3,7 +3,13 @@
     <h1>Senex-Solutions  &rArr; NEWS</h1>
     <div>
     	<table class="table">
-    		<tr>
+            <tr>
+                <td style="min-width: 100px">28.01.2018</td>
+                <td>
+                    Rechnungen: Die Rechnungsgenerierung ist jetzt getrennt (Strerath/Heinrichs). 
+                </td>
+            </tr>
+            <tr>
                 <td style="min-width: 100px">22.01.2018</td>
                 <td>
                     Rechnungen: Der Hinweis-Text für die Steuerbefreiung ist eingefügt. Vorgehensweise siehe weiter unten.

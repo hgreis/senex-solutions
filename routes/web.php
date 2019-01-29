@@ -21,6 +21,8 @@ Route::get('/mission/viewNoDriver', 'MissionController@viewNoDriver')->name('vie
 Route::get('/mission_overview/{id}', 'MissionController@overview')->name('overview');
 Route::get('/customer', 'DriverController@customer')->name('customer');
 Route::get('/bill', 'MissionController@createBill');
+Route::get('/bill1', 'BillController@createBill1');
+Route::get('/bill2', 'BillController@createBill2');
 Route::post('/saveBill', 'MissionController@saveBill');
 Route::get('/invoices/{id}', 'MissionController@listInvoices');
 Route::get('/invoicesPaid/{id}', 'MissionController@paidInvoices');

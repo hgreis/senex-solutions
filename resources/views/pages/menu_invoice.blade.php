@@ -13,7 +13,7 @@
         </div>
         <div class="panel">
             <label>Rechnungen</label>
-            <button class="form-control" onclick="window.location.href='/bill'" >Rechnung generieren</button>
+            <button class="form-control" onclick="window.location.href='/bill1'" >Rechnung generieren</button>
             <button class="form-control" onclick="window.location.href='/invoices/1'" >Rechnung - Übersicht</button>
             <button class="form-control" onclick="window.location.href='/invoicesPaid/1'" >Zahlungseingang</button>
             <br><label>Gutschriften</label>
@@ -53,7 +53,7 @@
         </div>
         <div class="panel">
             <label>Rechnungen</label>
-            <button class="form-control" onclick="window.location.href='/bill'" >Rechnung generieren</button>
+            <button class="form-control" onclick="window.location.href='/bill2'" >Rechnung generieren</button>
             <button class="form-control" onclick="window.location.href='/invoices/2'" >Rechnung - Übersicht</button>
             <button class="form-control" onclick="window.location.href='/invoicesPaid/2'" >Zahlungseingang</button>
             <br><label>Gutschriften</label>

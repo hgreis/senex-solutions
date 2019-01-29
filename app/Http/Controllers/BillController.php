@@ -28,6 +28,37 @@ class BillController extends Controller
     	$bill->savePDF();
     	return 'Es wurde eine neue PDF erzeugt';
     }
+
+    public function createBill1() {
+        // for first company
+        $customers = Customer::whereHas('missions', function($query) {
+            $query->whereNull('bill_id')
+                ->whereNull('bill_paid')
+                ->whereNotNull('preisKunde')
+                ->where('company', 1);
+        })->with(['missions' => function($query) {
+            $query->whereNull('bill_id')
+                ->whereNull('bill_paid')
+                ->where('company', 1);
+        }])->orderBy('name')->get();
+
+        return view('pages.bill', compact('customers'));
+    }
+
+    public function createBill2() {
+        //for second company
+        $customers = Customer::whereHas('missions', function($query) {
+            $query->whereNull('bill_id')
+                ->whereNull('bill_paid')
+                ->where('company', 2);
+        })->with(['missions' => function($query) {
+            $query->whereNull('bill_id')
+                ->whereNull('bill_paid')
+                ->where('company', 2);
+        }])->orderBy('name')->get();
+
+        return view('pages.bill', compact('customers'));
+    }
 }
 
 
