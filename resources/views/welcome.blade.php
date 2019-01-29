@@ -4,6 +4,16 @@
     <div>
     	<table class="table">
             <tr>
+                <td style="min-width: 100px">29.01.2018</td>
+                <td>
+                    Fehlende Lieferscheine: Listet alle Auftäge auf, die <br>
+                    -> noch keinen Lieferschein haben<br>
+                    -> noch keine Rechnungsnummer haben<br>
+                    -> noch nicht vom Auftraggeber bezahlt wurden<br>
+                    Benutzt den Filter: Lieferscheine werden von Unternehmern eingereicht - der ist also bekannt und beschränkt die Auswahl auf einen Bruchteil. Das angezeigte Datum ist das Lieferdatum und sollte somit mit dem Datum/Stempel auf dem Lieferschein übereinstimmen.<br>Nach einem Klick auf den Auftrag, werden die Auftragsdetails angezeigt. Ein weiterer Klick auf <code>EDIT</code> bewirkt die Weiterleitung zu den Auftrag-Details, wo der Lieferschein hinterlegt werden kann.
+                </td>
+            </tr>
+            <tr>
                 <td style="min-width: 100px">28.01.2018</td>
                 <td>
                     Rechnungen: Die Rechnungsgenerierung ist jetzt getrennt (Strerath/Heinrichs). 

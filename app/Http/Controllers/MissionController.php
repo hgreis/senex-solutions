@@ -251,32 +251,6 @@ class MissionController extends Controller
         return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
     }
     
-    public function createBill() {
-        // for first company
-        $customers = Customer::whereHas('missions', function($query) {
-            $query->whereNull('bill_id')
-                ->whereNull('bill_paid')
-                ->whereNotNull('preisKunde')
-                ->where('company', 1);
-        })->with(['missions' => function($query) {
-            $query->whereNull('bill_id')
-                ->whereNull('bill_paid')
-                ->where('company', 1);
-        }])->orderBy('name')->get();
-
-        //for second company
-        $customers2 = Customer::whereHas('missions', function($query) {
-            $query->whereNull('bill_id')
-                ->whereNull('bill_paid')
-                ->where('company', 2);
-        })->with(['missions' => function($query) {
-            $query->whereNull('bill_id')
-                ->whereNull('bill_paid')
-                ->where('company', 2);
-        }])->orderBy('name')->get();
-
-        return view('pages.bill', compact('customers', 'customers2'));
-    }
 
     public function viewNoDriver(Request $request)  {
         $missions = Mission::where('bill_id', null)
@@ -312,9 +286,9 @@ class MissionController extends Controller
         return view('pages.view', compact('missions', 'dates', 'drivers', 'contractors', 'customers'));    }
 
     public function viewNoDeliveryNote(Request $request)  {
-return 'der Bereich muss noch programmiert werden';
-        $missions = Mission::where('bill_id', null)
-            ->where('deliveryNote', null)
+        $missions = Mission::whereNull('bill_id')
+            ->whereNull('deliveryNote')
+            ->whereNull('bill_paid')
             ->orderBy('zielDatum')
             ->get();
         $drivers =  Mission::where('bill_id', null)
@@ -322,19 +296,9 @@ return 'der Bereich muss noch programmiert werden';
             ->orderBy('fahrer')
             ->distinct()
             ->get();
-        $contractors = Driver::whereNotNull('id')
-            ->select('contractor')
-            ->orderBy('contractor')
-            ->distinct()
-            ->get();
         $customers =  Mission::where('bill_id', null)
             ->select('kunde')
             ->orderBy('kunde')
-            ->distinct()
-            ->get();
-        $dates = Mission::where('bill_id', null)
-            ->select('zielDatum')
-            ->orderBy('zielDatum')
             ->distinct()
             ->get();
         if ($request->customer != null) {
@@ -343,7 +307,8 @@ return 'der Bereich muss noch programmiert werden';
         if ($request->driver != null) {
             $missions = $missions->where('fahrer', $request->driver);
         }
-        return view('pages.view', compact('missions', 'dates', 'drivers', 'contractors', 'customers'));    
+
+        return view('pages.mission.nodeliverynote', compact('missions', 'drivers', 'customers'));    
     }
 
     public function overview($id) {
