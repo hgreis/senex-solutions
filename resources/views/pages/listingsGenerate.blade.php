@@ -38,8 +38,9 @@
 							@endif
 							<td style="width: 100px">{{ $mission->startDatum }}</td>
 							<td style="width: 200px">{{ $mission->startOrt}}</td>
-							<td style="width: 200px">&rarr; &nbsp {{ $mission->zielOrt}}</td>
-							<td>{{ $mission->preisKunde}} €</td>
+							<td style="width: 250px">&rarr; &nbsp {{ $mission->zielOrt}}</td>
+							<td style="min-width: 200px">{{ $mission->kundeBemerkung}}</td>
+							<td style="text-align: right; width: 80px">{{ $mission->preisKunde}} €</td>
 						</tr>
 					</table>	
 				@endforeach	

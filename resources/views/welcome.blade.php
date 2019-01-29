@@ -6,6 +6,13 @@
             <tr>
                 <td style="min-width: 100px">29.01.2019</td>
                 <td>
+                    Fahrtenauflistung erstellen: Bitte darauf achten, die Kundenbemerkung (wird ab jetzt auch vor dem Erstellen mit angezeigt) kurz zu halten.<br>
+                    Beispiel: nicht 'Auftragsnummer.: RKS-xx.xxx.x' sondern 'RKS.xx.xxx.x'<br>
+                </td>
+            </tr>
+            <tr>
+                <td style="min-width: 100px">29.01.2019</td>
+                <td>
                     Menü neu gestaltet: selbsterklärend!
                 </td>
             </tr>
