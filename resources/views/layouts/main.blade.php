@@ -26,9 +26,24 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/menu">Auftragsabwicklung</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auftragsabwicklung <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/mission/calendar">Kalender</a></li>
+                    <li><a href="/mission/new">Auftrag anlegen</a></li>
+                    <li><a href="/mission/view">Auftrags-Übersicht</a></li>
+                    <li><a href="/mission/viewNoDriver">Fahrer zuweisen</a></li>
+                    <li><a href="/mission/viewNoDeliveryNote">Lieferschein eingeben</a></li>
+                  </ul>
+                </li>
                 <li><a href="/menu_invoice">Rechnungswesen</a></li>
-                <li><a href="/menu_config">Konfiguration</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Konfiguration<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href='/drivers'" >Fahrer verwalten</a></li>
+                    <li><a href='/customer'" >Kunden verwalten</a></li>
+                  </ul>
+                </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

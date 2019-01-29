@@ -4,36 +4,50 @@
     <div>
     	<table class="table">
             <tr>
-                <td style="min-width: 100px">29.01.2018</td>
+                <td style="min-width: 100px">29.01.2019</td>
                 <td>
-                    Fehlende Lieferscheine: Listet alle Auftäge auf, die <br>
-                    -> noch keinen Lieferschein haben<br>
-                    -> noch keine Rechnungsnummer haben<br>
-                    -> noch nicht vom Auftraggeber bezahlt wurden<br>
+                    Menü neu gestaltet: selbsterklärend!
+                </td>
+            </tr>
+            <tr>
+                <td style="min-width: 100px">29.01.2019</td>
+                <td>
+                    Fixed Bug: Übersicht offener Rechnungen -> Brutto-Beträge werden jetzt auch korrekt mit den Nachkommastellen angezeit anstatt zuvor gerundet. Der falsche Brutto-Betrag wird nur an dieser Stelle angezeigt und hat keine Auswirkungen auf andere Berechnungen. Bereits gestellte Rechnungen können mit <code>.../printPDF</code> korregiert werden - das ist aber nicht nötig. Alle neu generierten Rechnungen werden sofort korrekt angezeigt, die falschen Beträge werden also mit jeder bezahlten Rechnung automatisch verschwinden.
+                </td>
+            </tr>
+            <tr>
+                <td style="min-width: 100px">29.01.2019</td>
+                <td>
+                    Fehlende Lieferscheine: Listet alle Auftäge auf, die 
+                    <p style="margin-left: 30px">
+                        -> noch keinen Lieferschein haben<br>
+                        -> noch keine Rechnungsnummer haben<br>
+                        -> noch nicht vom Auftraggeber bezahlt wurden
+                    </p>
                     Benutzt den Filter: Lieferscheine werden von Unternehmern eingereicht - der ist also bekannt und beschränkt die Auswahl auf einen Bruchteil. Das angezeigte Datum ist das Lieferdatum und sollte somit mit dem Datum/Stempel auf dem Lieferschein übereinstimmen.<br>Nach einem Klick auf den Auftrag, werden die Auftragsdetails angezeigt. Ein weiterer Klick auf <code>EDIT</code> bewirkt die Weiterleitung zu den Auftrag-Details, wo der Lieferschein hinterlegt werden kann.
                 </td>
             </tr>
             <tr>
-                <td style="min-width: 100px">28.01.2018</td>
+                <td style="min-width: 100px">28.01.2019</td>
                 <td>
                     Rechnungen: Die Rechnungsgenerierung ist jetzt getrennt (Strerath/Heinrichs). 
                 </td>
             </tr>
             <tr>
-                <td style="min-width: 100px">22.01.2018</td>
+                <td style="min-width: 100px">22.01.2019</td>
                 <td>
                     Rechnungen: Der Hinweis-Text für die Steuerbefreiung ist eingefügt. Vorgehensweise siehe weiter unten.
                 </td>
             </tr>
             <tr>
-    			<td style="min-width: 100px">21.01.2018</td>
+    			<td style="min-width: 100px">21.01.2019</td>
     			<td>
     				Gutschriften: In der <a href="listCredits/1">Gutschriften-Übersicht</a> ist jetzt ein EDIT-Button. Es lassen sich Auträge im Nachhinein hinzufügen oder entfernen.<br>
                     <b>VORSICHT</b> Nachdem Änderungen vorgenommen wurden, IMMER eine neue PDF erzeugen.
     			</td>
     		</tr>
             <tr>
-                <td style="min-width: 100px">19.01.2018</td>
+                <td style="min-width: 100px">19.01.2019</td>
                 <td>
                     Rechnungen: Von nun an ist es möglich, Rechnungen ohne Mehrwertsteuer anzufertigen.
                     In der <a href="/customer">Kundenverwaltung</a> stehen unter Steuersatz folgende Optionen zur Auswahl:

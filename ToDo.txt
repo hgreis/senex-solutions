@@ -1,7 +1,5 @@
 ToDo
 
--> Auflistung aller Aufträge ohne Lieferschein: direkte Eingabemöglichkeit
--> Auftragssuche: direkte Suche nach ID, Filter: Fahrer/Kunde/Zeitraum
 -> Eine Tour muss in 3 Teilstrecken mit 3 Fahrern aufgeteilt werden können
 -> Zahlungseingang: Mahnwesen
 
