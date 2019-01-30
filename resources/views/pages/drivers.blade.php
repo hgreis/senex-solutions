@@ -36,7 +36,7 @@
 	<input type="Submit" class="form-control" name="submit" value="Speichern">
 </form>
 
-<div>
+<div class="whitebox">
 	<h3>Übersicht aller Fahrer</h3>
 	<table width="100%">
 		<tr>
