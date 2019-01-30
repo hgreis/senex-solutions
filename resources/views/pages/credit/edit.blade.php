@@ -69,7 +69,7 @@
 					<th style="text-align: center">Netto</th>
 					<th style="text-align: center"></th>
 				</tr>
-				@foreach($missions as $mission)
+				@foreach($missions->sortBy('zielDatum') as $mission)
 					<tr class="my1001">
 						@if( $mission->deliveryNote != null)
 							<td style="width: 110px">

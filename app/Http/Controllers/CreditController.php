@@ -94,6 +94,7 @@ class CreditController extends Controller
         $credit->fahrer = Driver::find($credit->driver);
         $credit->missions = Mission::where('credit', $id)->get();
         $missions = Mission::where('fahrer', $credit->fahrer->name)
+                            ->where('company', 1)
                             ->whereNull('credit')
                             ->get();
         return view('pages.credit.edit', compact('credit', 'missions'));

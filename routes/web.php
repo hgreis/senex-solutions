@@ -50,14 +50,14 @@ Route::get('/mission/{id}/details', 'MissionController@overview');
 Route::get('/mission/{id}/edit', 'MissionController@viewMissionCustomer');
 Route::get('/mission/calendar', 'MissionController@calendar')->name('calendar');
 Route::get('/mission/calendar/{lastMissionID}', 'MissionController@calendar')->name('calendar');
-
-
-Route::get('/chart/{start}/{end}', 'HomeController@chartMission')->name('chartMission');
-
 Route::get('/credit/{id}/edit', 'CreditController@edit');
 Route::get('/credit/{id}/delete/{mission}', 'CreditController@deleteMission');
 Route::get('/credit/{id}/add/{mission}', 'CreditController@addMission');
 Route::get('/credit/{id}/printPDF', 'CreditController@printPDF');
+
+
+Route::get('/chart/{start}/{end}', 'HomeController@chartMission')->name('chartMission');
+
 
 
 
