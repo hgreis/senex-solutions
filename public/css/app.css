@@ -16,7 +16,8 @@ html {
 
  body {
  	padding-top: 60px;
-  background-color: red;
+  background-color: blue !important;
+  color: white !important;
  }
 
  footer {

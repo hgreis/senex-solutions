@@ -27,7 +27,7 @@
 						@foreach($customer->sortBy('startDatum') as $mission)
 							<tr class="my1001">
 								@if( $mission->deliveryNote != null)
-									<td style="width: 110px">
+									<td style="width: 130px">
 										<a class="button" 
 											target="_blank" 
 											href="/mission_overview/{{ $mission->id }}"
@@ -35,7 +35,7 @@
 										</a>
 									</td>
 								@else
-									<td style="width: 110px">
+									<td style="width: 130px">
 										<a class="button" 
 											target="_blank" 
 											href="/mission_overview/{{ $mission->id }}"
