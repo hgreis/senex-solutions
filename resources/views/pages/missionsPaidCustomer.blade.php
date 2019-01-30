@@ -21,7 +21,7 @@
 						<th>Netto</th>
 						<th></th>
 					</tr>
-					@foreach($customer as $mission)
+					@foreach($customer->sortBy('startDatum') as $mission)
 						<tr class="my1001">
 							@if( $mission->deliveryNote != null)
 								<td style="width: 110px">

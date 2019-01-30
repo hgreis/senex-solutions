@@ -15,8 +15,8 @@
         </select>
     </div>
     <div class="form-group">
-        {{ Form::label('kundeBemerkung', 'Bemerkung:') }}
-        {{ Form::textarea('kundeBemerkung', $input->kundeBemerkung, ['class' => 'form-control']) }}
+        {{ Form::label('kundeBemerkung', 'Bemerkung: dieser Hinweis erscheint auch auf der Rechnung') }}
+        {{ Form::text('kundeBemerkung', $input->kundeBemerkung, ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
         {{ Form::hidden('id', $input->id) }}

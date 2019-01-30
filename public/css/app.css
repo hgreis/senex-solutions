@@ -217,8 +217,15 @@ td:empty{
   background-color: black;
   color: white;
   min-width: 250px;
+  border-radius: 50px;
   padding: 20px;
-  margin: 10px;
+  display: block;
+}
+
+.blackButton:hover {
+  background-color: white;
+  color: black;
+
 }
 
 .brownButton {
@@ -243,9 +250,15 @@ td:empty{
   font: bold 16px Arial;
   background-color: red;
   color: white;
+  border-radius: 50px;
   min-width: 250px;
   padding: 20px;
-  margin: 10px;
+}
+
+.redButton:hover {
+  font: bold 20px Arial;
+  background-color: white;
+  color: red;
 }
 
 .redButton_small {
@@ -2295,6 +2308,7 @@ pre code {
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
+  background-color: red;
   padding-left: 15px;
   padding-right: 15px;
 }

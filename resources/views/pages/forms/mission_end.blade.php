@@ -21,7 +21,7 @@
     </div>
     <div class="form-group">
         {{ Form::label('zielBemerkung', 'Bemerkung:') }}
-        {{ Form::textarea('zielBemerkung', $input->zielBemerkung, ['class' => 'form-control']) }}
+        {{ Form::text('zielBemerkung', $input->zielBemerkung, ['class' => 'form-control']) }}
     </div>
     
 </div> 
