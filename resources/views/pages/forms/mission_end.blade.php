@@ -1,5 +1,5 @@
-<h1>Auftrag {{ $input->id }}: Touren-Ziel</h1>
 <div style="width: 600px; float: left">
+<h1>Auftrag {{ $input->id }}: Touren-Ziel</h1>
     {{  Form::open(['route' => 'mission_submit'])  }}
     {{ csrf_field() }}
     <div class="form-group">

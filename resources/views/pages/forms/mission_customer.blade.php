@@ -1,5 +1,5 @@
-<h1>Auftrag {{ $input->id }}: Kunde zuweisen</h1>
 <div style="width: 600px; float: left">
+<h1>Auftrag {{ $input->id }}: Kunde zuweisen</h1>
     <form action="/mission/new" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
     <div class="form-group">

@@ -1,4 +1,4 @@
-<div style="float: right; width: 30%; ">
+<div style="float: right; width: 30%; padding-top: 20px ">
     <div class="form-group">
         @if ($input->company == 2)
             <p style="margin-left: 20px">
