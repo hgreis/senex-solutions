@@ -1,13 +1,15 @@
 @extends('layouts.main')
 @section('content')
 	<script 
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 	</script>
-
 	<h1 style="text-align: center">Eingereichte Unternehmer-Rechnung: Fahrten quittieren</h1>
-	
-@foreach($missions as $driver)
-		<div class="redbox"> 
+	@foreach($missions as $driver)
+	@if($missions->company == 1)
+		<div class="redbox">
+	@else
+		<div class="pinkbox">
+	@endif	
 			<div class="flip">
 				<h3>{{ $driver[0]->fahrer }}</h3>
 			</div>
