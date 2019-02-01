@@ -44,6 +44,14 @@
                     <li><a href='/customer'" >Kunden verwalten</a></li>
                   </ul>
                 </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auswertung<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href='/chart'" >Zeitraum wählen</a></li>
+                    <li><a href=''" >Strerath Transporte</a></li>
+                    <li><a href=''" >Sabine Heinrichs Transporte</a></li>
+                  </ul>
+                </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

@@ -1,6 +1,10 @@
 @extends('layouts.main')
+@include('pages.datepicker')
 @section('content')
-    <h1>Auswertung: {{ $companies->start }} bis {{ $companies->end }}</h1><hr>
+    <h1>Auswertung: {{ $companies->start }} bis {{ $companies->end }}</h1>
+    <div class="whitebox" style="text-align: center">
+    	INFO: zur Berechnung werden alle Aufträge/Fahrten tagesgenau ausgewertet, unabhähngig ob eine Rechung bereits erstellt wurde oder nicht.
+    </div>
     <div>
 	    <div class="my1004">
 	    	<h3> {{ $companies[0]->nameCompany }} </h3>
@@ -54,5 +58,40 @@
 	    	</table>
 	    </div>
     </div>
+    <div style="clear: both; margin-top: 300px" >
+		<h3>Berechnungszeitraum wählen</h3>    	
+    	{{ Form::open(array('url' => 'chart', 'enctype' => 'multipart/form-data')) }}
+            {{ csrf_field() }}
+            <div style="float: left; margin: 10px">
+	            {{ Form::label('startDatum', 'VON:') }}
+	            {{ Form::text('startDatum', null, [
+	            	'class' => 'date form-control', 'id' => 'datepicker']) }}
+            </div>
+            <div style="float: left; margin: 10px">
+	            {{ Form::label('endDatum', 'BIS:') }}
+	            {{ Form::text('endDatum', null, [
+	            	'class' => 'date form-control']) }}
+            </div>
+            <div style="float: left; margin: 10px; padding-top: 30px">
+	            {{ Form::submit('Anzeigen', [
+	                    'class' => 'form-control',
+	                    'name' => 'submit',
+	                    'style' => 'width: 300px' ])}}
+            </div>
+		{{ Form::close() }}
+    </div>
+
+
+
+<script type="text/javascript">
+
+    $('.date').datepicker({  
+
+       format: 'dd.mm.yyyy'
+
+     });
+
+</script>  
+
 @endsection
 

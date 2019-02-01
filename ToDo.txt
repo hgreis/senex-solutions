@@ -2,7 +2,6 @@ ToDo
 
 -> Eine Tour muss in 3 Teilstrecken mit 3 Fahrern aufgeteilt werden können
 -> Zahlungseingang: Mahnwesen
--> Listing: Auswahl zum Erstellen die Kunden-Bemerkung hinzufügen
 
 
 

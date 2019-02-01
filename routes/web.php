@@ -56,7 +56,8 @@ Route::get('/credit/{id}/add/{mission}', 'CreditController@addMission');
 Route::get('/credit/{id}/printPDF', 'CreditController@printPDF');
 
 
-Route::get('/chart/{start}/{end}', 'HomeController@chartMission')->name('chartMission');
+Route::get('/chart/', 'ChartController@missionsWithoutDates');
+Route::post('/chart/', 'ChartController@missions');
 
 
 

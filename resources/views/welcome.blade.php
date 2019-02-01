@@ -4,12 +4,17 @@
     <div>
     	<table class="table">
             <tr>
+                <td style="min-width: 100px">01.02.2019</td>
+                <td>
+                    Auswertung: tagesgenaue Übersicht, eine Jahresübersicht folgt noch
+                </td>
+            </tr>
+            <tr>
                 <td style="min-width: 100px">30.01.2019</td>
                 <td>
                     Fixed Bug: Gutschriften editieren -> Fahrten für SHT werden nicht mehr mit aufgelistet.
                 </td>
-            </tr>
-            <tr>
+            </tr>            <tr>
                 <td style="min-width: 100px">30.01.2019</td>
                 <td>
                     Auftrag anlegen/editieren: Buttons neu gestaltet -> Feedback erwünscht
