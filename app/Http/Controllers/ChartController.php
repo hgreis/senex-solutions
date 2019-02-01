@@ -26,6 +26,7 @@ class ChartController extends Controller
         $companies = Company::all();
         $companies->start = date_format(date_create($start), 'd.m.Y');
         $companies->end = date_format(date_create($end), 'd.m.Y');
+		$start->day = $start->day-1;
         foreach ($companies as $company) {
             $company->umsatz = Mission::where('company', $company->id)
                             ->where('startDatum', '>=', $start)
