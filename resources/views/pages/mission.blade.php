@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@include('pages.datepicker')
 @section('content')
             
             @if($choice == 'Touren-Start')
@@ -16,4 +17,13 @@
             @include('pages.forms.mission_menu')
 
         {{  Form::close() }}
+<script type="text/javascript">
+
+    $('.date').datepicker({  
+
+       format: 'dd.mm.yyyy'
+
+     });
+
+</script>          
 @endsection

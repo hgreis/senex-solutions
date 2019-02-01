@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@include('pages.datepicker')
 @section('content')
     <h1>Neuen Auftrag anlegen</h1>
         <form action="/mission/new" method="post" enctype="multipart/form-data">
@@ -17,7 +18,7 @@
             <h3>Touren - Start</h3>
                         {{ Form::text('id', $input->id, ['hidden' => 'true']) }}
                         {{ Form::label('startDatum', 'Datum:') }}
-                        {{ Form::text('startDatum', $input->startDatum, ['class' => 'form-control', 'required']) }}<br>
+                        {{ Form::text('startDatum', $input->startDatum, ['class' => 'date form-control', 'required']) }}<br>
                         {{ Form::label('startOrt', 'PLZ und Stadt:') }}
                         {{ Form::text('startOrt', $input->startOrt, ['class' => 'form-control', 'required']) }}
         </div>
@@ -25,7 +26,7 @@
         <div style="width: 45%; min-width: 400px; float: right" class="whitebox">
             <h3>Touren - Ziel</h3>
                         {{ Form::label('zielDatum', 'Datum:') }}
-                        {{ Form::text('zielDatum', $input->zielDatum, ['class' => 'form-control', 'required']) }}<br>
+                        {{ Form::text('zielDatum', $input->zielDatum, ['class' => 'date form-control', 'required']) }}<br>
                         {{ Form::label('zielOrt', 'PLZ und Stadt:') }}
                         {{ Form::text('zielOrt', $input->zielOrt, ['class' => 'form-control', 'required']) }}
         </div>
@@ -81,5 +82,14 @@
                     'style' => 'width: 100%' ])}}
         </div>
     </form>
+<script type="text/javascript">
+
+    $('.date').datepicker({  
+
+       format: 'dd.mm.yyyy'
+
+     });
+
+</script>  
 @endsection
 

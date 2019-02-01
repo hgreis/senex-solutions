@@ -4,7 +4,7 @@
     {{ csrf_field() }}
     <div class="form-group">
         {{ Form::label('zielDatum', 'Datum:') }}
-        {{ Form::text('zielDatum', $input->zielDatum, ['class' => 'form-control']) }}
+        {{ Form::text('zielDatum', $input->zielDatum, ['class' => 'date form-control']) }}
         {{ Form::hidden('id', $input->id) }}
     </div>
     <div class="form-group">

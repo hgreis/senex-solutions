@@ -9,7 +9,7 @@
 
     <div class="form-group">
         {{ Form::label('startDatum', 'Datum:') }}
-        {{ Form::text('startDatum', $input->startDatum, ['class' => 'form-control', 'required']) }}
+        {{ Form::text('startDatum', $input->startDatum, ['class' => 'date form-control', 'required']) }}
         {{ Form::text('id', $input->id, ['hidden' => 'true']) }}
     </div>
     <div class="form-group">

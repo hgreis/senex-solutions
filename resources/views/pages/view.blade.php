@@ -32,7 +32,7 @@
 			<input type="submit" name="submit" value="FILTERN" class="form-control">
 		</form>
 	</div>
-	<hr>
+	<hr>{{ $missions->count() }} Aufträge
 		@foreach ($missions as $mission)
 			<div class="greybox"> 
 				<div class="flip">
