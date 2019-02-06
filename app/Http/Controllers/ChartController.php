@@ -117,8 +117,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of December'.($year-1)))
-										->where('credit_paid', '<', new Carbon('first day of February'.$year))
+										->where('bill_paid', '>', new Carbon('last day of December'.($year-1)))
+										->where('bill_paid', '<', new Carbon('first day of February'.$year))
 										->sum('preisKunde'),
 			),
     		array('month' => 'Februar',
@@ -143,8 +143,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of January'.($year)))
-										->where('credit_paid', '<', new Carbon('first day of March'.$year))
+										->where('bill_paid', '>', new Carbon('last day of January'.($year)))
+										->where('bill_paid', '<', new Carbon('first day of March'.$year))
 										->sum('preisKunde'),
     		),
     		array('month' => 'März',
@@ -169,8 +169,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of February'.($year)))
-										->where('credit_paid', '<', new Carbon('first day of April'.$year))
+										->where('bill_paid', '>', new Carbon('last day of February'.($year)))
+										->where('bill_paid', '<', new Carbon('first day of April'.$year))
 										->sum('preisKunde'),
     		),
     		array('month' => 'April',
@@ -195,8 +195,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of March'.($year)))
-										->where('credit_paid', '<', new Carbon('first day of May'.$year))
+										->where('bill_paid', '>', new Carbon('last day of March'.($year)))
+										->where('bill_paid', '<', new Carbon('first day of May'.$year))
 										->sum('preisKunde'),
     		),
     		array('month' => 'Mai',
@@ -221,8 +221,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of April'.($year)))
-										->where('credit_paid', '<', new Carbon('first day of June'.$year))
+										->where('bill_paid', '>', new Carbon('last day of April'.($year)))
+										->where('bill_paid', '<', new Carbon('first day of June'.$year))
 										->sum('preisKunde'),
     		),
     		array('month' => 'Juni',
@@ -247,8 +247,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of May'.($year)))
-										->where('credit_paid', '<', new Carbon('first day of July'.$year))
+										->where('bill_paid', '>', new Carbon('last day of May'.($year)))
+										->where('bill_paid', '<', new Carbon('first day of July'.$year))
 										->sum('preisKunde'),
     		),
     		array('month' => 'Juli',
@@ -273,8 +273,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of June'.($year)))
-										->where('credit_paid', '<', new Carbon('first day of August'.$year))
+										->where('bill_paid', '>', new Carbon('last day of June'.($year)))
+										->where('bill_paid', '<', new Carbon('first day of August'.$year))
 										->sum('preisKunde'),
     		),
     		array('month' => 'August',
@@ -299,8 +299,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of July'.($year)))
-										->where('credit_paid', '<', new Carbon('first day of September'.$year))
+										->where('bill_paid', '>', new Carbon('last day of July'.($year)))
+										->where('bill_paid', '<', new Carbon('first day of September'.$year))
 										->sum('preisKunde'),										
     		),
     		array('month' => 'September',
@@ -325,8 +325,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of August'.($year)))
-										->where('credit_paid', '<', new Carbon('first day of October'.$year))
+										->where('bill_paid', '>', new Carbon('last day of August'.($year)))
+										->where('bill_paid', '<', new Carbon('first day of October'.$year))
 										->sum('preisKunde'),
     		),
     		array('month' => 'Oktober',
@@ -351,8 +351,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of September'.($year)))
-										->where('credit_paid', '<', new Carbon('first day of November'.$year))
+										->where('bill_paid', '>', new Carbon('last day of September'.($year)))
+										->where('bill_paid', '<', new Carbon('first day of November'.$year))
 										->sum('preisKunde'),
     		),
     		array('month' => 'November',
@@ -377,8 +377,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of October'.($year)))
-										->where('credit_paid', '<', new Carbon('first day of December'.$year))
+										->where('bill_paid', '>', new Carbon('last day of October'.($year)))
+										->where('bill_paid', '<', new Carbon('first day of December'.$year))
 										->sum('preisKunde'),
     		),
     		array('month' => 'Dezember',
@@ -403,8 +403,8 @@ class ChartController extends Controller
 										->sum('preisFahrer'),
 				'missionsPaid' => Mission::where('company', $company->id)
 										->whereNull('bill_id')
-										->where('credit_paid', '>', new Carbon('last day of December'.($year)))
-										->where('credit_paid', '<', new Carbon('first day of February'.($year+1)))
+										->where('bill_paid', '>', new Carbon('last day of December'.($year)))
+										->where('bill_paid', '<', new Carbon('first day of February'.($year+1)))
 										->sum('preisKunde'),
     		)
     	);

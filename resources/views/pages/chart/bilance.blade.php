@@ -15,7 +15,7 @@
     			<tr class="my1000">
     				<th rowspan="2"></th>
                     <th colspan="2" class="my1000" style="border-bottom: black !important">Rechnungen</th>
-    				<th class="my1000" style="border-bottom: black !important">Gutschriften</th>
+    				<th class="my1000" rowspan="2" style="border-bottom: black !important">Gutschriften</th>
     				<th colspan="2" class="my1000" style="border-bottom: black !important;">
                         Unternehmer-Gutschriften
                     </th>
@@ -24,7 +24,6 @@
     			<tr class="my1000">
     				<th class="my1000" style="border-top: black !important">Netto</th>
     				<th class="my1000" style="border-top: black !important">Brutto</th>
-                    <th class="my1000" style="border-top: black !important">Netto</th>
     				<th class="my1000" style="border-top: black !important">Netto</th>
     				<th class="my1000" style="border-top: black !important">Brutto</th>
     			</tr>
