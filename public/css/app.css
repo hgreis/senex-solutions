@@ -60,6 +60,26 @@ html {
   font-weight: bold;
 }
 
+.my1008 {
+  color: black  ;
+  font-weight: bolder;
+  background-color: lightgrey;
+  border: none;
+  text-align: right; 
+  padding-right: 30px !important;
+  vertical-align: middle !important;
+}
+
+.my1007 {
+  color: black;
+  font-weight: bolder;
+  background-color: white;
+  border: none;
+  text-align: right; 
+  padding-right: 30px !important;
+  vertical-align: middle !important;
+}
+
 .my1006 {
   background-color: grey;
   border: 3px solid black;
@@ -85,6 +105,7 @@ html {
   min-width: 300px;
   float: left;
 }
+
 
 .my1004 {
   background-color: #C10C0C;
@@ -121,6 +142,8 @@ html {
 .my1000 {
   background-color: black !important;
   color: white;
+  text-align: center;
+  vertical-align: middle !important;
 }
 
 .greybox {
@@ -136,7 +159,8 @@ html {
 
 .redbox {
         background-color: #C10C0C;
-        border: none;
+        border: 3px solid black;
+        border-radius: 10px;
         color: white;
         padding: 5px 20px;
         text-align: left;
@@ -146,8 +170,8 @@ html {
 
 .pinkbox {
         background-color: #F77D7D;
-        border: none;
-        color: white;
+        border: 3px solid black;
+        border-radius: 10px;color: white;
         padding: 5px 20px;
         text-align: left;
         margin: 4px 0px;

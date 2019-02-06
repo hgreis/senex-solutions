@@ -58,9 +58,7 @@ Route::get('/credit/{id}/printPDF', 'CreditController@printPDF');
 
 Route::get('/chart/', 'ChartController@missionsWithoutDates');
 Route::post('/chart/', 'ChartController@missions');
-
-
-
+Route::get('/chart/{company}', 'ChartController@report');
 
 Route::get('dekra/new_customer/{id}/delete', 'HomeController@customerDelete');
 Route::get('/dekra/new_customer', 'DriverController@newCustomer');
@@ -70,6 +68,7 @@ Route::get('/uploadfile','UploadFileController@index') ;
 Route::post('/uploadfile','UploadFileController@showUploadFile');
 Route::get('/config','HomeController@config');
 Route::post('/config','HomeController@configSafe');
+
 
 Auth::routes();
 

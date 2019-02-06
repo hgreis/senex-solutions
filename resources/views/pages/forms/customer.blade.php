@@ -24,17 +24,17 @@
 		<label>Bemerkungen</label>
 		<textarea class="form-control" name="notice">{{$customerToEdit->notice}}</textarea><br>
 		<label>Steuersatz: &nbsp;</label>
-		<select name="taxes">
+		<select name="taxes" style="color: black">
 			<option value="19">19% Mehrwertsteuer</option>
 			<option value="300">Mehrwertsteuer befreit §3</option>
 			<option value="305">Mehrwertsteuer befreit §4</option>
 		</select>´<br><br>
 		<label>Zahlungsziel: &nbsp;</label>
-		<select name="duration">
+		<select name="duration" style="color: black">
 			<option value="30">30 Tage</option>
 			<option value="14">14 Tage</option>
 			<option value="7">7 Tage</option>
 		</select>´<br><br>
-		<input type="submit" name="submit" class="form-control">
+		{{ Form::submit('Senden', ['class' => 'form-control']) }}
 	</form><hr>
 </div>

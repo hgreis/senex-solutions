@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('content')
 @if($credits->company == 2)
-	<div style="background-color: pink; padding: 5px">
+	<div class="pinkbox">
 @else
-	<div style="background-color: #C10C0C; color: black; padding: 5px">
+	<div class="redbox">
 @endif
 
 		<h1 style="text-align: center">Gutschriften - Überweisung bestätigen</h1>

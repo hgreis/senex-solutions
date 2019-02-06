@@ -5,12 +5,12 @@
 	</script>
 
 	<h1 style="text-align: center">Fahrten quittieren</h1>
-	@if($missions->company == 1)
-		<div class="redbox">
-	@else
-		<div class="pinkbox">
-	@endif
-		@foreach($missions as $customer)
+	@foreach($missions as $customer)
+		@if($missions->company == 1)
+			<div class="redbox">
+		@else
+			<div class="pinkbox">
+		@endif
 			<div class="flip">
 				<h3> {{ $customer[0]->kunde }} </h3>
 			</div>
@@ -56,8 +56,8 @@
 						@endforeach
 					</table>
 				</div>
-		@endforeach
-	</div>
+		</div>
+	@endforeach
 
 
 

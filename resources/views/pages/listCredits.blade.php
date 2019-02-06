@@ -2,9 +2,9 @@
 @section('content')
 
 @if($credits->company == 2)
-	<div class="my1002">
+	<div class="pinkbox">
 @else
-	<div class="my1003">
+	<div class="redbox">
 @endif
 
 	<h1 style="text-align: center">Übersicht aller Gutschriften</h1>

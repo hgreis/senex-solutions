@@ -4,6 +4,12 @@
     <div>
     	<table class="table">
             <tr>
+                <td style="min-width: 100px">06.02.2019</td>
+                <td>
+                    Auswertung: Jahresübersicht erstellt
+                </td>
+            </tr>
+            <tr>
                 <td style="min-width: 100px">01.02.2019</td>
                 <td>
                     Auswertung: tagesgenaue Übersicht, eine Jahresübersicht folgt noch

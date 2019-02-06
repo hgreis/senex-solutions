@@ -20,7 +20,7 @@ class MissionController extends Controller
     public function viewMissions(Request $request) {
     	$missions = Mission::whereNotNull('id')
             ->orderBy('zielDatum', 'desc')
-            ->get();
+            ->get();    
             foreach ($missions as $mission) {
                 if($mission->bill_id != null)    {
                     $mission->bill_number = Bill::find($mission->bill_id)->number;

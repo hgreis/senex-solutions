@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-	<div style="background-color: #C10C0C; color: black; padding: 5px">
+	<div class="redbox">
 		<h1 style="text-align: center">Übersicht Fahrtenauflistungen</h1>
 		<table class="table" style="max-width: 800px" align="center">
 			<tr>

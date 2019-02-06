@@ -33,8 +33,8 @@
 			</td>
 		</tr>
 	</table>
-	<input type="Submit" class="form-control" name="submit" value="Speichern">
-</form>
+	<input type="Submit" class="form-control" style="margin-top: 20px" name="submit" value="Speichern">
+</form><br>
 
 <div class="whitebox">
 	<h3>Übersicht aller Fahrer</h3>
