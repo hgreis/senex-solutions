@@ -4,6 +4,12 @@
     <div>
     	<table class="table">
             <tr>
+                <td style="min-width: 100px">11.02.2019</td>
+                <td>
+                    Eingereichte Unternehmer-Rechnung: Fahrten quittieren -> Fahrten werden jetzt nach Datum sortiert.
+                </td>
+            </tr>
+            <tr>
                 <td style="min-width: 100px">06.02.2019</td>
                 <td>
                     Auswertung: Jahresübersicht erstellt

@@ -23,7 +23,7 @@
 							<th style="text-align: center">Netto</th>
 							<th></th>
 						</tr>
-						@foreach($driver as $mission)
+						@foreach($driver->sortBy('startDatum') as $mission)
 							<tr class="my1001">
 								@if( $mission->deliveryNote != null)
 									<td style="width: 130px">
