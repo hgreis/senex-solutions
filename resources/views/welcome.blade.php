@@ -4,6 +4,12 @@
     <div>
     	<table class="table">
             <tr>
+                <td style="min-width: 100px">12.02.2019</td>
+                <td>
+                    Eingereichte Unternehmer-Rechnung: Fahrten quittieren -> An dem Symbol neben dem Button für die Auftragsdetails kann man erkennen, ob die zugehörige Rechnung vom Auftraggeber bereits bezahlt wurde.
+                </td>
+            </tr>
+            <tr>
                 <td style="min-width: 100px">11.02.2019</td>
                 <td>
                     Eingereichte Unternehmer-Rechnung: Fahrten quittieren -> Fahrten werden jetzt nach Datum sortiert.

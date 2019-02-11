@@ -17,6 +17,7 @@
 				<table class="table">
 						<tr class="my1000">
 							<th style="text-align: center">#</th>
+							<th style="text-align: center"></th>
 							<th style="text-align: center">Datum</th>
 							<th style="text-align: center">Kunde</th>
 							<th style="text-align: center">Beschreibung</th>
@@ -38,8 +39,18 @@
 										<a class="button" 
 											target="_blank" 
 											href="/mission_overview/{{ $mission->id }}"
+											href="/mission_overview/{{ $mission->Rechnungd }}"
 											style="color: black; background-color: red;">Tour-Nr.: {{ $mission->id }}
 										</a>
+									</td>
+								@endif
+								@if( $mission->bill_paid != null)
+									<td style="color: green; font-size: 20px">
+										 	&radic;
+									</td>
+								@else
+									<td style="color: red; font-size: 20px">
+										&otimes;
 									</td>
 								@endif
 								<td style="text-align: center">
