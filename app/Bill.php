@@ -37,10 +37,10 @@ class Bill extends Model
         $company = Company::find($bill->company);
         $customer = $this->customer;
         $customer = Customer::where('name', $customer)->first();
-        if($customer->taxes == 300) {
+        if($bill->taxes == 300) {
             $customer->taxes = 0;
             $customer->paragraph = 300;
-        }elseif($customer->taxes == 305) {
+        }elseif($bill->taxes == 305) {
             $customer->taxes = 0;
             $customer->paragraph = 305;
         }

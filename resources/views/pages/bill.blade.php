@@ -2,7 +2,11 @@
 @section('content')
 	<h1>Rechnung generieren</h1>
 	<form action="/saveBill" method="post">
-				{{ csrf_field() }}
+		{{ csrf_field() }}
+        <nobr>{{ Form::radio('taxes', 19, true)  }} 19% Mehrwertsteuer &emsp;</nobr>
+        <nobr>{{ Form::radio('taxes', 300)  }} Mehrwertsteuerbefreit nach §300 &emsp;</nobr>
+        <nobr>{{ Form::radio('taxes', 305)  }} Mehrwertsteuerbefreit nach §305 &emsp;</nobr>
+
 		@foreach ($customers as $customer)
 			@if($customers[0]->missions[0]->company == 2)
 				<div class="pinkbox">

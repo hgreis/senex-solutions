@@ -4,6 +4,12 @@
     <div>
     	<table class="table">
             <tr>
+                <td style="min-width: 100px">17.02.2019</td>
+                <td>
+                    Der Steuersatz wird nicht mehr dem Kunden zugewiesen, sondern bei der Erstellung der Rechnung ausgewählt.
+                </td>
+            </tr>
+            <tr>
                 <td style="min-width: 100px">12.02.2019</td>
                 <td>
                     Eingereichte Unternehmer-Rechnung: Fahrten quittieren -> An dem Symbol neben dem Button für die Auftragsdetails kann man erkennen, ob die zugehörige Rechnung vom Auftraggeber bereits bezahlt wurde.

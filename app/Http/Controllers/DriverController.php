@@ -57,6 +57,7 @@ class DriverController extends Controller
         } else {
             $customer = new Customer;
             $customer->fill($request->all());
+            $customer->taxes = 19;
             $customer->save();
         }
         $customers = Customer::orderBy('name')->get();
