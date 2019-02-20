@@ -94,7 +94,8 @@ html {
 }
 
 .my1005 {
-  background-color: #F77D7D;
+  background-color: yellow;
+  color: black !important;
   border: 3px solid black;
   border-radius: 10px;
   color: white;
@@ -169,7 +170,9 @@ html {
   }
 
 .pinkbox {
-        background-color: #F77D7D;
+        /*background-color: #F77D7D;*/
+        background-color: yellow;
+        color: black !important;
         border: 3px solid black;
         border-radius: 10px;color: white;
         padding: 5px 20px;

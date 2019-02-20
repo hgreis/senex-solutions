@@ -4,6 +4,12 @@
     <div>
     	<table class="table">
             <tr>
+                <td style="min-width: 100px">20.02.2019</td>
+                <td>
+                    Farbschema geändert.
+                </td>
+            </tr>
+            <tr>
                 <td style="min-width: 100px">17.02.2019</td>
                 <td>
                     Der Steuersatz wird nicht mehr dem Kunden zugewiesen, sondern bei der Erstellung der Rechnung ausgewählt.

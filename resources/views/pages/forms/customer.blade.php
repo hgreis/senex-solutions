@@ -23,12 +23,6 @@
 		<input type="text" name="email" value="{{$customerToEdit->email}}" class="form-control">
 		<label>Bemerkungen</label>
 		<textarea class="form-control" name="notice">{{$customerToEdit->notice}}</textarea><br>
-		<label hidden="true">Steuersatz: &nbsp;</label>
-		<select name="taxes" style="color: black" hidden="true">
-			<option value="19">19% Mehrwertsteuer</option>
-			<option value="300">Mehrwertsteuer befreit §3</option>
-			<option value="305">Mehrwertsteuer befreit §4</option>
-		</select>´<br><br>
 		<label>Zahlungsziel: &nbsp;</label>
 		<select name="duration" style="color: black">
 			<option value="30">30 Tage</option>

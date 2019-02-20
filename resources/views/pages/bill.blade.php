@@ -4,8 +4,8 @@
 	<form action="/saveBill" method="post">
 		{{ csrf_field() }}
         <nobr>{{ Form::radio('taxes', 19, true)  }} 19% Mehrwertsteuer &emsp;</nobr>
-        <nobr>{{ Form::radio('taxes', 300)  }} Mehrwertsteuerbefreit nach §300 &emsp;</nobr>
-        <nobr>{{ Form::radio('taxes', 305)  }} Mehrwertsteuerbefreit nach §305 &emsp;</nobr>
+        <nobr>{{ Form::radio('taxes', 300)  }} Mehrwertsteuerbefreit nach §3a &emsp;</nobr>
+        <nobr>{{ Form::radio('taxes', 305)  }} Mehrwertsteuerbefreit nach §4 &emsp;</nobr>
 
 		@foreach ($customers as $customer)
 			@if($customers[0]->missions[0]->company == 2)

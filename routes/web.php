@@ -54,11 +54,11 @@ Route::get('/credit/{id}/edit', 'CreditController@edit');
 Route::get('/credit/{id}/delete/{mission}', 'CreditController@deleteMission');
 Route::get('/credit/{id}/add/{mission}', 'CreditController@addMission');
 Route::get('/credit/{id}/printPDF', 'CreditController@printPDF');
-
-
 Route::get('/chart/', 'ChartController@missionsWithoutDates');
 Route::post('/chart/', 'ChartController@missions');
 Route::get('/chart/{company}', 'ChartController@report');
+
+
 
 Route::get('dekra/new_customer/{id}/delete', 'HomeController@customerDelete');
 Route::get('/dekra/new_customer', 'DriverController@newCustomer');

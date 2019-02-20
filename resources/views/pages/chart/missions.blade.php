@@ -26,15 +26,15 @@
 	    <div class="my1005">
 	    	<h3 style="text-align: center"> {{ $companies[1]->nameCompany }} </h3>
 	    	<table class="table" style="max-width: 250px" align="center">
-	    		<tr>
+	    		<tr style="color: black">
 	    			<th>Umsatz</th>
 	    			<td style="text-align: right;">{{ number_format($companies[1]->umsatz, 2) }} €</td>
 	    		</tr>
-	    		<tr>
+	    		<tr style="color: black">
 	    			<th>Kosten</th>
 	    			<td style="text-align: right;">{{ number_format($companies[1]->kosten, 2) }} €</td>
 	    		</tr>
-	    		<tr>
+	    		<tr style="color: black">
 	    			<th>Gewinn</th>
 	    			<td style="text-align: right;">{{ number_format($companies[1]->gewinn, 2) }} €</td>
 	    		</tr>
