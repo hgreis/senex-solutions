@@ -65,4 +65,36 @@ class ListingController extends Controller
         }
         return view('pages.listingsList', compact('listings'));
     }
+
+    public function edit($id) {
+        $list = Listing::find($id);
+        $list->kunde = Customer::find($list->customer);
+        $list->missions = Mission::where('listing', $id)->get();
+        $missions = Mission::where('kunde', $list->kunde->name)
+                            ->where('company', 1)
+                            ->whereNull('listing')
+                            ->get();
+        return view('pages.listings.edit', compact('list', 'missions'));
+    }
+
+    public function deleteMission($id, $mission) {
+        $mission = Mission::find($mission);
+        $mission->listing = null;
+        $mission->save();
+        return redirect('listing/'.$id.'/edit');
+    }
+
+    public function addMission($id, $mission) {
+        $mission = Mission::find($mission);
+        $mission->listing = $id;
+        $mission->save();
+        return redirect('listing/'.$id.'/edit');    
+    }
+
+    public function printPDF($id) {
+        $list = Listing::find($id);
+        $list->savePDF();
+        return redirect('listings');    
+    }
+
 }

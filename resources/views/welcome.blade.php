@@ -4,6 +4,14 @@
     <div>
     	<table class="table">
             <tr>
+                <td style="min-width: 100px">21.02.2019</td>
+                <td>
+                    Fahrtenauflistungen lassen sich jetzt auch editieren <br>
+                    <b>VORSICHT</b> Nachdem Änderungen vorgenommen wurden, IMMER eine neue PDF erzeugen.
+
+                </td>
+            </tr>
+            <tr>
                 <td style="min-width: 100px">20.02.2019</td>
                 <td>
                     Farbschema geändert.

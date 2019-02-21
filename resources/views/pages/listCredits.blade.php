@@ -39,7 +39,7 @@
 										'/credit/{{ $credit->id }}/edit'">
 								<b>edit</b>
 							</button>
-						</td>
+					</td>
 					<td style="text-align: right; width: 100px">{{ number_format($credit->priceNet, 2, ',', ' ') }} €</td>
 					<td style="text-align: right; width: 100px">{{ number_format($credit->priceGross, 2, ',', ' ') }} €</td>
 				</tr>
