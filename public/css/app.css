@@ -60,6 +60,39 @@ html {
   font-weight: bold;
 }
 
+.my1013 {
+  clear: both;
+}
+
+
+
+.my1012 {
+  float: left;
+  width: 80%;
+  text-align: right;
+  padding-left: 10px;
+}
+
+.my1011 {
+  float: left;
+  width: 20%;
+  text-align: right;
+}
+
+
+.my1010 {
+  color: black;
+  background-color: lightgrey;
+  text-align: right;
+}
+
+.my1009 {
+  color: black;
+  background-color: white;
+  text-align: center;
+}
+
+
 .my1008 {
   color: black  ;
   font-weight: bolder;

@@ -244,6 +244,14 @@ class MissionController extends Controller
         } else {
             $input->zielDatum =date_format(date_create($input->zielDatum), 'd.m.Y');
         }
+        $input->sub_1 = new Mission;
+        $input->sub_1->startOrt = $input->startOrt;
+        $input->sub_2 = new Mission;
+        $input->sub_2->zielOrt = $input->zielOrt;
+        $input->sub_3 = new Mission;
+        $input->sub_4 = new Mission;
+        $input->sub_5 = new Mission;
+
         $customers = Customer::all()->sortBy('name');
         $drivers = Driver::all()->sortBy('name');
 

@@ -25,6 +25,11 @@
         {{ Form::submit('Fahrer/Unternehmer', [
         	'class' => 'blackButton', 
         	'name' => 'submit'])}}
+        @if ($choice != 'Tour aufteilen')
+            {{ Form::submit('Tour aufteilen', [
+                'class' => 'blackButton', 
+                'name' => 'submit'])}}
+        @endif
         {{ Form::submit('Auftrag Löschen', [
         	'class' => 'redButton', 
         	'name' => 'submit'])}}

@@ -12,8 +12,9 @@
                 @include('pages.forms.mission_driver')
             @elseif($choice == 'Auftrag Löschen')
                 @include('pages.forms.mission_delete')
+            @elseif($choice == 'Tour aufteilen')
+                @include('pages.forms.mission_split')
             @endif
-
             @include('pages.forms.mission_menu')
 
         {{  Form::close() }}
