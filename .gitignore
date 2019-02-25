@@ -4,6 +4,7 @@
 /public/Rechnungen
 /public/storage
 /public/Gutschriften
+/public/Fahrtenauflistungen/
 /public/Fahrtenauflistungen
 /storage/*.key
 /vendor
