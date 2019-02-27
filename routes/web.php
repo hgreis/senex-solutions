@@ -47,7 +47,7 @@ Route::get('/missionsPayDriver/{company}', 'MissionController@payDriverList');
 Route::get('/mission/{id}/payDriver', 'MissionController@PayDriver');
 Route::get('/mission/{id}/delete', 'MissionController@mission_delete');
 Route::get('/mission/{id}/details', 'MissionController@overview');
-Route::get('/mission/{id}/edit', 'MissionController@viewMissionCustomer');
+Route::get('/mission/{id}/edit', 'MissionController@edit');
 Route::get('/mission/calendar', 'MissionController@calendar')->name('calendar');
 Route::get('/mission/calendar/{lastMissionID}', 'MissionController@calendar')->name('calendar');
 Route::get('/credit/{id}/edit', 'CreditController@edit');

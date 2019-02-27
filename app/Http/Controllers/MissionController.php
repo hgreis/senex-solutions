@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Mission;
+use App\Submission;
 use App\Driver;
 use App\Customer;
 use App\Bill;
@@ -30,6 +31,8 @@ class MissionController extends Controller
                     $mission->customer = new Customer;
                 }
             }
+
+            
         $drivers =  Mission::whereNotNull('id')
             ->select('fahrer')
             ->orderBy('fahrer')
@@ -162,6 +165,9 @@ class MissionController extends Controller
     // }
 
     public function viewMission($id) {
+        if ( isset(Submission::where('sub', $id)->first()->original)) {
+            $id = Submission::where('sub', $id)->first()->original;
+        }
         $input = Mission::find($id);
         $choice = 'Touren-Start';
         $customers = Customer::all()->sortBy('name');
@@ -171,16 +177,37 @@ class MissionController extends Controller
     }
 
     public function viewMissionDriver($id) {
+        if ( isset(Submission::where('sub', $id)->first()->original)) {
+            $id = Submission::where('sub', $id)->first()->original;
+            $choice = 'Tour aufteilen';
+        } else {
+            $choice = 'Fahrer/Unternehmer';
+        }
         $input = Mission::find($id);
-        $choice = 'Fahrer/Unternehmer';
         $customers = Customer::all()->sortBy('name');
         $drivers = Driver::all()->sortBy('name');
         return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
     }
 
     public function viewMissionCustomer($id) {
+        if ( isset(Submission::where('sub', $id)->first()->original)) {
+            $id = Submission::where('sub', $id)->first()->original;
+            return redirect('mission/'.$id.'/edit');    
+        }
         $input = Mission::find($id);
         $choice = 'Kunde';
+        $customers = Customer::all()->sortBy('name');
+        $drivers = Driver::all()->sortBy('name');
+        return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
+    }
+
+    public function edit($id) {
+        $input = Mission::find($id);
+        $input->submissions = Submission::where('original', $input->id)->get();
+            foreach ($input->submissions as $sub) {
+                $sub->mission = Mission::find($sub->sub);
+            }
+        $choice = 'Tour aufteilen';
         $customers = Customer::all()->sortBy('name');
         $drivers = Driver::all()->sortBy('name');
         return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
@@ -195,6 +222,11 @@ class MissionController extends Controller
             $input = new Mission;
         }
         if (isset($request->delete))    {
+            $input->submissions = Submission::where('original', $input->id)->get();
+            foreach ($input->submissions as $sub) {
+                $sub->mission = Mission::find($sub->sub)->delete();
+                $sub->delete();
+            }
             $input->delete();
             return view('pages.menu');
         }
@@ -238,22 +270,118 @@ class MissionController extends Controller
         }
 
         $input = Mission::find($input->id);
+
+
+        $customers = Customer::all()->sortBy('name');
+        $drivers = Driver::all()->sortBy('name');
+
+        if ($choice == 'Tour aufteilen') { 
+            $input->submissions = Submission::where('original', $input->id)->get();
+            foreach ($input->submissions as $sub) {
+                $sub->mission = Mission::find($sub->sub);
+            }
+            if ($input->submissions->count() == 0) {
+                if (isset($request->parts)) {
+                    for ($i=1; $i < $request->parts+1; $i++) { 
+                        $mission = new Mission;
+                        $mission->startDatum = $input->startDatum;
+                        $mission->kunde = $input->kunde;
+                        $mission->company = $input->company;
+                        if ($i == 1) {
+                            $mission->startOrt = $input->startOrt;
+                        }
+                        if ($i == $request->parts) {
+                            $mission->zielOrt = $input->zielOrt;
+                        }
+                        $mission->save();
+
+                        $submission = new Submission;
+                        $submission->original = $input->id;
+                        $submission->sub = $mission->id;
+                        $submission->part = $i;
+                        $submission->save();
+                    }
+                    Mission::find($input->id)->update(['fahrer' => null, 'preisFahrer' => null]);
+
+                    return redirect('mission/'.$input->id.'/edit'); 
+                }
+                $input->startDatum = date_format(date_create($input->startDatum), 'd.m.Y');
+                if($input->zielDatum == null){
+                    $input->zielDatum =date_format(date_create($input->startDatum), 'd.m.Y');
+                } else {
+                    $input->zielDatum =date_format(date_create($input->zielDatum), 'd.m.Y');
+                }
+                return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));
+            }
+        }
+
+        if ($choice == 'Aktualisieren') {
+            $sub_1 = Mission::find($request->sub1);
+            $sub_1->zielOrt = $request->zielOrt1;
+            $sub_1->fahrer = $request->fahrer1;
+            $sub_1->preisFahrer = $request->preisFahrer1;
+            $sub_1->startDatum = $input->startDatum;
+            $sub_1->kunde = $input->kunde;
+            $sub_1->company = $input->company;
+            $sub_1->startOrt = $input->startOrt;
+            $sub_1->save();
+
+            $sub_2 = Mission::find($request->sub2);
+            $sub_2->zielOrt = $request->zielOrt2;
+            $sub_2->fahrer = $request->fahrer2;
+            $sub_2->preisFahrer = $request->preisFahrer2;
+            $sub_2->startOrt = $sub_1->zielOrt;
+            $sub_2->startDatum = $input->startDatum;
+            $sub_2->kunde = $input->kunde;
+            $sub_2->company = $input->company;
+            $sub_2->save();
+
+            if (isset($request->sub3)) {
+                $sub_3 = Mission::find($request->sub3);
+                $sub_3->zielOrt = $request->zielOrt3;
+                $sub_3->fahrer = $request->fahrer3;
+                $sub_3->preisFahrer = $request->preisFahrer3;
+                $sub_3->startOrt = $sub_2->zielOrt;
+                $sub_3->startDatum = $input->startDatum;
+                $sub_3->kunde = $input->kunde;
+                $sub_3->company = $input->company;
+                $sub_3->save();
+            }
+
+            if (isset($request->sub4)) {
+                $sub_4 = Mission::find($request->sub4);
+                $sub_4->zielOrt = $request->zielOrt4;
+                $sub_4->fahrer = $request->fahrer4;
+                $sub_4->preisFahrer = $request->preisFahrer4;
+                $sub_4->startOrt = $sub_3->zielOrt;
+                $sub_4->startDatum = $input->startDatum;
+                $sub_4->kunde = $input->kunde;
+                $sub_4->company = $input->company;
+                $sub_4->save();
+            }
+
+            if (isset($request->sub5)) {
+                $sub_5 = Mission::find($request->sub5);
+                $sub_5->zielOrt = $request->zielOrt5;
+                $sub_5->fahrer = $request->fahrer5;
+                $sub_5->preisFahrer = $request->preisFahrer5;
+                $sub_5->startOrt = $sub_5->zielOrt;
+                $sub_5->startDatum = $input->startDatum;
+                $sub_5->kunde = $input->kunde;
+                $sub_5->company = $input->company;
+                $sub_5->save();
+            }
+            return redirect('mission/'.$input->id.'/edit'); 
+
+            $choice = 'Kunde';
+        }
+
         $input->startDatum = date_format(date_create($input->startDatum), 'd.m.Y');
         if($input->zielDatum == null){
             $input->zielDatum =date_format(date_create($input->startDatum), 'd.m.Y');
         } else {
             $input->zielDatum =date_format(date_create($input->zielDatum), 'd.m.Y');
         }
-        $input->sub_1 = new Mission;
-        $input->sub_1->startOrt = $input->startOrt;
-        $input->sub_2 = new Mission;
-        $input->sub_2->zielOrt = $input->zielOrt;
-        $input->sub_3 = new Mission;
-        $input->sub_4 = new Mission;
-        $input->sub_5 = new Mission;
-
-        $customers = Customer::all()->sortBy('name');
-        $drivers = Driver::all()->sortBy('name');
 
 
         return view('pages.mission', compact('input', 'choice', 'customers', 'drivers'));

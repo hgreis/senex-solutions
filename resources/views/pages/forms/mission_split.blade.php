@@ -14,10 +14,12 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
                 Dieser Auftrag wird in mehrere neue Fahrten aufgeteilt. Es existieren somit der Original-Auftrag und alle Teilstrecken. Diese Teilstrecken können jedoch nicht einzelnd editiert werden, sie dienen nur einer transparenten Planung und Abrechnung.
         </div>
     </div>
-    @include('pages.forms.mission_split_form')
-    {{ Form::submit('Tour aufteilen', [
-            'class' => 'form-control', 
-            'name' => 'submit'])}}
+    @if ($input->submissions->count() == 0)
+        @include('pages.forms.mission_splitquest')
+    @else
+        @include('pages.forms.mission_split_form')
+    @endif
+    
 </div>
 
 <script>

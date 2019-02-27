@@ -1,56 +1,30 @@
 <div class="whitebox">
-@for ($i = 1; $i < 6; $i++)
+{{ Form::hidden('id', $input->id) }}
+@foreach($input->submissions as $sub)
+    {{ Form::hidden('original', $sub->original) }}
+    {{ Form::hidden('sub'.$sub->part, $sub->sub) }}
     <div class="flip">
-        <b>Teilstrecke {{ $i }} </b>
-        {{ Form::hidden('id', $input->id) }}
-        {{ Form::hidden('customer', 1) }}
+        <b>Teilstrecke {{ $sub->part }}: </b> {{ $sub->mission->startOrt }} &rarr; {{ $sub->mission->zielOrt }}
     </div>
     <div class="panel">
         <div class="my1013">
             <p class="my1011">
-                {{ Form::label('start_'.$i, 'von', ['class' => 'form-control']) }}
+                {{ Form::label('zielOrt', 'bis', ['class' => 'form-control']) }}
             </p>
             <p class="my1012">
-                @if ($i == 1)
-                    {{ Form::text('start_'.$i, $input->sub_1->startOrt, ['class' => 'form-control']) }}
-                @elseif ($i == 2)
-                    {{ Form::text('start_'.$i, $input->sub_2->startOrt, ['class' => 'form-control']) }}
-                @elseif ($i == 3)
-                    {{ Form::text('start_'.$i, $input->sub_3->startOrt, ['class' => 'form-control']) }}
-                @elseif ($i == 4)
-                    {{ Form::text('start_'.$i, $input->sub_4->startOrt, ['class' => 'form-control']) }}
-                @elseif ($i == 5)
-                    {{ Form::text('start_'.$i, $input->sub_5->startOrt, ['class' => 'form-control']) }}
-                @endif
+                {{ Form::text('zielOrt'.$sub->part, $sub->mission->zielOrt, ['class' => 'form-control']) }}
             </p>
         </div>
+
         <div class="my1013">
             <p class="my1011">
-                {{ Form::label('ziel_'.$i, 'nach', ['class' => 'form-control']) }}
-            </p>
-            <p class="my1012">
-                @if ($i == 1)
-                    {{ Form::text('ziel_'.$i, $input->sub_1->zielOrt, ['class' => 'form-control']) }}
-                @elseif ($i == 2)
-                    {{ Form::text('ziel_'.$i, $input->sub_2->zielOrt, ['class' => 'form-control']) }}
-                @elseif ($i == 3)
-                    {{ Form::text('ziel_'.$i, $input->sub_1->zielOrt, ['class' => 'form-control']) }}
-                @elseif ($i == 4)
-                    {{ Form::text('ziel_'.$i, $input->sub_1->zielOrt, ['class' => 'form-control']) }}
-                @elseif ($i == 5)
-                    {{ Form::text('ziel_'.$i, $input->sub_1->zielOrt, ['class' => 'form-control']) }}
-                @endif
-            </p>
-        </div>
-        <div class="my1013">
-            <p class="my1011">
-                {{ Form::label('fahrer_'.$i, 'Fahrer', [
+                {{ Form::label('fahrer'.$sub->part, 'Fahrer', [
                         'class' => 'form-control']) }}
             </p>
             <p class="my1012">
-                <select name='fahrer'.$1 class='form-control'">
-                        @if (isset($input->sub_1))
-                            <option value="{{ $input->sub_1->fahrer }}">{{ $input->fahrer }}</option>
+                <select name='fahrer{{ $sub->part }}' class='form-control'">
+                        @if (isset($sub->mission->fahrer))
+                            <option value="{{ $sub->mission->fahrer }}">{{ $sub->mission->fahrer }}</option>
                         @endif
                         <option value="">---Bitte Auswählen---</option>
                         @foreach ($drivers as $driver)
@@ -59,16 +33,20 @@
                 </select>
             </p>
         </div>
+
         <div class="my1013">
             <p class="my1011">
-                {{ Form::label('preis_'.$i, 'Preis', [
+                {{ Form::label('preisFahrer'.$sub->part, 'Preis', [
                         'class' => 'form-control']) }}
             </p>
             <p class="my1012">
-                {{ Form::text('preis_'.$i, '', [
+                {{ Form::text('preisFahrer'.$sub->part, $sub->mission->preisFahrer, [
                     'class' => 'form-control']) }}
             </p><br>
         </div>
     </div>
-@endfor 
+@endforeach
+<br>{{ Form::submit('Aktualisieren', [
+            'class' => 'form-control', 
+            'name' => 'submit'])}}<br>
 </div>
