@@ -39,6 +39,7 @@ class BillController extends Controller
         })->with(['missions' => function($query) {
             $query->whereNull('bill_id')
                 ->whereNull('bill_paid')
+                ->whereNotNull('preisKunde')
                 ->where('company', 1);
         }])->orderBy('name')->get();
 

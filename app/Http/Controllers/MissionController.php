@@ -179,10 +179,9 @@ class MissionController extends Controller
     public function viewMissionDriver($id) {
         if ( isset(Submission::where('sub', $id)->first()->original)) {
             $id = Submission::where('sub', $id)->first()->original;
-            $choice = 'Tour aufteilen';
-        } else {
-            $choice = 'Fahrer/Unternehmer';
+            return redirect('mission/'.$id.'/edit');    
         }
+        $choice = 'Fahrer/Unternehmer';
         $input = Mission::find($id);
         $customers = Customer::all()->sortBy('name');
         $drivers = Driver::all()->sortBy('name');
@@ -285,8 +284,11 @@ class MissionController extends Controller
                     for ($i=1; $i < $request->parts+1; $i++) { 
                         $mission = new Mission;
                         $mission->startDatum = $input->startDatum;
+                        $mission->zielDatum = $input->zielDatum;
                         $mission->kunde = $input->kunde;
                         $mission->company = $input->company;
+                        $mission->deliveryNote = $input->deliveryNote;
+                        $mission->kundeBemerkung = 'Originalauftrag: '.$input->id;
                         if ($i == 1) {
                             $mission->startOrt = $input->startOrt;
                         }
@@ -321,8 +323,10 @@ class MissionController extends Controller
             $sub_1->fahrer = $request->fahrer1;
             $sub_1->preisFahrer = $request->preisFahrer1;
             $sub_1->startDatum = $input->startDatum;
+            $sub_1->zielDatum = $input->zielDatum;
             $sub_1->kunde = $input->kunde;
             $sub_1->company = $input->company;
+            $sub_1->deliveryNote = $input->deliveryNote;
             $sub_1->startOrt = $input->startOrt;
             $sub_1->save();
 
@@ -332,7 +336,9 @@ class MissionController extends Controller
             $sub_2->preisFahrer = $request->preisFahrer2;
             $sub_2->startOrt = $sub_1->zielOrt;
             $sub_2->startDatum = $input->startDatum;
+            $sub_2->zielDatum = $input->zielDatum;
             $sub_2->kunde = $input->kunde;
+            $sub_2->deliveryNote = $input->deliveryNote;
             $sub_2->company = $input->company;
             $sub_2->save();
 
@@ -343,7 +349,9 @@ class MissionController extends Controller
                 $sub_3->preisFahrer = $request->preisFahrer3;
                 $sub_3->startOrt = $sub_2->zielOrt;
                 $sub_3->startDatum = $input->startDatum;
+                $sub_3->zielDatum = $input->zielDatum;
                 $sub_3->kunde = $input->kunde;
+                $sub_3->deliveryNote = $input->deliveryNote;
                 $sub_3->company = $input->company;
                 $sub_3->save();
             }
@@ -355,7 +363,9 @@ class MissionController extends Controller
                 $sub_4->preisFahrer = $request->preisFahrer4;
                 $sub_4->startOrt = $sub_3->zielOrt;
                 $sub_4->startDatum = $input->startDatum;
+                $sub_4->zielDatum = $input->zielDatum;
                 $sub_4->kunde = $input->kunde;
+                $sub_4->deliveryNote = $input->deliveryNote;
                 $sub_4->company = $input->company;
                 $sub_4->save();
             }
@@ -367,7 +377,9 @@ class MissionController extends Controller
                 $sub_5->preisFahrer = $request->preisFahrer5;
                 $sub_5->startOrt = $sub_5->zielOrt;
                 $sub_5->startDatum = $input->startDatum;
+                $sub_5->zielDatum = $input->zielDatum;
                 $sub_5->kunde = $input->kunde;
+                $sub_5->deliveryNote = $input->deliveryNote;
                 $sub_5->company = $input->company;
                 $sub_5->save();
             }
@@ -393,6 +405,11 @@ class MissionController extends Controller
             ->where('fahrer', null)
             ->orderBy('zielDatum')
             ->get();
+        foreach ($missions as $mission) {
+            $mission->parts = Submission::where('original', $mission->id)->count();
+        } 
+
+        $missions =  $missions->where('parts', 0);
         $drivers =  Mission::where('bill_id', null)
             ->select('fahrer')
             ->orderBy('fahrer')
@@ -468,6 +485,7 @@ class MissionController extends Controller
         $missions = Mission::where('bill_id', null)
                         ->where('bill_paid', null)
                         ->where('company', $company)
+                        ->whereNotNull('preisKunde')
                         ->orderBy('startDatum')
                         ->get()
                         ->sortBy('kunde')

@@ -25,7 +25,8 @@ class ListingController extends Controller
                 })->with(['missions' => function($query) {
                     $query->whereNull('bill_id')
                         ->whereNull('listing')
-                        ->where('company', 1);
+                        ->where('company', 1)
+                        ->whereNotNull('preisKunde');
                 }])->orderBy('name')->get();
         return view('pages.listingsGenerate', compact('customers'));
     }
@@ -72,6 +73,7 @@ class ListingController extends Controller
         $list->missions = Mission::where('listing', $id)->get();
         $missions = Mission::where('kunde', $list->kunde->name)
                             ->where('company', 1)
+                            ->whereNotNull('preisKunde')
                             ->whereNull('listing')
                             ->get();
         return view('pages.listings.edit', compact('list', 'missions'));
