@@ -155,15 +155,6 @@ class MissionController extends Controller
         return view('pages.missionNew', compact('input', 'drivers', 'customers'));
     }
 
-    // public function mission_newDate($date) {
-    //     $input = new Mission;
-    //     $input->company = 1;
-    //     $input->startDatum = $date;
-    //     $input->zielDatum = $date;
-    //     $choice = 'Touren-Start';
-    //     return view('pages.mission', compact('input', 'choice'));
-    // }
-
     public function viewMission($id) {
         if ( isset(Submission::where('sub', $id)->first()->original)) {
             $id = Submission::where('sub', $id)->first()->original;

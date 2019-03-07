@@ -57,11 +57,15 @@ Route::get('/credit/{id}/printPDF/{taxes}', 'CreditController@printPDF');
 Route::get('/chart/', 'ChartController@missionsWithoutDates');
 Route::post('/chart/', 'ChartController@missions');
 Route::get('/chart/{company}', 'ChartController@report');
-
 Route::get('/listing/{id}/edit', 'ListingController@edit');
 Route::get('/listing/{id}/delete/{mission}', 'ListingController@deleteMission');
 Route::get('/listing/{id}/add/{mission}', 'ListingController@addMission');
 Route::get('/listing/{id}/printPDF', 'ListingController@printPDF');
+
+
+Route::get('rechnung/new/{customer}', 'RechnungController@new' );
+Route::post('rechnung/new', 'RechnungController@submit');
+
 
 
 Route::get('dekra/new_customer/{id}/delete', 'HomeController@customerDelete');
