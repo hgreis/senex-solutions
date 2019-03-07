@@ -35,6 +35,20 @@ class Credit extends Model
                     IBAN: '.$company->iban.' / 
                     BIC: '.$company->bic.'
                 </p>';
+        $html300 ='
+                    <p>
+                        <hr><h3>HINWEIS</h3><br><br>
+                         Übergang der Steuerschuldnerschaft nach §3a UStg grenzüberschreitende Beförderung
+                        <hr>
+                    </p>
+        ';
+        $html305 ='
+                    <p>
+                        <hr><h3>HINWEIS</h3><br><br>
+                        Steuerfrei nach § 4(3) lit. a (aa/bb) UStG grenzüberschreitende Beförderung
+                        <hr>
+                    </p>
+        ';
 
 		$pdf = new PDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf::SetTitle('Gutschrift');
@@ -117,17 +131,40 @@ class Credit extends Model
         };
         $pdf::writeHTML('<hr>');
 
-        //summary with taxes
-        $pdf::Cell(50,0,'',0,0);
-        $pdf::Cell(100,0,'Summe (netto)',0,0,'R');
-        $pdf::Cell(18,0,number_format($this->priceNet, 2, ',', '').' €',0,1,'R');
-        $pdf::Cell(50,0,'',0,0);
-        $pdf::Cell(100,0,'19% Mehrwertsteuer',0,0,'R');
-        $pdf::Cell(18,0,number_format($this->priceNet*0.19, 2, ',', '').' €',0,1,'R');
-        $pdf::SetFont('helvetica','b',10);
-        $pdf::Cell(50,0,'',0,0);
-        $pdf::Cell(100,0,'Gutschriftsbetrag (brutto)',0,0,'R');
-        $pdf::Cell(18,0,number_format(($this->priceGross), 2, ',', '').' €',0,1,'R');
+        if ($this->taxes != 19) {
+            //summary with no taxes
+            $pdf::Cell(50,0,'',0,0);
+            $pdf::Cell(100,0,'Summe (netto)',0,0,'R');
+            $pdf::Cell(18,0,number_format($this->priceNet, 2, ',', '').' €',0,1,'R');
+            $pdf::Cell(50,0,'',0,0);
+            $pdf::Cell(100,0,'Mehrwertsteuerbefreit',0,0,'R');
+            $pdf::Cell(18,0,number_format(0, 2, ',', '').' €',0,1,'R');
+            $pdf::SetFont('helvetica','b',10);
+            $pdf::Cell(50,0,'',0,0);
+            $pdf::Cell(100,0,'Gutschriftsbetrag (brutto)',0,0,'R');
+            $pdf::Cell(18,0,number_format(($this->priceGross), 2, ',', '').' €',0,1,'R');
+        } else {
+            //summary with taxes
+            $pdf::Cell(50,0,'',0,0);
+            $pdf::Cell(100,0,'Summe (netto)',0,0,'R');
+            $pdf::Cell(18,0,number_format($this->priceNet, 2, ',', '').' €',0,1,'R');
+            $pdf::Cell(50,0,'',0,0);
+            $pdf::Cell(100,0,'19% Mehrwertsteuer',0,0,'R');
+            $pdf::Cell(18,0,number_format($this->priceNet*0.19, 2, ',', '').' €',0,1,'R');
+            $pdf::SetFont('helvetica','b',10);
+            $pdf::Cell(50,0,'',0,0);
+            $pdf::Cell(100,0,'Gutschriftsbetrag (brutto)',0,0,'R');
+            $pdf::Cell(18,0,number_format(($this->priceGross), 2, ',', '').' €',0,1,'R');
+        }
+        
+
+
+        if($this->taxes == 300) {
+            $pdf::writeHTML($html300, true, false, true, false, '');
+        }elseif($this->taxes == 305) {
+            $pdf::writeHTML($html305, true, false, true, false, '');
+        }
+
 
 
         //duration information

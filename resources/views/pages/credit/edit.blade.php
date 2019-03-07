@@ -2,11 +2,28 @@
 @section('content')
 	<div class="my1003">
 		<h1 style="text-align: center">Gutschrift {{ $credit->id }} - {{ $credit->fahrer->name}} </h1>
-		<button class="form-control" 
-				onclick="window.location.href=
-					'/credit/{{ $credit->id }}/printPDF'">
-			<b>Eine neue PDF erzeugen !!!</b>
-		</button><br>
+		<div class="my1014">
+			<button class="form-control" 
+					onclick="window.location.href=
+						'/credit/{{ $credit->id }}/printPDF/19'">
+				<b>19% MwSt. PDF erzeugen !!!</b>
+			</button><br>
+		</div>
+		<div class="my1014">
+			<button class="form-control" 
+					onclick="window.location.href=
+						'/credit/{{ $credit->id }}/printPDF/300'">
+				<b>§3 PDF erzeugen !!!</b>
+			</button><br>
+		</div>
+		<div class="my1014">
+			<button class="form-control" 
+					onclick="window.location.href=
+						'/credit/{{ $credit->id }}/printPDF/305'">
+				<b>§4 PDF erzeugen !!!</b>
+			</button><br>
+		</div>
+
 			<table class="table">
 				<tr class="my1000">
 					<th style="text-align: center">Tour-Nr.</th>

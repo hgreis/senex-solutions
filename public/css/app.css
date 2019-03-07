@@ -60,6 +60,11 @@ html {
   font-weight: bold;
 }
 
+.my1014 {
+  float: left;
+  width: 33%;
+  padding: 0.3%;
+}
 .my1013 {
   clear: both;
 }

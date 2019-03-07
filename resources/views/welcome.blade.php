@@ -4,6 +4,13 @@
     <div>
     	<table class="table">
             <tr>
+                <td style="min-width: 100px">07.03.2019</td>
+                <td>
+                    Steuerfreie Gutschriften: beim Erzeugen befindet sich im Kopfbereich eine Auswahlmöglichkeit für den gewünschten Steuersatz.<br>Auch beim späteren Editieren ist
+                    das anschließende Erzeugen einer neuen PDF für die unterschiedlichen Steuersätze möglich.
+                </td>
+            </tr>
+            <tr>
                 <td style="min-width: 100px">21.02.2019</td>
                 <td>
                     Fahrtenauflistungen lassen sich jetzt auch editieren <br>

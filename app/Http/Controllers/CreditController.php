@@ -30,6 +30,7 @@ class CreditController extends Controller
         $credit->driver = $driver->id;
     	$credit->company = $request->company;
     	$credit->number = $credit->getNumber();
+        $credit->taxes = $request->taxes;
     	$credit->save();
     	foreach ($driver->missions as $mission) {
     		if(isset($request[$mission->id])) {
@@ -38,7 +39,11 @@ class CreditController extends Controller
     		}
     	}
     	$credit->priceNet = $summe;
-    	$credit->priceGross = $summe * 1.19;
+        if ($credit->taxes != 19) {
+            $credit->priceGross = $summe;
+        } else {
+            $credit->priceGross = $summe * 1.19;    
+        }
     	$credit->save();
         $credit->savePDF();
 
@@ -110,11 +115,17 @@ class CreditController extends Controller
         return redirect('credit/'.$id.'/edit');    
     }
 
-    public function printPDF($id) {
+    public function printPDF($id, $taxes) {
         $credit = Credit::find($id);
+        $credit->taxes = $taxes;
+        $credit->save();
         $missions = Mission::where('credit', $id)->get();
         $credit->priceNet = $missions->sum('preisFahrer');
-        $credit->priceGross = $credit->priceNet * 1.19;
+        if ($credit->taxes != 19) {
+            $credit->priceGross = $missions->sum('preisFahrer');
+        } else {
+            $credit->priceGross = $missions->sum('preisFahrer') * 1.19;    
+        }        
         $credit->save();
         $credit->savePDF();
         return redirect('listCredits/1');    

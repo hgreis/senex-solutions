@@ -53,7 +53,7 @@ Route::get('/mission/calendar/{lastMissionID}', 'MissionController@calendar')->n
 Route::get('/credit/{id}/edit', 'CreditController@edit');
 Route::get('/credit/{id}/delete/{mission}', 'CreditController@deleteMission');
 Route::get('/credit/{id}/add/{mission}', 'CreditController@addMission');
-Route::get('/credit/{id}/printPDF', 'CreditController@printPDF');
+Route::get('/credit/{id}/printPDF/{taxes}', 'CreditController@printPDF');
 Route::get('/chart/', 'ChartController@missionsWithoutDates');
 Route::post('/chart/', 'ChartController@missions');
 Route::get('/chart/{company}', 'ChartController@report');
