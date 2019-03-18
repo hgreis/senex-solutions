@@ -11,6 +11,7 @@
 		<table class="table" align="center" style="width: 80%">
 			<tr class="my1000">
 				<th style="width: 90px">Datum</th>
+				<th></th>
 				<th>Unternehmer</th>
 				<th>Rechnungsnummer</th>
 				<th style="text-align: center">Netto</th>
@@ -20,6 +21,15 @@
 			@foreach($rechnungen->sortBy('date') as $rechnung)
 			<tr class="my1001">
 					<td>{{ date_format(date_create($rechnung->date), 'd.m.Y') }}</td>
+					@if( $rechnung->proof == 0)
+						<td style="color: green; font-size: 20px">
+							 	&radic;
+						</td>
+					@else
+						<td style="color: red; font-size: 20px">
+							&otimes;
+						</td>
+					@endif
 					<td> {{ $rechnung->driver->name }} </td>
 					<td> {{ $rechnung->name }} </td>
 					<td style="text-align: right; width: 100px">{{ number_format($rechnung->priceNet, 2, ',', ' ') }} €</td>

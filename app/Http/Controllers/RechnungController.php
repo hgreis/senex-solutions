@@ -122,7 +122,9 @@ class RechnungController extends Controller
     				->get();
     	$rechnungen->company = $company;
     	foreach ($rechnungen as $rechnung) {
+    		$rechnung->missions();
     		$rechnung->driver();
+    		$rechnung->proof = $rechnung->missions->where('bill_paid', null)->count();
     	}
 
     	return view('pages.rechnung.pay', compact('rechnungen'));
