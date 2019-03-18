@@ -28,18 +28,119 @@ class RechnungController extends Controller
     }
 
     public function submit(Request $request) {
+	
     	$rechnung = new Rechnung;
     	$rechnung->company = $request->company;
     	$rechnung->driver_id = Driver::where('name', $request->fahrer)->first()->id;
+    	$rechnung->name = $request->name;
     	$rechnung->priceNet = 0;
     	$rechnung->priceGross = 0;
     	$rechnung->date = now();
     	$rechnung->save();
+
+//file upload: doc
+        if (isset($request->doc)) {
+            $file = $request->file('doc');
+            $destinationPath = 'uploads';
+            $file->move($destinationPath, 'Unternehmer-Rechnung_'.$rechnung->id.'.'.$file->getClientOriginalExtension() );    
+            $rechnung->doc=true;
+            $rechnung->save();
+        }
+
+    	$rechnung->missions();
     	$rechnung->driver();
 
-    	$drivers = Driver::all();
-    	$missions = Mission::where('fahrer', $rechnung->driver->name)->get();
-//return $rechnung;    	
-    	return view('pages.rechnung.edit', compact('rechnung', 'drivers', 'missions'));
+    	$missions = Mission::where('fahrer', $rechnung->driver->name)
+    				->whereNull('credit')
+    				->whereNull('ur')
+    				->get();
+
+    	return view('pages.rechnung.edit', compact('rechnung', 'missions'));
+    }
+
+    public function addMission($rechnungs_id, $mission_id) {
+		$mission = Mission::find($mission_id);
+		$mission->ur = $rechnungs_id;
+		$mission->save();
+
+		$rechnung = Rechnung::find($rechnungs_id);
+		$rechnung->missions();
+		$rechnung->driver();
+
+    	$missions = Mission::where('fahrer', $rechnung->driver->name)
+    				->whereNull('credit')
+    				->whereNull('ur')
+    				->get();
+
+    	return view('pages.rechnung.edit', compact('rechnung', 'missions'));
+    }
+
+    public function subMission($rechnungs_id, $mission_id) {
+		$mission = Mission::find($mission_id);
+		$mission->ur = null;
+		$mission->save();
+
+		$rechnung = Rechnung::find($rechnungs_id);
+		$rechnung->missions();
+		$rechnung->driver();
+
+    	$missions = Mission::where('fahrer', $rechnung->driver->name)
+    				->whereNull('credit')
+    				->whereNull('ur')
+    				->get();
+
+    	return view('pages.rechnung.edit', compact('rechnung', 'missions'));
+    }
+
+    public function edit($rechnungs_id) {
+    	$rechnung = Rechnung::find($rechnungs_id);
+		$rechnung->missions();
+		$rechnung->driver();
+
+    	$missions = Mission::where('fahrer', $rechnung->driver->name)
+    				->whereNull('credit')
+    				->whereNull('ur')
+    				->get();
+
+    	return view('pages.rechnung.edit', compact('rechnung', 'missions'));
+    }
+
+    public function list($company) {
+    	$rechnungen = Rechnung::where('company', $company)->get();
+    	$rechnungen->company = $company;
+
+    	foreach ($rechnungen as $rechnung) {
+    		$rechnung->driver();
+    	}
+
+    	return view('pages.rechnung.list', compact('rechnungen'));
+    }
+
+    public function payList($company) {
+    	$rechnungen = Rechnung::where('company', $company)
+    				->whereNull('paid')
+    				->get();
+    	$rechnungen->company = $company;
+    	foreach ($rechnungen as $rechnung) {
+    		$rechnung->driver();
+    	}
+
+    	return view('pages.rechnung.pay', compact('rechnungen'));
+    }
+
+    public function pay($rechnungs_id) {
+    	$rechnung = Rechnung::find($rechnungs_id);
+    	$rechnung->paid = now();
+    	$rechnung->save();
+
+    	$rechnungen = Rechnung::where('company', $rechnung->company)
+    				->whereNull('paid')
+    				->get();
+    	$rechnungen->company = $rechnung->company;
+    	foreach ($rechnungen as $rechnung) {
+    		$rechnung->driver();
+    	}
+
+    	return view('pages.rechnung.pay', compact('rechnungen'));	
     }
 }

@@ -40,7 +40,9 @@
                 Überweisung bestätigen
             </button>
             <br><label>Rechnungen</label>
-            <button class="form-control" onclick="window.location.href='/missionsPayDriver/1'" >eingereichte Rechnung</button>
+            <button class="form-control" onclick="window.location.href='/rechnung/new/1'" >eingereichte Rechnung</button>
+            <button class="form-control" onclick="window.location.href='/rechnung/list/1'" >Rechnungen Übersicht</button>
+            <button class="form-control" onclick="window.location.href='/rechnung/payList/1'" >Überweisung bestätigen</button>
         </div>
     </div>
 </div>
@@ -68,7 +70,9 @@
         </div>
         <div class="panel">
             <label>Rechnungen</label>
-            <button class="form-control" onclick="window.location.href='/missionsPayDriver/2'" >eingereichte Rechnung</button>
+            <button class="form-control" onclick="window.location.href='/rechnung/new/2'" >eingereichte Rechnung</button>
+            <button class="form-control" onclick="window.location.href='/rechnung/list/2'" >Rechnungen Übersicht</button>
+            <button class="form-control" onclick="window.location.href='/rechnung/payList/2'" >Überweisung bestätigen</button>
         </div>
     </div>
 </div>

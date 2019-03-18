@@ -16,8 +16,9 @@ class CreateRechnungsTable extends Migration
         Schema::create('rechnungs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('driver_id')->nullable();
-            $table->integer('priceNet')->nullable();
-            $table->integer('priceGross')->nullable();
+            $table->text('name')->nullable();
+            $table->float('priceNet')->nullable();
+            $table->float('priceGross')->nullable();
             $table->integer('doc')->nullable();
             $table->text('customer')->nullable();
             $table->integer('company')->nullable();

@@ -2,32 +2,17 @@
 @section('content')
     <h1>Unternehmer-Rechnung: {{ $rechnung->driver->name }} 
         vom {{ date_format(date_create($rechnung->date), 'd.m.Y') }}</h1>
-    <form action="/rechnung/new" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
     @if ($rechnung->company == 2)
         <div class="my1002">
     @else
         <div class="my1003">
     @endif
-        <div class="my1014">
-            {{  Form::label('fahrer', 'Fahrer / Unternehmer:') }}
-            <select name='fahrer' class='form-control'>
-                @if (isset($rechnung->driver))
-                    <option value="{{ $rechnung->driver->name }}">{{ $rechnung->driver->name }}</option>
-                @endif
-                <option value="">---Bitte Auswählen---</option>
-                @foreach ($drivers as $driver)
-                        <option value="{{ $driver->name }}">{{ $driver->name }}</option>
-                @endforeach
-            </select><br>
-        </div>
-        <div class="my1014" style="float: right">
-            @if (isset($input->deliveryNote))
-                 <a target="_blank" href="/uploads/{{ $rechnung->id }} Lieferschein.pdf">{{ $rechnung->id }} Lieferschein.pdf </a> 
-            @else
-                    <label>Unternehmer-Rechnung: </label>
+        <div>
+            <h3>Rechnungsnummer: {{$rechnung->name}}
+            @if (isset($rechnung->doc))
+                 <a target="_blank" href="/uploads/Unternehmer-Rechnung_{{ $rechnung->id }}.pdf">Unternehmer-Rechnung.pdf </a> 
             @endif
-            {{ Form::file('doc') }}<br>
+        </h3>
         </div>
         <table class="table"> 
             <tr class="my1000">
@@ -69,14 +54,21 @@
                     <td style="text-align: center">
                         <button class="form-control" 
                                 onclick="window.location.href=
-                                    '/credit/{{ $rechnung->id }}/add/{{ $mission->id}}'">
-                            <b>+</b>
+                                    '/rechnung/sub/{{ $rechnung->id }}/{{ $mission->id}}'">
+                            <b>-</b>
                         </button>
                     </td>
                 </tr>
             @endforeach
         @endif
+            <tr class="my1001">
+                <td colspan="5" style="text-align: right"><b>Summe</b></td>
+                <td colspan="3" style="text-align: center; 
+                                width: 150px">Netto: {{ number_format($rechnung->priceNet, 2, ',', ' ') }} € / Brutto: {{ number_format($rechnung->priceGross, 2, ',', ' ') }} € 
+                        </td>
+            </tr>
         </table><hr>    
+        
         <h3>Auftrag hinzufügen</h3>
         <table class="table">
             <tr class="my1000">
@@ -117,7 +109,7 @@
                         <td style="text-align: center">
                             <button class="form-control" 
                                     onclick="window.location.href=
-                                        '/credit/{{ $rechnung->id }}/add/{{ $mission->id}}'">
+                                        '/rechnung/add/{{ $rechnung->id }}/{{ $mission->id}}'">
                                 <b>+</b>
                             </button>
                         </td>
@@ -125,6 +117,5 @@
                 @endforeach
             </table>
     </div>
-    </form>
 @endsection
 

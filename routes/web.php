@@ -65,7 +65,12 @@ Route::get('/listing/{id}/printPDF', 'ListingController@printPDF');
 
 Route::get('rechnung/new/{customer}', 'RechnungController@new' );
 Route::post('rechnung/new', 'RechnungController@submit');
-
+Route::get('rechnung/add/{rechnung}/{mission}', 'RechnungController@addMission');
+Route::get('rechnung/sub/{rechnung}/{mission}', 'RechnungController@subMission');
+Route::get('rechnung/list/{company}', 'RechnungController@list');
+Route::get('rechnung/edit/{id}', 'RechnungController@edit');
+Route::get('rechnung/payList/{company}', 'RechnungController@payList');
+Route::get('rechnung/pay/{rechnungs_id}', 'RechnungController@pay');
 
 
 Route::get('dekra/new_customer/{id}/delete', 'HomeController@customerDelete');

@@ -23,6 +23,10 @@
             </select><br>
         </div>
         <div class="my1014">
+            {{ Form::label('Original Rehnungsnummer') }}
+            {{ Form::text('name', $rechnung->name, ['class' => 'form-control']) }}
+        </div>
+        <div class="my1014">
             @if (isset($input->deliveryNote))
                  <a target="_blank" href="/uploads/{{ $rechnung->id }} Lieferschein.pdf">{{ $rechnung->id }} Lieferschein.pdf </a> 
             @else
