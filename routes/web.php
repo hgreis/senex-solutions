@@ -69,6 +69,7 @@ Route::get('rechnung/add/{rechnung}/{mission}', 'RechnungController@addMission')
 Route::get('rechnung/sub/{rechnung}/{mission}', 'RechnungController@subMission');
 Route::get('rechnung/list/{company}', 'RechnungController@list');
 Route::get('rechnung/edit/{id}', 'RechnungController@edit');
+Route::get('rechnung/edit/{id}/delete', 'RechnungController@delete');
 Route::get('rechnung/payList/{company}', 'RechnungController@payList');
 Route::get('rechnung/pay/{rechnungs_id}', 'RechnungController@pay');
 

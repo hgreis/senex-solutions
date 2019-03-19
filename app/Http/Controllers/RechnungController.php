@@ -145,4 +145,12 @@ class RechnungController extends Controller
 
     	return view('pages.rechnung.pay', compact('rechnungen'));	
     }
+
+    public function delete($rechnungs_id) {
+    	$text = 'Die Unternehmer-Rechnung wurde gelöscht.<br> Alle zugehörigen Aufträge wurden freigegeben.';
+    	Mission::where('ur', $rechnungs_id)->update(['ur' => null]);
+    	$rechnung = Rechnung::find($rechnungs_id)->delete();
+
+    	return $text;
+    }
 }

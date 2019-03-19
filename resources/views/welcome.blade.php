@@ -4,6 +4,12 @@
     <div>
     	<table class="table">
             <tr>
+                <td style="min-width: 100px">19.03.2019</td>
+                <td>
+                    Unternehmer-Rechnungen: Ab sofort sollten Rechnungen von Unternehmern eingescannt und danach dem Programm zugeführt werden. Dazu bitte das Rechnungswesen über das Menü öffnen und unter Unternehmer/Rechnungen den Eintrag 'eingereichte Rechnung' auswählen. In der folgenden Maske müssen alle 3 Felder korrekt ausgefüllt werden. Diese Angaben können nachträglich nicht mehr geändert werden. Abgeschlossen wird der Vorgang, indem Aufträge der Rechung zugewiesen werden, ähnlich der Bearbeitung von Gutschriften. 
+                </td>
+            </tr>
+            <tr>
                 <td style="min-width: 100px">07.03.2019</td>
                 <td>
                     Steuerfreie Gutschriften: beim Erzeugen befindet sich im Kopfbereich eine Auswahlmöglichkeit für den gewünschten Steuersatz.<br>Auch beim späteren Editieren ist

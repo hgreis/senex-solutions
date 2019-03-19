@@ -28,17 +28,13 @@
 					@endif
 					<td> {{ $rechnung->driver->name }} </td>
 					<td> {{ $rechnung->name }} </td>
-					@if( $rechnung->paid == null)
-						<td style="text-align: center">
-								<button class="form-control" 
-										onclick="window.location.href=
-											'/rechnung/edit/{{ $rechnung->id }}'">
-									<b>edit</b>
-								</button>
-						</td>
-					@else
-						<td></td>
-					@endif
+					<td style="text-align: center">
+							<button class="form-control" 
+									onclick="window.location.href=
+										'/rechnung/edit/{{ $rechnung->id }}'">
+								<b>edit</b>
+							</button>
+					</td>
 					<td style="text-align: right; width: 100px">{{ number_format($rechnung->priceNet, 2, ',', ' ') }} €</td>
 					<td style="text-align: right; width: 100px">{{ number_format($rechnung->priceGross, 2, ',', ' ') }} €</td>
 				</tr>

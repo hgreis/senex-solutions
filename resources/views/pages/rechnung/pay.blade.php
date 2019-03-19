@@ -8,7 +8,7 @@
 @endif
 
 	<h1 style="text-align: center">Offene Unternehmer-Rechnungen</h1>
-		<table class="table" align="center" style="width: 80%">
+		<table class="table" align="center">
 			<tr class="my1000">
 				<th style="width: 90px">Datum</th>
 				<th></th>
