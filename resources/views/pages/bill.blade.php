@@ -8,8 +8,9 @@
         <nobr>{{ Form::radio('taxes', 305)  }} Mehrwertsteuerbefreit nach §4 &emsp;</nobr>
 
 		@foreach ($customers as $customer)
+	@if ($customer->missions->count() != 0)
 			@if($customers[0]->missions[0]->company == 2)
-				<div class="pinkbox">
+					<div class="pinkbox">
 			@else
 				<div class="redbox">
 			@endif
@@ -44,6 +45,7 @@
 					@endforeach
 				</table>
 			</div>
+	@endif
 		@endforeach
 		<input type="submit" name="submit" class="form-control">
 	</form>
