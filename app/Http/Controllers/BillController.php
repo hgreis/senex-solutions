@@ -46,11 +46,12 @@ class BillController extends Controller
         return view('pages.bill', compact('customers'));
     }
 
-    public function createBill2() {
-        //for second company
+public function createBill2() {
+        // for second company
         $customers = Customer::whereHas('missions', function($query) {
             $query->whereNull('bill_id')
                 ->whereNull('bill_paid')
+                ->whereNotNull('preisKunde')
                 ->where('company', 2);
         })->with(['missions' => function($query) {
             $query->whereNull('bill_id')
@@ -61,7 +62,5 @@ class BillController extends Controller
 
         return view('pages.bill', compact('customers'));
     }
+
 }
-
-
-
