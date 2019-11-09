@@ -116,6 +116,7 @@ class Bill extends Model
         $pdf::Cell(0,0,$customer->street,0,1);
         $pdf::Cell(0,0,$customer->city,0,1);
         $pdf::Cell(0,0,$customer->country,0,1);
+        $pdf::Cell(0,0,$customer->steuernr,0,1);
 
         // Logo
 

@@ -17,6 +17,8 @@
 		<input type="text" name="city" value="{{$customerToEdit->city}}" class="form-control">
 		<label>Land</label>
 		<input type="text" name="country" value="{{$customerToEdit->country}}" class="form-control">
+		<label>Steuer-Nummer</label>
+		<input type="text" name="country" value="{{$customerToEdit->steuernr}}" class="form-control">
 		<label>Telefon / Mobiltelefon</label>
 		<input type="text" name="phone" value="{{$customerToEdit->phone}}" class="form-control">
 		<label>Emailadresse</label>
