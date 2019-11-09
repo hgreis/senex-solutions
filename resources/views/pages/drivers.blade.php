@@ -10,8 +10,8 @@
 				<input type="hidden" name="id" value="{{ $drivers->driver->id }}">
 				<label>Telefon:</label>
 				<input type="text" name="phone" class="form-control" value="{{ $drivers->driver->phone }}">
-				<label>Fahrzeug:</label>
-				<input type="text" name="car_brand" class="form-control" value="{{ $drivers->driver->car_brand }}">
+				<label>Steuer-Nummer:</label>
+				<input type="text" name="steuernr" class="form-control" value="{{ $drivers->driver->steuernr }}">
 				<label>KFZ-Kennzeichen:</label>
 				<input type="text" 
 						name="number_plate" 

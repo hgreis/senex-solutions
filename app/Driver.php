@@ -8,7 +8,7 @@ class Driver extends Model
 {
     protected $table='drivers';
     protected $fillable=[
-    	'name','street','city','land','phone','email','contractor','car_brand','number_plate',
+    	'name','street','city','land','phone','email', 'steuernr','contractor','car_brand','number_plate',
     ];
 
     public function missions() {

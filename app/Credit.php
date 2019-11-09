@@ -98,6 +98,8 @@ class Credit extends Model
         $pdf::Cell(0,0,$driver->contractor,0,1);
         $pdf::Cell(0,0,$driver->street,0,1);
         $pdf::Cell(0,0,$driver->city,0,1);
+        $pdf::Cell(0,0,$driver->land,0,1);
+        $pdf::Cell(0,0,$driver->steuernr,0,1);
         
 
         // Logo
