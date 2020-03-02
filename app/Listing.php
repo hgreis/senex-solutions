@@ -83,7 +83,7 @@ class Listing extends Model
 
         // table with missions
         $pdf::Ln(10);
-        $pdf::SetFont('helvetica','B',9);
+        $pdf::SetFont('helvetica','B',10);
         $pdf::SetFillColor(226,14,14);
         $pdf::Cell(40,0,'Tour-Nr.',1,0,'C',1,'C');
         $pdf::Cell(20,0,'Datum',1,0,'C',1,'C');
