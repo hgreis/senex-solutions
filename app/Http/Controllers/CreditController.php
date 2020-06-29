@@ -42,7 +42,7 @@ class CreditController extends Controller
         if ($credit->taxes != 19) {
             $credit->priceGross = $summe;
         } else {
-            $credit->priceGross = $summe * 1.19;    
+            $credit->priceGross = $summe * 1.16;    
         }
     	$credit->save();
         $credit->savePDF();
@@ -124,7 +124,7 @@ class CreditController extends Controller
         if ($credit->taxes != 19) {
             $credit->priceGross = $missions->sum('preisFahrer');
         } else {
-            $credit->priceGross = $missions->sum('preisFahrer') * 1.19;    
+            $credit->priceGross = $missions->sum('preisFahrer') * 1.16;    
         }        
         $credit->save();
         $credit->savePDF();

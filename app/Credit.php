@@ -151,8 +151,8 @@ class Credit extends Model
             $pdf::Cell(100,0,'Summe (netto)',0,0,'R');
             $pdf::Cell(18,0,number_format($this->priceNet, 2, ',', '').' €',0,1,'R');
             $pdf::Cell(50,0,'',0,0);
-            $pdf::Cell(100,0,'19% Mehrwertsteuer',0,0,'R');
-            $pdf::Cell(18,0,number_format($this->priceNet*0.19, 2, ',', '').' €',0,1,'R');
+            $pdf::Cell(100,0,'16% Mehrwertsteuer',0,0,'R');
+            $pdf::Cell(18,0,number_format($this->priceNet*0.16, 2, ',', '').' €',0,1,'R');
             $pdf::SetFont('helvetica','b',10);
             $pdf::Cell(50,0,'',0,0);
             $pdf::Cell(100,0,'Gutschriftsbetrag (brutto)',0,0,'R');
