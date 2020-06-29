@@ -43,6 +43,8 @@ class Bill extends Model
         }elseif($bill->taxes == 305) {
             $customer->taxes = 0;
             $customer->paragraph = 305;
+        }else{
+            $customer->taxes = 16;
         }
 
         $html2 ='
