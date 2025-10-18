@@ -153,7 +153,7 @@ class Bill extends Model
             $pdf::Cell(25,0,$mission->id,0,0,'C');
             $pdf::Cell(25,0,date("d.m.Y", strtotime($mission->startDatum)),0,0,'C');
             $pdf::Cell(100,0,'Abholung: '.$mission->startOrt,0,0,'L');
-            $pdf::Cell(18,0,number_format($mission->preisKunde, 2, ",", "").' €',0,1,'R');
+            $pdf::Cell(22,0,number_format($mission->preisKunde, 2, ",", "").' €',0,1,'R');
             $pdf::Cell(50,0,'',0,0,'C');
             $pdf::Cell(100,0,'Auslieferung: '.$mission->zielOrt,0,1,'L');
             $pdf::Ln(5);
@@ -163,14 +163,14 @@ class Bill extends Model
         //summary with taxes
         $pdf::Cell(50,0,'',0,0);
         $pdf::Cell(100,0,'Summe (netto)',0,0,'R');
-        $pdf::Cell(18,0,number_format($bill->priceNet, 2, ',', '').' €',0,1,'R');
+        $pdf::Cell(22,0,number_format($bill->priceNet, 2, ',', '').' €',0,1,'R');
         $pdf::Cell(50,0,'',0,0);
         $pdf::Cell(100,0,$customer->taxes.'% Mehrwertsteuer',0,0,'R');
-        $pdf::Cell(18,0,number_format($bill->priceNet*($customer->taxes/100), 2, ',', '').' €',0,1,'R');
+        $pdf::Cell(22,0,number_format($bill->priceNet*($customer->taxes/100), 2, ',', '').' €',0,1,'R');
         $pdf::SetFont('helvetica','b',10);
         $pdf::Cell(50,0,'',0,0);
         $pdf::Cell(100,0,'Rechnungsbetrag (brutto)',0,0,'R');
-        $pdf::Cell(18,0,number_format(($bill->priceNet*(1 + $customer->taxes/100)), 2, ',', '').' €',0,1,'R');
+        $pdf::Cell(22,0,number_format(($bill->priceNet*(1 + $customer->taxes/100)), 2, ',', '').' €',0,1,'R');
         $bill->priceGross = $bill->priceNet*(1 + $customer->taxes/100);
         $bill->save();
 

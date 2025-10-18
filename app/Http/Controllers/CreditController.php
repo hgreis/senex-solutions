@@ -47,6 +47,7 @@ class CreditController extends Controller
     	$credit->save();
         $credit->savePDF();
 
+        
         return redirect('/credits/'.$request->company);
     }
 
@@ -67,6 +68,8 @@ class CreditController extends Controller
         return view('pages.creditsGenerate', compact('company', 'drivers'));
     }
 
+ 
+ 
     public function listCredits($company)   {
         $credits = Credit::where('company', $company)->get()->sortByDesc('number');
         $credits->company = $company;
@@ -75,6 +78,8 @@ class CreditController extends Controller
         }
         return view('pages.listCredits', compact('credits'));
     }
+
+ 
 
     public function payCredits($company) {
         $credits = Credit::where('company', $company)
@@ -94,10 +99,11 @@ class CreditController extends Controller
         return redirect('/payCredits/'.$credit->company);
     }
 
+
     public function edit($id) {
         $credit = Credit::find($id);
         $credit->fahrer = Driver::find($credit->driver);
-        $credit->missions = Mission::where('credit', $id)->get();
+        $credit->missions = Mission::where('credit', $credit->number)->get();
         $missions = Mission::where('fahrer', $credit->fahrer->name)
                             ->where('company', 1)
                             ->whereNull('credit')
@@ -105,13 +111,15 @@ class CreditController extends Controller
         return view('pages.credit.edit', compact('credit', 'missions'));
     }
 
+
     public function deleteMission($id, $mission) {
         Mission::find($mission)->update(['credit' => null]);
         return redirect('credit/'.$id.'/edit');
     }
 
     public function addMission($id, $mission) {
-        Mission::find($mission)->update(['credit' => $id]);
+        $credit = Credit::find($id);
+        Mission::find($mission)->update(['credit' => $credit->number]);
         return redirect('credit/'.$id.'/edit');    
     }
 
@@ -119,7 +127,7 @@ class CreditController extends Controller
         $credit = Credit::find($id);
         $credit->taxes = $taxes;
         $credit->save();
-        $missions = Mission::where('credit', $id)->get();
+        $missions = Mission::where('credit', $credit->number)->get();
         $credit->priceNet = $missions->sum('preisFahrer');
         if ($credit->taxes != 19) {
             $credit->priceGross = $missions->sum('preisFahrer');

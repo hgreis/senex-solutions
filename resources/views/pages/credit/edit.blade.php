@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 	<div class="my1003">
-		<h1 style="text-align: center">Gutschrift {{ $credit->id }} - {{ $credit->fahrer->name}} </h1>
+		<h1 style="text-align: center">Gutschrift {{ $credit->number }} - {{ $credit->fahrer->name}} </h1>
 		<div class="my1014">
 			<button class="form-control" 
 					onclick="window.location.href=
@@ -117,7 +117,7 @@
 							<button class="form-control" 
 									onclick="window.location.href=
 										'/credit/{{ $credit->id }}/add/{{ $mission->id}}'">
-								<b>+</b>
+								<b> + </b>
 							</button>
 						</td>
 					</tr>
