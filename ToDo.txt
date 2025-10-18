@@ -52,13 +52,4 @@ ToDo
 #04 	Rechnungsübersicht: falsche Statist entfernt, Bezahlt-Datum eingeführt 
 #03 	Menü aufräumen
 #02 	Beim Erstellen mehrerer Rechnungen im gleichen Arbeitsschritt, werden die gleichen Rechnungsnummern vergeben -> sql: integer
-#01 	Lieferscheine eingeben: Auflistung aller Aufträge ohne Lieferschein
-
-
-
-Direkte Funktionen
-/drivers/{id}/delete			//Fahrer löschen
-/customer/{id}/delete			//Kunde löschen
-/payMission/{id}				//Auftraggeber hat bezahlt
-/mission/{id}/delete 			//Tour löschen
-/bill/{id}/printPDF				//Rechnung neu erzeugen
+#0
